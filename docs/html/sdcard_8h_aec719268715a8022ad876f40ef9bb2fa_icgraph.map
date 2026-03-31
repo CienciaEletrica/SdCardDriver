@@ -1,0 +1,11 @@
+<map id="sd_get_capacity_mb" name="sd_get_capacity_mb">
+<area shape="rect" id="Node000001" title="Calcula a capacidade total do cartão SD em Megabytes (MB)." alt="" coords="303,35,444,61"/>
+<area shape="rect" id="Node000002" href="$exemplo__5_8c.html#a1ebabf5df3f5856d744054ab8d011d87" title="Interpreta e executa o comando digitado." alt="" coords="110,5,248,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="285,35,248,32,248,26,290,35"/>
+<area shape="rect" id="Node000004" href="$exemplo__1_8c.html#a45578ec38e9d0ae49d3313fa3900f338" title="Demonstração completa e básica da biblioteca." alt="" coords="103,56,255,99"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="290,61,256,68,255,63,285,61"/>
+<area shape="rect" id="Node000003" href="$exemplo__5_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,55,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="92,20,56,21,55,16,96,17"/>
+<area shape="rect" id="Node000005" href="$exemplo__1_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,64,55,91"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="85,78,56,80,55,75,90,76"/>
+</map>

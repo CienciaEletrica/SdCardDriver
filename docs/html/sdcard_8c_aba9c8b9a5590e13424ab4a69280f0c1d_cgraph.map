@@ -1,0 +1,5 @@
+<map id="sd_blk_read" name="sd_blk_read">
+<area shape="rect" id="Node000001" title="Lê um único bloco de 512 bytes do cartão (LBA)." alt="" coords="5,5,97,32"/>
+<area shape="rect" id="Node000002" href="$sdcard_8c.html#aae1cfbcba5f92f4639e23fd8ed8fa3c0" title="Envia um comando SPI para o cartão SD e aguarda resposta R1." alt="" coords="145,5,247,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,16,132,18,127,19,97,21"/>
+</map>

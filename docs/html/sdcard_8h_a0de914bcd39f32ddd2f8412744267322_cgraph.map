@@ -1,0 +1,19 @@
+<map id="sd_begin" name="sd_begin">
+<area shape="rect" id="Node000001" title="Prepara o contexto da biblioteca e inicializa a interface de hardware." alt="" coords="5,81,79,108"/>
+<area shape="rect" id="Node000002" href="$sdcard_8c.html#afac6d670e786eaea1f07a4eb95b25ac6" title="Inicialização rápida para AVR (configura pinos + HAL interno)." alt="" coords="127,81,224,108"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="78,92,113,93,109,96,80,97"/>
+<area shape="rect" id="Node000003" href="$sdcard_8c.html#a6cf66af945c22b51e07f145a63869c5a" title="Desativa o Chip Select (CS) &#45; Pino PB2." alt="" coords="284,5,378,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="200,79,271,42,286,37,281,40,273,46,203,83"/>
+<area shape="rect" id="Node000004" href="$sdcard_8c.html#aeabfda2a0d078f02c8fdedc7c840cc69" title="Ativa o Chip Select (CS) &#45; Pino PB2." alt="" coords="286,56,376,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="224,84,273,78,268,80,225,89"/>
+<area shape="rect" id="Node000005" href="$sdcard_8c.html#a8092c4cbf898989b2bf07325565e0cbd" title="Transmissão/recepção de um byte via SPI (função interna)." alt="" coords="272,107,389,133"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="224,100,259,107,254,108,225,105"/>
+<area shape="rect" id="Node000006" href="$sdcard_8c.html#abb7664cb3bec0e4c545128d134f0e054" title="Tenta inicializar o cartão até 3 vezes com delay entre tentativas." alt="" coords="284,157,377,184"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="202,106,273,143,286,151,281,150,271,148,201,111"/>
+<area shape="rect" id="Node000007" href="$sdcard_8c.html#a6a8f9df03a1b222e8ea45199b7431e19" title="Inicializa o cartão SD no modo SPI." alt="" coords="437,157,497,184"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="377,168,424,170,419,171,377,173"/>
+<area shape="rect" id="Node000008" href="$sdcard_8c.html#abf6c02ac2130c37a0bff2e6b9a6c25cb" title="Configura a velocidade do SPI no AVR (função interna)." alt="" coords="545,120,696,163"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="497,162,527,159,532,158,497,168"/>
+<area shape="rect" id="Node000009" href="$sdcard_8c.html#aae1cfbcba5f92f4639e23fd8ed8fa3c0" title="Envia um comando SPI para o cartão SD e aguarda resposta R1." alt="" coords="569,187,672,213"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="497,174,557,187,551,187,497,179"/>
+</map>

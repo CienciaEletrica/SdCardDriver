@@ -1,0 +1,7 @@
+<map id="sd_blk_write_multi" name="sd_blk_write_multi">
+<area shape="rect" id="Node000001" title="Escreve múltiplos blocos de 512 bytes usando o comando CMD25." alt="" coords="5,31,135,57"/>
+<area shape="rect" id="Node000002" href="$sdcard_8c.html#aae1cfbcba5f92f4639e23fd8ed8fa3c0" title="Envia um comando SPI para o cartão SD e aguarda resposta R1." alt="" coords="196,5,298,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,32,184,27,179,29,135,37"/>
+<area shape="rect" id="Node000003" href="$sdcard_8c.html#a8c2c0ebbeee0d06d43335bc9df4b3142" title="Aguarda o cartão sair do estado de ocupado (busy)." alt="" coords="183,56,312,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="135,51,170,58,164,58,135,56"/>
+</map>

@@ -1,0 +1,275 @@
+\doxysection{Referência ao ficheiro examples/\+exemplo\+\_\+3.c}
+\hypertarget{exemplo__3_8c}{}\label{exemplo__3_8c}\index{examples/exemplo\_3.c@{examples/exemplo\_3.c}}
+{\ttfamily \+\#include $<$avr/\+io.\+h$>$}\newline
+{\ttfamily \+\#include $<$util/\+delay.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdio.\+h$>$}\newline
+{\ttfamily \+\#include $<$string.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \+\#include "{}sdcard.\+h"{}}\newline
+Diagrama de dependências de inclusão para exemplo\+\_\+3.\+c:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{exemplo__3_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Estruturas de Dados}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_timestamp}{Timestamp}}
+\begin{DoxyCompactList}\small\item\em Estrutura para Simulação de Tempo (\doxylink{struct_timestamp}{Timestamp}). Em projetos reais, os dados devem ser lidos de um RTC (ex:\+ DS3231). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{exemplo__3_8c_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+CPU}}~16000000\+UL
+\item 
+\+\#define \doxymbox{\hyperlink{exemplo__3_8c_a195cf52f96441180937a99d23e9c02e5}{TAMANHO\+\_\+\+MAX\+\_\+\+BYTES}}~2560
+\item 
+\+\#define \doxymbox{\hyperlink{exemplo__3_8c_abc878fba18e75cd6a439c3d542dad9b2}{MAX\+\_\+\+VOLUMES}}~99
+\item 
+\+\#define \doxymbox{\hyperlink{exemplo__3_8c_a62634036639f88eece6fbf226b45f84b}{BAUD}}~9600
+\item 
+\+\#define \doxymbox{\hyperlink{exemplo__3_8c_a711e9130c825a7269c8c87dbb57a85e0}{MYUBRR}}~(\doxymbox{\hyperlink{exemplo__3_8c_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+CPU}}/\+16/\+\doxymbox{\hyperlink{exemplo__3_8c_a62634036639f88eece6fbf226b45f84b}{BAUD}} -\/ 1)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{exemplo__3_8c_a0c0ca72359ddf28dcd15900dfba19343}{uart\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Inicializa a UART para monitoramento via Terminal. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{exemplo__3_8c_a985ba70f2a53d95f1fd11f70f1d8f4f6}{uart\+\_\+putchar}} (char c, FILE \texorpdfstring{$\ast$}{*}stream)
+\begin{DoxyCompactList}\small\item\em Envia caractere para a UART (compatível com printf). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{exemplo__3_8c_a9ddddd20ec13dcafa912ee1d93f76a37}{my\+\_\+delay\+\_\+ms}} (uint32\+\_\+t ms)
+\item 
+uint16\+\_\+t \doxymbox{\hyperlink{exemplo__3_8c_a71f1a2293174059d753ba1816e7df0e2}{callback\+\_\+escrita\+\_\+rotacao}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}data\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Callback que fornece os dados formatados para a biblioteca SD. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{exemplo__3_8c_a1888a7d50f8090bc2f0c577e2ce4074f}{gerenciar\+\_\+proximo\+\_\+volume}} (void)
+\begin{DoxyCompactList}\small\item\em Localiza ou cria o volume de log adequado no cartão. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{exemplo__3_8c_a9765d93a7e9eac42493b89eb0dc1ab12}{registrar\+\_\+dado\+\_\+com\+\_\+rotacao}} (int s1, int s2, int s3, int s4)
+\begin{DoxyCompactList}\small\item\em Formata e grava um registro CSV com data, hora e 4 sensores. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{exemplo__3_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em Ponto de entrada do programa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variáveis}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \doxymbox{\hyperlink{exemplo__3_8c_a7cbd3f3dbf08060c4a624e0e8719dec0}{sd\+\_\+ctx}}
+\item 
+\doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \doxymbox{\hyperlink{exemplo__3_8c_a446b14d2e6d612f42f49773ba65419a8}{fat\+\_\+fs}}
+\item 
+static char \doxymbox{\hyperlink{exemplo__3_8c_a6a63b5651d674ec0ffdc4c4eabe699eb}{log\+\_\+buffer}} \+[128]\+
+\item 
+static char \doxymbox{\hyperlink{exemplo__3_8c_a271340e770e2636f93c8685cb86de514}{nome\+\_\+arquivo\+\_\+ativo}} \+[13]\+
+\item 
+static FILE \doxymbox{\hyperlink{exemplo__3_8c_aaa1fc0ff1aeb77f1feff261fa5ea792b}{mystdout}} = FDEV\+\_\+\+SETUP\+\_\+\+STREAM(\doxymbox{\hyperlink{exemplo__3_8c_a985ba70f2a53d95f1fd11f70f1d8f4f6}{uart\+\_\+putchar}}, NULL, \+\_\+\+FDEV\+\_\+\+SETUP\+\_\+\+WRITE)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{exemplo__3_8c_doc-define-members}
+\doxysubsection{Documentação das macros}
+\Hypertarget{exemplo__3_8c_a62634036639f88eece6fbf226b45f84b}\index{exemplo\_3.c@{exemplo\_3.c}!BAUD@{BAUD}}
+\index{BAUD@{BAUD}!exemplo\_3.c@{exemplo\_3.c}}
+\doxysubsubsection{\texorpdfstring{BAUD}{BAUD}}
+{\footnotesize\ttfamily \label{exemplo__3_8c_a62634036639f88eece6fbf226b45f84b} 
+\+\#define BAUD~9600}
+
+Velocidade da Serial \Hypertarget{exemplo__3_8c_a43bafb28b29491ec7f871319b5a3b2f8}\index{exemplo\_3.c@{exemplo\_3.c}!F\_CPU@{F\_CPU}}
+\index{F\_CPU@{F\_CPU}!exemplo\_3.c@{exemplo\_3.c}}
+\doxysubsubsection{\texorpdfstring{F\_CPU}{F\_CPU}}
+{\footnotesize\ttfamily \label{exemplo__3_8c_a43bafb28b29491ec7f871319b5a3b2f8} 
+\+\#define F\+\_\+\+CPU~16000000\+UL}
+
+Frequência de operação para delays e UART \Hypertarget{exemplo__3_8c_abc878fba18e75cd6a439c3d542dad9b2}\index{exemplo\_3.c@{exemplo\_3.c}!MAX\_VOLUMES@{MAX\_VOLUMES}}
+\index{MAX\_VOLUMES@{MAX\_VOLUMES}!exemplo\_3.c@{exemplo\_3.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_VOLUMES}{MAX\_VOLUMES}}
+{\footnotesize\ttfamily \label{exemplo__3_8c_abc878fba18e75cd6a439c3d542dad9b2} 
+\+\#define MAX\+\_\+\+VOLUMES~99}
+
+Limite de segurança:\+ LOG099.\+TXT \begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_3_8c-example}{exemplo\+\_\+3.\+c}}.\end{Desc}
+\Hypertarget{exemplo__3_8c_a711e9130c825a7269c8c87dbb57a85e0}\index{exemplo\_3.c@{exemplo\_3.c}!MYUBRR@{MYUBRR}}
+\index{MYUBRR@{MYUBRR}!exemplo\_3.c@{exemplo\_3.c}}
+\doxysubsubsection{\texorpdfstring{MYUBRR}{MYUBRR}}
+{\footnotesize\ttfamily \label{exemplo__3_8c_a711e9130c825a7269c8c87dbb57a85e0} 
+\+\#define MYUBRR~(\doxymbox{\hyperlink{exemplo__3_8c_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+CPU}}/\+16/\+\doxymbox{\hyperlink{exemplo__3_8c_a62634036639f88eece6fbf226b45f84b}{BAUD}} -\/ 1)}
+
+\Hypertarget{exemplo__3_8c_a195cf52f96441180937a99d23e9c02e5}\index{exemplo\_3.c@{exemplo\_3.c}!TAMANHO\_MAX\_BYTES@{TAMANHO\_MAX\_BYTES}}
+\index{TAMANHO\_MAX\_BYTES@{TAMANHO\_MAX\_BYTES}!exemplo\_3.c@{exemplo\_3.c}}
+\doxysubsubsection{\texorpdfstring{TAMANHO\_MAX\_BYTES}{TAMANHO\_MAX\_BYTES}}
+{\footnotesize\ttfamily \label{exemplo__3_8c_a195cf52f96441180937a99d23e9c02e5} 
+\+\#define TAMANHO\+\_\+\+MAX\+\_\+\+BYTES~2560}
+
+Limite de 2,5KB por arquivo para teste rápido \begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_3_8c-example}{exemplo\+\_\+3.\+c}}.\end{Desc}
+
+
+\label{doc-func-members}
+\Hypertarget{exemplo__3_8c_doc-func-members}
+\doxysubsection{Documentação das funções}
+\Hypertarget{exemplo__3_8c_a71f1a2293174059d753ba1816e7df0e2}\index{exemplo\_3.c@{exemplo\_3.c}!callback\_escrita\_rotacao@{callback\_escrita\_rotacao}}
+\index{callback\_escrita\_rotacao@{callback\_escrita\_rotacao}!exemplo\_3.c@{exemplo\_3.c}}
+\doxysubsubsection{\texorpdfstring{callback\_escrita\_rotacao()}{callback\_escrita\_rotacao()}}
+{\footnotesize\ttfamily \label{exemplo__3_8c_a71f1a2293174059d753ba1816e7df0e2} 
+uint16\+\_\+t callback\+\_\+escrita\+\_\+rotacao (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{data\+\_\+ptr}{}\end{DoxyParamCaption})}
+
+
+
+Callback que fornece os dados formatados para a biblioteca SD. 
+
+\begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_3_8c-example}{exemplo\+\_\+3.\+c}}.\end{Desc}
+Este é o diagrama das funções que utilizam esta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{exemplo__3_8c_a71f1a2293174059d753ba1816e7df0e2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{exemplo__3_8c_a1888a7d50f8090bc2f0c577e2ce4074f}\index{exemplo\_3.c@{exemplo\_3.c}!gerenciar\_proximo\_volume@{gerenciar\_proximo\_volume}}
+\index{gerenciar\_proximo\_volume@{gerenciar\_proximo\_volume}!exemplo\_3.c@{exemplo\_3.c}}
+\doxysubsubsection{\texorpdfstring{gerenciar\_proximo\_volume()}{gerenciar\_proximo\_volume()}}
+{\footnotesize\ttfamily \label{exemplo__3_8c_a1888a7d50f8090bc2f0c577e2ce4074f} 
+void gerenciar\+\_\+proximo\+\_\+volume (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Localiza ou cria o volume de log adequado no cartão. 
+
+Percorre o diretório raiz buscando por LOG001.\+TXT até LOG099.\+TXT. Seleciona o primeiro arquivo que ainda possua espaço ou cria um novo volume. \begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_3_8c-example}{exemplo\+\_\+3.\+c}}.\end{Desc}
+Grafo de chamadas desta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{exemplo__3_8c_a1888a7d50f8090bc2f0c577e2ce4074f_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{exemplo__3_8c_a1888a7d50f8090bc2f0c577e2ce4074f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{exemplo__3_8c_a840291bc02cba5474a4cb46a9b9566fe}\index{exemplo\_3.c@{exemplo\_3.c}!main@{main}}
+\index{main@{main}!exemplo\_3.c@{exemplo\_3.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{exemplo__3_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Ponto de entrada do programa. 
+
+Grafo de chamadas desta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{exemplo__3_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{exemplo__3_8c_a9ddddd20ec13dcafa912ee1d93f76a37}\index{exemplo\_3.c@{exemplo\_3.c}!my\_delay\_ms@{my\_delay\_ms}}
+\index{my\_delay\_ms@{my\_delay\_ms}!exemplo\_3.c@{exemplo\_3.c}}
+\doxysubsubsection{\texorpdfstring{my\_delay\_ms()}{my\_delay\_ms()}}
+{\footnotesize\ttfamily \label{exemplo__3_8c_a9ddddd20ec13dcafa912ee1d93f76a37} 
+void my\+\_\+delay\+\_\+ms (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ms}{}\end{DoxyParamCaption})}
+
+\Hypertarget{exemplo__3_8c_a9765d93a7e9eac42493b89eb0dc1ab12}\index{exemplo\_3.c@{exemplo\_3.c}!registrar\_dado\_com\_rotacao@{registrar\_dado\_com\_rotacao}}
+\index{registrar\_dado\_com\_rotacao@{registrar\_dado\_com\_rotacao}!exemplo\_3.c@{exemplo\_3.c}}
+\doxysubsubsection{\texorpdfstring{registrar\_dado\_com\_rotacao()}{registrar\_dado\_com\_rotacao()}}
+{\footnotesize\ttfamily \label{exemplo__3_8c_a9765d93a7e9eac42493b89eb0dc1ab12} 
+void registrar\+\_\+dado\+\_\+com\+\_\+rotacao (\begin{DoxyParamCaption}\item[{int}]{s1}{, }\item[{int}]{s2}{, }\item[{int}]{s3}{, }\item[{int}]{s4}{}\end{DoxyParamCaption})}
+
+
+
+Formata e grava um registro CSV com data, hora e 4 sensores. 
+
+Caso o arquivo atual exceda o limite de tamanho, a rotação é acionada. \begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_3_8c-example}{exemplo\+\_\+3.\+c}}.\end{Desc}
+Grafo de chamadas desta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{exemplo__3_8c_a9765d93a7e9eac42493b89eb0dc1ab12_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{exemplo__3_8c_a9765d93a7e9eac42493b89eb0dc1ab12_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{exemplo__3_8c_a0c0ca72359ddf28dcd15900dfba19343}\index{exemplo\_3.c@{exemplo\_3.c}!uart\_init@{uart\_init}}
+\index{uart\_init@{uart\_init}!exemplo\_3.c@{exemplo\_3.c}}
+\doxysubsubsection{\texorpdfstring{uart\_init()}{uart\_init()}}
+{\footnotesize\ttfamily \label{exemplo__3_8c_a0c0ca72359ddf28dcd15900dfba19343} 
+void uart\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa a UART para monitoramento via Terminal. 
+
+\Hypertarget{exemplo__3_8c_a985ba70f2a53d95f1fd11f70f1d8f4f6}\index{exemplo\_3.c@{exemplo\_3.c}!uart\_putchar@{uart\_putchar}}
+\index{uart\_putchar@{uart\_putchar}!exemplo\_3.c@{exemplo\_3.c}}
+\doxysubsubsection{\texorpdfstring{uart\_putchar()}{uart\_putchar()}}
+{\footnotesize\ttfamily \label{exemplo__3_8c_a985ba70f2a53d95f1fd11f70f1d8f4f6} 
+int uart\+\_\+putchar (\begin{DoxyParamCaption}\item[{char}]{c}{, }\item[{FILE \texorpdfstring{$\ast$}{*}}]{stream}{}\end{DoxyParamCaption})}
+
+
+
+Envia caractere para a UART (compatível com printf). 
+
+Grafo de chamadas desta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{exemplo__3_8c_a985ba70f2a53d95f1fd11f70f1d8f4f6_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-var-members}
+\Hypertarget{exemplo__3_8c_doc-var-members}
+\doxysubsection{Documentação das variáveis}
+\Hypertarget{exemplo__3_8c_a446b14d2e6d612f42f49773ba65419a8}\index{exemplo\_3.c@{exemplo\_3.c}!fat\_fs@{fat\_fs}}
+\index{fat\_fs@{fat\_fs}!exemplo\_3.c@{exemplo\_3.c}}
+\doxysubsubsection{\texorpdfstring{fat\_fs}{fat\_fs}}
+{\footnotesize\ttfamily \label{exemplo__3_8c_a446b14d2e6d612f42f49773ba65419a8} 
+\doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} fat\+\_\+fs}
+
+Informações do sistema de arquivos \Hypertarget{exemplo__3_8c_a6a63b5651d674ec0ffdc4c4eabe699eb}\index{exemplo\_3.c@{exemplo\_3.c}!log\_buffer@{log\_buffer}}
+\index{log\_buffer@{log\_buffer}!exemplo\_3.c@{exemplo\_3.c}}
+\doxysubsubsection{\texorpdfstring{log\_buffer}{log\_buffer}}
+{\footnotesize\ttfamily \label{exemplo__3_8c_a6a63b5651d674ec0ffdc4c4eabe699eb} 
+char log\+\_\+buffer\+[128]\+\hspace{0.3cm}{\ttfamily [static]}}
+
+Buffer para formatar a linha CSV \begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_3_8c-example}{exemplo\+\_\+3.\+c}}.\end{Desc}
+\Hypertarget{exemplo__3_8c_aaa1fc0ff1aeb77f1feff261fa5ea792b}\index{exemplo\_3.c@{exemplo\_3.c}!mystdout@{mystdout}}
+\index{mystdout@{mystdout}!exemplo\_3.c@{exemplo\_3.c}}
+\doxysubsubsection{\texorpdfstring{mystdout}{mystdout}}
+{\footnotesize\ttfamily \label{exemplo__3_8c_aaa1fc0ff1aeb77f1feff261fa5ea792b} 
+FILE mystdout = FDEV\+\_\+\+SETUP\+\_\+\+STREAM(\doxymbox{\hyperlink{exemplo__3_8c_a985ba70f2a53d95f1fd11f70f1d8f4f6}{uart\+\_\+putchar}}, NULL, \+\_\+\+FDEV\+\_\+\+SETUP\+\_\+\+WRITE)\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{exemplo__3_8c_a271340e770e2636f93c8685cb86de514}\index{exemplo\_3.c@{exemplo\_3.c}!nome\_arquivo\_ativo@{nome\_arquivo\_ativo}}
+\index{nome\_arquivo\_ativo@{nome\_arquivo\_ativo}!exemplo\_3.c@{exemplo\_3.c}}
+\doxysubsubsection{\texorpdfstring{nome\_arquivo\_ativo}{nome\_arquivo\_ativo}}
+{\footnotesize\ttfamily \label{exemplo__3_8c_a271340e770e2636f93c8685cb86de514} 
+char nome\+\_\+arquivo\+\_\+ativo\+[13]\+\hspace{0.3cm}{\ttfamily [static]}}
+
+Armazena o nome do arquivo atual (8.\+3) \begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_3_8c-example}{exemplo\+\_\+3.\+c}}.\end{Desc}
+\Hypertarget{exemplo__3_8c_a7cbd3f3dbf08060c4a624e0e8719dec0}\index{exemplo\_3.c@{exemplo\_3.c}!sd\_ctx@{sd\_ctx}}
+\index{sd\_ctx@{sd\_ctx}!exemplo\_3.c@{exemplo\_3.c}}
+\doxysubsubsection{\texorpdfstring{sd\_ctx}{sd\_ctx}}
+{\footnotesize\ttfamily \label{exemplo__3_8c_a7cbd3f3dbf08060c4a624e0e8719dec0} 
+\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} sd\+\_\+ctx}
+
+Contexto de hardware do SD 

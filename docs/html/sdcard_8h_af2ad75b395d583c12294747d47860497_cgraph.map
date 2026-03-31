@@ -1,0 +1,22 @@
+<map id="sd_file_delete" name="sd_file_delete">
+<area shape="rect" id="Node000001" title="Exclui um arquivo do diretório e libera seu espaço no disco." alt="" coords="5,53,107,80"/>
+<area shape="rect" id="Node000002" href="$sdcard_8c.html#aba9c8b9a5590e13424ab4a69280f0c1d" title="Lê um único bloco de 512 bytes do cartão (LBA)." alt="" coords="364,28,456,54"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,50,111,30,154,13,199,5,234,3,315,13,355,23,350,24,315,18,234,8,199,10,155,18,113,34,79,54"/>
+<area shape="rect" id="Node000004" href="$sdcard_8c.html#ac6d558621f33abf80f245adb3d0f4e67" title="Escreve um único bloco de 512 bytes." alt="" coords="363,129,457,156"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="78,78,114,98,155,114,205,126,256,134,350,142,345,143,255,139,204,131,154,120,112,102,78,83"/>
+<area shape="rect" id="Node000007" href="$sdcard_8c.html#a5afd6e264210d197c43e84b5e7dd8856" title="Libera uma cadeia de clusters na tabela FAT, marcando&#45;os como disponíveis." alt="" coords="173,78,297,105"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="106,71,160,79,155,82,107,76"/>
+<area shape="rect" id="Node000008" href="$sdcard_8c.html#a7b0d2ab1fae193461c611a4f2e6c9245" title="Obtém o próximo cluster na tabela FAT." alt="" coords="155,28,315,54"/>
+<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="106,57,141,53,137,56,108,62"/>
+<area shape="rect" id="Node000003" href="$sdcard_8c.html#aae1cfbcba5f92f4639e23fd8ed8fa3c0" title="Envia um comando SPI para o cartão SD e aguarda resposta R1." alt="" coords="683,78,785,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="456,44,635,70,670,79,665,79,634,76,456,49"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="457,126,505,114,589,102,670,96,665,97,590,107,506,120,458,131"/>
+<area shape="rect" id="Node000005" href="$sdcard_8c.html#afcdb9112d386e92b29ad0cac9f5fc277" title="Obtém o status atual do cartão SD (comando CMD13)." alt="" coords="518,129,622,156"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="458,140,505,142,500,143,458,145"/>
+<area shape="rect" id="Node000006" href="$sdcard_8c.html#a8c2c0ebbeee0d06d43335bc9df4b3142" title="Aguarda o cartão sair do estado de ocupado (busy)." alt="" coords="505,180,635,206"/>
+<area shape="poly" id="edge7_Node000004_Node000006" title=" " alt="" coords="455,154,514,175,508,174,454,159"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="615,126,671,111,677,110,616,131"/>
+<area shape="poly" id="edge9_Node000007_Node000002" title=" " alt="" coords="283,75,352,57,347,59,285,80"/>
+<area shape="poly" id="edge10_Node000007_Node000004" title=" " alt="" coords="284,103,351,124,346,125,284,108"/>
+<area shape="poly" id="edge12_Node000008_Node000002" title=" " alt="" coords="315,38,351,40,346,42,316,44"/>
+</map>

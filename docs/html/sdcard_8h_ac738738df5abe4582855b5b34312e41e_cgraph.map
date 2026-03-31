@@ -1,0 +1,21 @@
+<map id="sd_file_write_stream" name="sd_file_write_stream">
+<area shape="rect" id="Node000001" title="Escreve dados em um arquivo FAT32 existente (modo streaming)." alt="" coords="5,73,147,100"/>
+<area shape="rect" id="Node000002" href="$sdcard_8c.html#ac6d558621f33abf80f245adb3d0f4e67" title="Escreve um único bloco de 512 bytes." alt="" coords="399,22,493,49"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,72,194,65,385,41,382,45,195,70,147,78"/>
+<area shape="rect" id="Node000006" href="$sdcard_8c.html#a7b0d2ab1fae193461c611a4f2e6c9245" title="Obtém o próximo cluster na tabela FAT." alt="" coords="366,73,526,100"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="147,84,351,84,349,89,147,89"/>
+<area shape="rect" id="Node000008" href="$sdcard_8c.html#a3794ef278970bdb3d1d50b3f10fc4e9f" title="Localiza a entrada de um arquivo no diretório raiz." alt="" coords="195,124,318,150"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="127,98,194,118,189,120,126,103"/>
+<area shape="rect" id="Node000003" href="$sdcard_8c.html#aae1cfbcba5f92f4639e23fd8ed8fa3c0" title="Envia um comando SPI para o cartão SD e aguarda resposta R1." alt="" coords="752,22,854,49"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="493,22,574,8,639,3,704,8,746,18,740,18,703,13,639,8,575,13,494,27"/>
+<area shape="rect" id="Node000004" href="$sdcard_8c.html#afcdb9112d386e92b29ad0cac9f5fc277" title="Obtém o status atual do cartão SD (comando CMD13)." alt="" coords="587,22,691,49"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="493,33,574,35,569,36,494,38"/>
+<area shape="rect" id="Node000005" href="$sdcard_8c.html#a8c2c0ebbeee0d06d43335bc9df4b3142" title="Aguarda o cartão sair do estado de ocupado (busy)." alt="" coords="574,73,704,100"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="494,45,573,69,568,69,493,51"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="691,33,739,35,734,36,692,38"/>
+<area shape="rect" id="Node000007" href="$sdcard_8c.html#aba9c8b9a5590e13424ab4a69280f0c1d" title="Lê um único bloco de 512 bytes do cartão (LBA)." alt="" coords="593,124,685,150"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="500,98,581,121,576,121,500,103"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="679,121,702,109,741,84,773,60,778,58,744,88,705,114,681,126"/>
+<area shape="poly" id="edge11_Node000008_Node000006" title=" " alt="" coords="309,120,376,105,381,104,310,126"/>
+<area shape="poly" id="edge10_Node000008_Node000007" title=" " alt="" coords="318,134,580,137,575,137,318,140"/>
+</map>

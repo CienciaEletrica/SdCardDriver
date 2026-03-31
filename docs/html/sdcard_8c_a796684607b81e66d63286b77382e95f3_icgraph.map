@@ -1,0 +1,9 @@
+<map id="sd_fat_update_fsinfo" name="sd_fat_update_fsinfo">
+<area shape="rect" id="Node000001" title="Atualiza o setor FSInfo do FAT32." alt="" coords="445,13,588,40"/>
+<area shape="rect" id="Node000002" href="$sdcard_8c.html#aec0c2db609a8f514fa7487deecd78461" title="Sincroniza o tamanho do arquivo no diretório físico (Flush)." alt="" coords="303,13,397,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="427,27,398,29,398,24,432,27"/>
+<area shape="rect" id="Node000003" href="$exemplo__1_8c.html#a45578ec38e9d0ae49d3313fa3900f338" title="Demonstração completa e básica da biblioteca." alt="" coords="103,5,255,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="285,27,255,29,255,24,290,27"/>
+<area shape="rect" id="Node000004" href="$exemplo__1_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,13,55,40"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="85,28,56,29,55,24,90,26"/>
+</map>

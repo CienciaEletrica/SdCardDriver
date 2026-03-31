@@ -1,0 +1,70 @@
+<map id="registrar_dado_com_rotacao" name="registrar_dado_com_rotacao">
+<area shape="rect" id="Node000001" title="Formata e grava um registro CSV com data, hora e 4 sensores." alt="" coords="5,253,141,296"/>
+<area shape="rect" id="Node000002" href="$exemplo__3_8c.html#a71f1a2293174059d753ba1816e7df0e2" title="Callback que fornece os dados formatados para a biblioteca SD." alt="" coords="194,160,360,187"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,251,187,203,220,190,217,194,190,208,108,255"/>
+<area shape="rect" id="Node000003" href="$exemplo__3_8c.html#a1888a7d50f8090bc2f0c577e2ce4074f" title="Localiza ou cria o volume de log adequado no cartão." alt="" coords="189,261,365,288"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="140,272,175,273,171,276,143,277"/>
+<area shape="rect" id="Node000018" href="$sdcard_8c.html#a62fe3cc3e143e0df2bd0bc2c8badc78a" title="Obtém tamanho do arquivo." alt="" coords="433,211,548,237"/>
+<area shape="poly" id="edge45_Node000001_Node000018" title=" " alt="" coords="139,256,188,247,309,232,419,226,415,229,309,238,189,252,143,260"/>
+<area shape="rect" id="Node000019" href="$sdcard_8c.html#af2ad3468d37d6d256e022bafa756ac32" title="Converte uma string convencional para o formato FAT 8.3." alt="" coords="432,540,549,567"/>
+<area shape="poly" id="edge46_Node000001_Node000019" title=" " alt="" coords="97,294,152,341,228,402,318,468,414,526,428,534,423,534,412,530,315,472,225,407,149,345,98,299"/>
+<area shape="rect" id="Node000020" href="$sdcard_8c.html#a3cb6e9bbb79a21ebf8cf7357ed262726" title="Adiciona dados ao final de um arquivo, expandindo clusters se necessário." alt="" coords="413,312,568,339"/>
+<area shape="poly" id="edge32_Node000001_Node000020" title=" " alt="" coords="140,289,189,297,297,310,400,319,395,322,296,315,188,303,142,293"/>
+<area shape="rect" id="Node000004" href="$sdcard_8c.html#a5228ed5a829330c001b1614c8476236c" title="Cria um novo arquivo no diretorio raiz com expansao de cluster." alt="" coords="440,489,542,516"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="292,286,469,477,464,479,290,291"/>
+<area shape="rect" id="Node000016" href="$sdcard_8c.html#a6bb4db7466137c6d4346e2264d403230" title="Verifica se arquivo existe." alt="" coords="440,261,541,288"/>
+<area shape="poly" id="edge25_Node000003_Node000016" title=" " alt="" coords="364,272,427,273,422,276,366,277"/>
+<area shape="poly" id="edge29_Node000003_Node000018" title=" " alt="" coords="335,258,420,239,416,243,338,263"/>
+<area shape="poly" id="edge31_Node000003_Node000019" title=" " alt="" coords="287,286,367,432,379,460,386,484,396,505,415,526,422,533,416,533,411,530,391,507,381,486,374,462,363,434,285,291"/>
+<area shape="poly" id="edge24_Node000004_Node000004" title=" " alt="" coords="454,488,448,480,453,471,467,465,491,463,516,465,531,474,525,474,514,470,491,468,468,470,456,475,454,480,460,489"/>
+<area shape="rect" id="Node000005" href="$sdcard_8c.html#acd7b26d07ec9452df93bb131bbcb4feb" title="Converte componentes de data para o formato FAT (16 bits). Formato: yyyyyyymmmmddddd (ano desde 1980)..." alt="" coords="635,692,770,719"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="542,509,570,526,585,545,592,563,595,600,598,636,605,654,618,671,632,685,627,683,614,675,600,656,593,637,590,600,587,565,580,547,567,530,542,514"/>
+<area shape="rect" id="Node000006" href="$sdcard_8c.html#ab9a99a1bb2c8bfaf686c5272fd5190ba" title="Converte componentes de tempo para o formato FAT (16 bits). Formato: hhhhhmmmmmmsssss (segundos são d..." alt="" coords="635,743,770,769"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="542,509,570,526,588,552,596,578,597,604,595,630,592,655,593,680,601,704,618,729,624,736,619,734,614,732,596,706,588,681,587,655,589,629,592,604,591,579,583,555,566,530,542,514"/>
+<area shape="rect" id="Node000007" href="$sdcard_8c.html#aba9c8b9a5590e13424ab4a69280f0c1d" title="Lê um único bloco de 512 bytes do cartão (LBA)." alt="" coords="1232,337,1323,364"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="542,513,617,525,781,542,848,546,911,544,972,535,1036,518,1104,490,1181,450,1204,434,1224,414,1257,378,1261,375,1228,418,1207,438,1184,454,1106,495,1037,523,974,541,912,549,848,551,780,547,616,531,543,518"/>
+<area shape="rect" id="Node000009" href="$sdcard_8c.html#ac6d558621f33abf80f245adb3d0f4e67" title="Escreve um único bloco de 512 bytes." alt="" coords="1230,503,1325,529"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="542,508,558,516,570,526,591,560,598,593,596,627,590,660,585,692,585,722,594,752,618,779,643,795,672,805,705,811,742,813,823,806,909,788,993,762,1071,731,1135,700,1181,671,1210,642,1234,608,1265,546,1269,542,1238,611,1214,646,1184,675,1138,704,1073,736,995,767,910,793,824,812,742,819,705,817,670,810,640,799,615,783,590,754,580,723,580,691,585,659,591,626,593,594,586,562,566,530,555,520,542,513"/>
+<area shape="rect" id="Node000012" href="$sdcard_8c.html#a6dcdbe623e720ed71f92e745c440db85" title="Expande o diretorio alocando um novo cluster." alt="" coords="632,489,773,516"/>
+<area shape="poly" id="edge13_Node000004_Node000012" title=" " alt="" coords="542,500,619,502,614,503,543,505"/>
+<area shape="rect" id="Node000015" href="$sdcard_8c.html#a7b0d2ab1fae193461c611a4f2e6c9245" title="Obtém o próximo cluster na tabela FAT." alt="" coords="1022,236,1182,263"/>
+<area shape="poly" id="edge23_Node000004_Node000015" title=" " alt="" coords="497,487,541,421,575,382,615,348,662,321,712,299,764,282,816,268,918,252,1009,248,1004,249,919,257,818,274,765,287,714,304,664,326,618,353,579,386,545,424,501,491"/>
+<area shape="rect" id="Node000008" href="$sdcard_8c.html#aae1cfbcba5f92f4639e23fd8ed8fa3c0" title="Envia um comando SPI para o cartão SD e aguarda resposta R1." alt="" coords="1550,427,1652,453"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1324,360,1538,422,1533,422,1324,366"/>
+<area shape="poly" id="edge9_Node000009_Node000008" title=" " alt="" coords="1298,500,1331,480,1372,463,1456,445,1537,440,1532,441,1457,450,1373,468,1334,485,1300,504"/>
+<area shape="rect" id="Node000010" href="$sdcard_8c.html#afcdb9112d386e92b29ad0cac9f5fc277" title="Obtém o status atual do cartão SD (comando CMD13)." alt="" coords="1386,528,1489,555"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="1325,521,1373,531,1368,531,1325,526"/>
+<area shape="rect" id="Node000011" href="$sdcard_8c.html#a8c2c0ebbeee0d06d43335bc9df4b3142" title="Aguarda o cartão sair do estado de ocupado (busy)." alt="" coords="1373,477,1502,504"/>
+<area shape="poly" id="edge12_Node000009_Node000011" title=" " alt="" coords="1325,506,1360,503,1355,504,1326,511"/>
+<area shape="poly" id="edge11_Node000010_Node000008" title=" " alt="" coords="1477,525,1501,514,1539,488,1571,465,1576,462,1542,492,1503,518,1479,530"/>
+<area shape="poly" id="edge14_Node000012_Node000009" title=" " alt="" coords="773,502,1217,513,1212,515,774,507"/>
+<area shape="rect" id="Node000013" href="$sdcard_8c.html#afa6b333a50132b6be29e88aa75fd90f1" title="Aloca um cluster livre na FAT32 utilizando busca circular otimizada." alt="" coords="837,337,974,364"/>
+<area shape="poly" id="edge15_Node000012_Node000013" title=" " alt="" coords="720,487,872,374,876,372,723,491"/>
+<area shape="rect" id="Node000014" href="$sdcard_8c.html#a144349126da9cc0bcd1dd34243989e98" title="Atualiza uma entrada na Tabela de Alocação de Arquivos (FAT)." alt="" coords="1038,413,1166,440"/>
+<area shape="poly" id="edge22_Node000012_Node000014" title=" " alt="" coords="773,496,869,486,973,468,1056,445,1051,447,975,473,869,491,774,501"/>
+<area shape="poly" id="edge20_Node000012_Node000015" title=" " alt="" coords="715,487,786,400,799,378,807,359,817,341,835,323,867,307,912,291,1020,265,1015,267,914,296,869,311,838,327,821,344,812,361,804,380,791,403,718,491"/>
+<area shape="poly" id="edge16_Node000013_Node000007" title=" " alt="" coords="974,348,1219,350,1214,351,975,353"/>
+<area shape="poly" id="edge17_Node000013_Node000014" title=" " alt="" coords="942,362,1054,407,1049,407,942,367"/>
+<area shape="poly" id="edge18_Node000014_Node000007" title=" " alt="" coords="1134,410,1228,372,1233,370,1136,415"/>
+<area shape="poly" id="edge19_Node000014_Node000009" title=" " alt="" coords="1131,438,1239,495,1233,495,1130,443"/>
+<area shape="poly" id="edge21_Node000015_Node000007" title=" " alt="" coords="1127,260,1242,329,1237,329,1127,266"/>
+<area shape="rect" id="Node000017" href="$sdcard_8c.html#a3794ef278970bdb3d1d50b3f10fc4e9f" title="Localiza a entrada de um arquivo no diretório raiz." alt="" coords="844,84,967,111"/>
+<area shape="poly" id="edge26_Node000016_Node000017" title=" " alt="" coords="540,264,566,247,581,226,587,205,587,160,585,138,587,117,596,96,615,76,643,60,675,50,708,46,741,47,806,58,861,77,856,78,804,63,741,52,708,51,676,55,646,65,618,81,601,99,593,118,591,138,592,160,593,206,586,229,570,251,543,268"/>
+<area shape="poly" id="edge27_Node000017_Node000007" title=" " alt="" coords="966,85,1018,83,1075,86,1132,100,1159,112,1184,127,1206,147,1224,171,1251,224,1267,277,1275,323,1271,321,1262,279,1246,226,1220,174,1202,151,1181,131,1157,116,1130,105,1074,92,1018,88,968,90"/>
+<area shape="poly" id="edge28_Node000017_Node000015" title=" " alt="" coords="925,108,1074,226,1069,226,924,114"/>
+<area shape="poly" id="edge30_Node000018_Node000017" title=" " alt="" coords="493,209,506,170,530,119,566,66,589,44,615,26,661,7,700,4,741,11,790,25,837,46,879,74,873,75,835,51,788,30,739,17,700,9,662,12,618,30,592,48,570,70,535,121,511,172,498,211"/>
+<area shape="poly" id="edge33_Node000020_Node000007" title=" " alt="" coords="552,309,566,298,584,272,590,245,590,219,587,192,584,165,585,138,594,112,615,87,658,56,700,39,740,34,781,36,868,55,918,64,974,69,1035,66,1085,58,1109,57,1132,61,1157,70,1184,87,1209,111,1230,140,1246,172,1258,205,1272,269,1278,323,1273,320,1267,270,1253,207,1241,174,1225,143,1205,115,1181,91,1155,75,1131,66,1108,63,1086,63,1036,71,974,75,918,69,867,60,780,42,741,39,701,44,661,61,618,91,598,115,590,139,589,165,592,191,595,218,595,246,588,274,570,302,556,313"/>
+<area shape="poly" id="edge34_Node000020_Node000009" title=" " alt="" coords="501,336,569,448,618,526,656,544,695,559,778,578,864,586,948,584,1030,575,1104,562,1219,535,1224,534,1105,567,1030,580,949,589,863,591,777,583,694,564,653,549,615,530,564,451,499,341"/>
+<area shape="poly" id="edge35_Node000020_Node000013" title=" " alt="" coords="568,327,823,344,818,347,569,333"/>
+<area shape="poly" id="edge40_Node000020_Node000014" title=" " alt="" coords="509,337,557,370,586,386,617,399,670,413,725,423,835,434,937,436,1025,434,1020,435,937,441,834,440,724,428,669,418,615,404,584,391,554,374,509,342"/>
+<area shape="poly" id="edge39_Node000020_Node000015" title=" " alt="" coords="547,309,567,298,582,281,589,262,597,244,615,228,671,206,730,193,790,188,850,190,907,196,961,206,1050,230,1045,231,960,211,907,201,849,195,790,193,730,198,672,211,618,233,601,247,594,264,586,283,570,302,550,313"/>
+<area shape="poly" id="edge44_Node000020_Node000017" title=" " alt="" coords="552,309,566,298,582,276,588,254,587,209,586,186,588,163,596,141,615,120,630,111,651,104,706,96,830,93,826,96,706,101,653,110,632,116,618,125,601,144,593,165,591,186,593,209,593,255,586,279,570,302,555,313"/>
+<area shape="rect" id="Node000021" href="$sdcard_8c.html#a7e010bc4f9f46359dcefc007d522f58a" title="Aloca um novo cluster e o encadeia ao final de uma sequência existente." alt="" coords="616,363,789,389"/>
+<area shape="poly" id="edge36_Node000020_Node000021" title=" " alt="" coords="549,337,631,358,626,359,550,342"/>
+<area shape="rect" id="Node000022" href="$sdcard_8c.html#afba53615c129e4e1a3ca0dd1c272ab11" title=" " alt="" coords="634,135,771,161"/>
+<area shape="poly" id="edge41_Node000020_Node000022" title=" " alt="" coords="550,309,567,298,578,284,585,269,590,240,595,209,602,194,614,178,633,167,629,171,618,182,606,196,600,211,595,241,590,271,583,286,570,302,553,313"/>
+<area shape="poly" id="edge37_Node000021_Node000013" title=" " alt="" coords="788,363,824,360,819,362,790,368"/>
+<area shape="poly" id="edge38_Node000021_Node000014" title=" " alt="" coords="789,384,1025,416,1020,417,789,389"/>
+<area shape="poly" id="edge42_Node000022_Node000009" title=" " alt="" coords="770,135,862,129,916,130,973,136,1030,146,1085,163,1137,188,1184,222,1201,240,1211,257,1221,292,1224,330,1233,375,1269,489,1264,487,1228,377,1218,331,1215,293,1207,259,1197,243,1181,226,1135,193,1083,168,1028,151,972,141,916,136,863,135,772,140"/>
+<area shape="poly" id="edge43_Node000022_Node000017" title=" " alt="" coords="758,132,837,114,832,116,760,136"/>
+</map>

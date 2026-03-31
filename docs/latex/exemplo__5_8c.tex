@@ -1,0 +1,248 @@
+\doxysection{Referência ao ficheiro examples/\+exemplo\+\_\+5.c}
+\hypertarget{exemplo__5_8c}{}\label{exemplo__5_8c}\index{examples/exemplo\_5.c@{examples/exemplo\_5.c}}
+{\ttfamily \+\#include $<$avr/\+io.\+h$>$}\newline
+{\ttfamily \+\#include $<$util/\+delay.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdio.\+h$>$}\newline
+{\ttfamily \+\#include $<$string.\+h$>$}\newline
+{\ttfamily \+\#include "{}sdcard.\+h"{}}\newline
+Diagrama de dependências de inclusão para exemplo\+\_\+5.\+c:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{exemplo__5_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{exemplo__5_8c_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+CPU}}~16000000\+UL
+\item 
+\+\#define \doxymbox{\hyperlink{exemplo__5_8c_a62634036639f88eece6fbf226b45f84b}{BAUD}}~9600
+\item 
+\+\#define \doxymbox{\hyperlink{exemplo__5_8c_a711e9130c825a7269c8c87dbb57a85e0}{MYUBRR}}~(\doxymbox{\hyperlink{exemplo__5_8c_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+CPU}}/\+16/\+\doxymbox{\hyperlink{exemplo__5_8c_a62634036639f88eece6fbf226b45f84b}{BAUD}} -\/ 1)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{exemplo__5_8c_a0c0ca72359ddf28dcd15900dfba19343}{uart\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Inicializa a UART para transmissão e recepção (TX/\+\+RX). \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{exemplo__5_8c_a985ba70f2a53d95f1fd11f70f1d8f4f6}{uart\+\_\+putchar}} (char c, FILE \texorpdfstring{$\ast$}{*}stream)
+\begin{DoxyCompactList}\small\item\em Envia um caractere via UART (usado pelo printf). \end{DoxyCompactList}\item 
+char \doxymbox{\hyperlink{exemplo__5_8c_a00dbbc6e035bfd12196ec47a99f8e1fe}{uart\+\_\+getchar}} (void)
+\begin{DoxyCompactList}\small\item\em Recebe um caractere da UART. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{exemplo__5_8c_ab623c1f26019eb7e6ba94279fab87446}{uart\+\_\+get\+\_\+line}} (char \texorpdfstring{$\ast$}{*}buf, uint8\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Lê uma linha inteira de caracteres da UART até encontrar \textquotesingle{}Enter\textquotesingle{}. Faz o "{}echo"{} (devolve o caractere) para que o usuário veja o que digita. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{exemplo__5_8c_a1ebabf5df3f5856d744054ab8d011d87}{processar\+\_\+comando}} (char \texorpdfstring{$\ast$}{*}cmd)
+\begin{DoxyCompactList}\small\item\em Interpreta e executa o comando digitado. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{exemplo__5_8c_a9b602da3b929a3986801ce8dc359d8c4}{my\+\_\+delay\+\_\+ms\+\_\+lib}} (uint32\+\_\+t ms)
+\begin{DoxyCompactList}\small\item\em Função de delay exigida pela biblioteca sd\+\_\+begin. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{exemplo__5_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variáveis}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \doxymbox{\hyperlink{exemplo__5_8c_a7cbd3f3dbf08060c4a624e0e8719dec0}{sd\+\_\+ctx}}
+\begin{DoxyCompactList}\small\item\em Instâncias globais da biblioteca SD. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \doxymbox{\hyperlink{exemplo__5_8c_a446b14d2e6d612f42f49773ba65419a8}{fat\+\_\+fs}}
+\item 
+static char \doxymbox{\hyperlink{exemplo__5_8c_a03897d92b865251d81cd0c8795515c45}{cmd\+\_\+buffer}} \+[64]\+
+\begin{DoxyCompactList}\small\item\em Buffer para armazenar o comando digitado pelo usuário. \end{DoxyCompactList}\item 
+static FILE \doxymbox{\hyperlink{exemplo__5_8c_aaa1fc0ff1aeb77f1feff261fa5ea792b}{mystdout}} = FDEV\+\_\+\+SETUP\+\_\+\+STREAM(\doxymbox{\hyperlink{exemplo__5_8c_a985ba70f2a53d95f1fd11f70f1d8f4f6}{uart\+\_\+putchar}}, NULL, \+\_\+\+FDEV\+\_\+\+SETUP\+\_\+\+WRITE)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{exemplo__5_8c_doc-define-members}
+\doxysubsection{Documentação das macros}
+\Hypertarget{exemplo__5_8c_a62634036639f88eece6fbf226b45f84b}\index{exemplo\_5.c@{exemplo\_5.c}!BAUD@{BAUD}}
+\index{BAUD@{BAUD}!exemplo\_5.c@{exemplo\_5.c}}
+\doxysubsubsection{\texorpdfstring{BAUD}{BAUD}}
+{\footnotesize\ttfamily \label{exemplo__5_8c_a62634036639f88eece6fbf226b45f84b} 
+\+\#define BAUD~9600}
+
+\Hypertarget{exemplo__5_8c_a43bafb28b29491ec7f871319b5a3b2f8}\index{exemplo\_5.c@{exemplo\_5.c}!F\_CPU@{F\_CPU}}
+\index{F\_CPU@{F\_CPU}!exemplo\_5.c@{exemplo\_5.c}}
+\doxysubsubsection{\texorpdfstring{F\_CPU}{F\_CPU}}
+{\footnotesize\ttfamily \label{exemplo__5_8c_a43bafb28b29491ec7f871319b5a3b2f8} 
+\+\#define F\+\_\+\+CPU~16000000\+UL}
+
+\Hypertarget{exemplo__5_8c_a711e9130c825a7269c8c87dbb57a85e0}\index{exemplo\_5.c@{exemplo\_5.c}!MYUBRR@{MYUBRR}}
+\index{MYUBRR@{MYUBRR}!exemplo\_5.c@{exemplo\_5.c}}
+\doxysubsubsection{\texorpdfstring{MYUBRR}{MYUBRR}}
+{\footnotesize\ttfamily \label{exemplo__5_8c_a711e9130c825a7269c8c87dbb57a85e0} 
+\+\#define MYUBRR~(\doxymbox{\hyperlink{exemplo__5_8c_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+CPU}}/\+16/\+\doxymbox{\hyperlink{exemplo__5_8c_a62634036639f88eece6fbf226b45f84b}{BAUD}} -\/ 1)}
+
+
+
+\label{doc-func-members}
+\Hypertarget{exemplo__5_8c_doc-func-members}
+\doxysubsection{Documentação das funções}
+\Hypertarget{exemplo__5_8c_a840291bc02cba5474a4cb46a9b9566fe}\index{exemplo\_5.c@{exemplo\_5.c}!main@{main}}
+\index{main@{main}!exemplo\_5.c@{exemplo\_5.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{exemplo__5_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Grafo de chamadas desta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{exemplo__5_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{exemplo__5_8c_a9b602da3b929a3986801ce8dc359d8c4}\index{exemplo\_5.c@{exemplo\_5.c}!my\_delay\_ms\_lib@{my\_delay\_ms\_lib}}
+\index{my\_delay\_ms\_lib@{my\_delay\_ms\_lib}!exemplo\_5.c@{exemplo\_5.c}}
+\doxysubsubsection{\texorpdfstring{my\_delay\_ms\_lib()}{my\_delay\_ms\_lib()}}
+{\footnotesize\ttfamily \label{exemplo__5_8c_a9b602da3b929a3986801ce8dc359d8c4} 
+void my\+\_\+delay\+\_\+ms\+\_\+lib (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ms}{}\end{DoxyParamCaption})}
+
+
+
+Função de delay exigida pela biblioteca sd\+\_\+begin. 
+
+\Hypertarget{exemplo__5_8c_a1ebabf5df3f5856d744054ab8d011d87}\index{exemplo\_5.c@{exemplo\_5.c}!processar\_comando@{processar\_comando}}
+\index{processar\_comando@{processar\_comando}!exemplo\_5.c@{exemplo\_5.c}}
+\doxysubsubsection{\texorpdfstring{processar\_comando()}{processar\_comando()}}
+{\footnotesize\ttfamily \label{exemplo__5_8c_a1ebabf5df3f5856d744054ab8d011d87} 
+void processar\+\_\+comando (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{cmd}{}\end{DoxyParamCaption})}
+
+
+
+Interpreta e executa o comando digitado. 
+
+Comandos suportados:\+
+\begin{DoxyItemize}
+\item ls:\+ Lista arquivos e tamanhos.
+\item df:\+ Mostra capacidade total do cartão em MB.
+\item rm "{}\+NOME"{}:\+ Deleta o arquivo especificado. Ex.:\+ "{}rm CONFIG.\+INI"{} 
+\end{DoxyItemize}\begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_5_8c-example}{exemplo\+\_\+5.\+c}}.\end{Desc}
+Grafo de chamadas desta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{exemplo__5_8c_a1ebabf5df3f5856d744054ab8d011d87_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=257pt]{exemplo__5_8c_a1ebabf5df3f5856d744054ab8d011d87_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{exemplo__5_8c_ab623c1f26019eb7e6ba94279fab87446}\index{exemplo\_5.c@{exemplo\_5.c}!uart\_get\_line@{uart\_get\_line}}
+\index{uart\_get\_line@{uart\_get\_line}!exemplo\_5.c@{exemplo\_5.c}}
+\doxysubsubsection{\texorpdfstring{uart\_get\_line()}{uart\_get\_line()}}
+{\footnotesize\ttfamily \label{exemplo__5_8c_ab623c1f26019eb7e6ba94279fab87446} 
+void uart\+\_\+get\+\_\+line (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{buf}{, }\item[{uint8\+\_\+t}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Lê uma linha inteira de caracteres da UART até encontrar \textquotesingle{}Enter\textquotesingle{}. Faz o "{}echo"{} (devolve o caractere) para que o usuário veja o que digita. 
+
+\begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_5_8c-example}{exemplo\+\_\+5.\+c}}.\end{Desc}
+Grafo de chamadas desta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{exemplo__5_8c_ab623c1f26019eb7e6ba94279fab87446_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{exemplo__5_8c_ab623c1f26019eb7e6ba94279fab87446_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{exemplo__5_8c_a00dbbc6e035bfd12196ec47a99f8e1fe}\index{exemplo\_5.c@{exemplo\_5.c}!uart\_getchar@{uart\_getchar}}
+\index{uart\_getchar@{uart\_getchar}!exemplo\_5.c@{exemplo\_5.c}}
+\doxysubsubsection{\texorpdfstring{uart\_getchar()}{uart\_getchar()}}
+{\footnotesize\ttfamily \label{exemplo__5_8c_a00dbbc6e035bfd12196ec47a99f8e1fe} 
+char uart\+\_\+getchar (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Recebe um caractere da UART. 
+
+\begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_5_8c-example}{exemplo\+\_\+5.\+c}}.\end{Desc}
+Este é o diagrama das funções que utilizam esta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=331pt]{exemplo__5_8c_a00dbbc6e035bfd12196ec47a99f8e1fe_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{exemplo__5_8c_a0c0ca72359ddf28dcd15900dfba19343}\index{exemplo\_5.c@{exemplo\_5.c}!uart\_init@{uart\_init}}
+\index{uart\_init@{uart\_init}!exemplo\_5.c@{exemplo\_5.c}}
+\doxysubsubsection{\texorpdfstring{uart\_init()}{uart\_init()}}
+{\footnotesize\ttfamily \label{exemplo__5_8c_a0c0ca72359ddf28dcd15900dfba19343} 
+void uart\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa a UART para transmissão e recepção (TX/\+\+RX). 
+
+\Hypertarget{exemplo__5_8c_a985ba70f2a53d95f1fd11f70f1d8f4f6}\index{exemplo\_5.c@{exemplo\_5.c}!uart\_putchar@{uart\_putchar}}
+\index{uart\_putchar@{uart\_putchar}!exemplo\_5.c@{exemplo\_5.c}}
+\doxysubsubsection{\texorpdfstring{uart\_putchar()}{uart\_putchar()}}
+{\footnotesize\ttfamily \label{exemplo__5_8c_a985ba70f2a53d95f1fd11f70f1d8f4f6} 
+int uart\+\_\+putchar (\begin{DoxyParamCaption}\item[{char}]{c}{, }\item[{FILE \texorpdfstring{$\ast$}{*}}]{stream}{}\end{DoxyParamCaption})}
+
+
+
+Envia um caractere via UART (usado pelo printf). 
+
+Grafo de chamadas desta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{exemplo__5_8c_a985ba70f2a53d95f1fd11f70f1d8f4f6_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-var-members}
+\Hypertarget{exemplo__5_8c_doc-var-members}
+\doxysubsection{Documentação das variáveis}
+\Hypertarget{exemplo__5_8c_a03897d92b865251d81cd0c8795515c45}\index{exemplo\_5.c@{exemplo\_5.c}!cmd\_buffer@{cmd\_buffer}}
+\index{cmd\_buffer@{cmd\_buffer}!exemplo\_5.c@{exemplo\_5.c}}
+\doxysubsubsection{\texorpdfstring{cmd\_buffer}{cmd\_buffer}}
+{\footnotesize\ttfamily \label{exemplo__5_8c_a03897d92b865251d81cd0c8795515c45} 
+char cmd\+\_\+buffer\+[64]\+\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Buffer para armazenar o comando digitado pelo usuário. 
+
+\begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_5_8c-example}{exemplo\+\_\+5.\+c}}.\end{Desc}
+\Hypertarget{exemplo__5_8c_a446b14d2e6d612f42f49773ba65419a8}\index{exemplo\_5.c@{exemplo\_5.c}!fat\_fs@{fat\_fs}}
+\index{fat\_fs@{fat\_fs}!exemplo\_5.c@{exemplo\_5.c}}
+\doxysubsubsection{\texorpdfstring{fat\_fs}{fat\_fs}}
+{\footnotesize\ttfamily \label{exemplo__5_8c_a446b14d2e6d612f42f49773ba65419a8} 
+\doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} fat\+\_\+fs}
+
+\Hypertarget{exemplo__5_8c_aaa1fc0ff1aeb77f1feff261fa5ea792b}\index{exemplo\_5.c@{exemplo\_5.c}!mystdout@{mystdout}}
+\index{mystdout@{mystdout}!exemplo\_5.c@{exemplo\_5.c}}
+\doxysubsubsection{\texorpdfstring{mystdout}{mystdout}}
+{\footnotesize\ttfamily \label{exemplo__5_8c_aaa1fc0ff1aeb77f1feff261fa5ea792b} 
+FILE mystdout = FDEV\+\_\+\+SETUP\+\_\+\+STREAM(\doxymbox{\hyperlink{exemplo__5_8c_a985ba70f2a53d95f1fd11f70f1d8f4f6}{uart\+\_\+putchar}}, NULL, \+\_\+\+FDEV\+\_\+\+SETUP\+\_\+\+WRITE)\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{exemplo__5_8c_a7cbd3f3dbf08060c4a624e0e8719dec0}\index{exemplo\_5.c@{exemplo\_5.c}!sd\_ctx@{sd\_ctx}}
+\index{sd\_ctx@{sd\_ctx}!exemplo\_5.c@{exemplo\_5.c}}
+\doxysubsubsection{\texorpdfstring{sd\_ctx}{sd\_ctx}}
+{\footnotesize\ttfamily \label{exemplo__5_8c_a7cbd3f3dbf08060c4a624e0e8719dec0} 
+\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} sd\+\_\+ctx}
+
+
+
+Instâncias globais da biblioteca SD. 
+

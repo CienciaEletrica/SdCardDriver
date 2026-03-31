@@ -1,0 +1,956 @@
+\doxysection{Referência ao ficheiro inc/\+sdcard.h}
+\hypertarget{sdcard_8h}{}\label{sdcard_8h}\index{inc/sdcard.h@{inc/sdcard.h}}
+
+
+Driver SD Card SPI + FAT32 (Root-\/only) para AVR.  
+
+
+{\ttfamily \+\#include $<$avr/\+io.\+h$>$}\newline
+{\ttfamily \+\#include $<$util/\+delay.\+h$>$}\newline
+{\ttfamily \+\#include $<$avr/\+wdt.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdint.\+h$>$}\newline
+{\ttfamily \+\#include $<$string.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdio.\+h$>$}\newline
+{\ttfamily \+\#include $<$stddef.\+h$>$}\newline
+Diagrama de dependências de inclusão para sdcard.\+h:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h__incl}
+\end{center}
+\end{figure}
+Este grafo mostra quais são os ficheiros que incluem directamente ou indirectamente este ficheiro:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Estruturas de Dados}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_s_d___h_a_l}{SD\+\_\+\+HAL}}
+\item 
+struct \doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}}
+\item 
+struct \doxymbox{\hyperlink{struct_s_d___file_name}{SD\+\_\+\+File\+Name}}
+\begin{DoxyCompactList}\small\item\em Nome de arquivo no formato 8.\+3. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}}
+\begin{DoxyCompactList}\small\item\em Contexto da biblioteca SD Card. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_s_d___date_time}{SD\+\_\+\+Date\+Time}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{sdcard_8h_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+CPU}}~16000000\+UL
+\item 
+\+\#define \doxymbox{\hyperlink{sdcard_8h_a86fac98c9b4c98a3e50fc45440878391}{SS\+\_\+\+PIN}}~(1 $<$$<$ PB2)
+\begin{DoxyCompactList}\small\item\em Define as I/\+\+Os usadas na comunicação SPI com o sdcard. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{sdcard_8h_a11338fccf824b29757c2b23edb0f690f}{MOSI\+\_\+\+PIN}}~(1 $<$$<$ PB3)
+\item 
+\+\#define \doxymbox{\hyperlink{sdcard_8h_aecb75580e6d96b71a64123aee5bd3929}{MISO\+\_\+\+PIN}}~(1 $<$$<$ PB4)
+\item 
+\+\#define \doxymbox{\hyperlink{sdcard_8h_a01153037fca70cfac03c8d67f17d766a}{SCK\+\_\+\+PIN}}~(1 $<$$<$ PB5)
+\item 
+\+\#define \doxymbox{\hyperlink{sdcard_8h_a457ad77a8444b1734599d60fd6bf31f7}{SD\+\_\+\+DDR}}~DDRB
+\item 
+\+\#define \doxymbox{\hyperlink{sdcard_8h_ab287cc8cf74deb96f4d1e1241e36a7f6}{SD\+\_\+\+PORT}}~PORTB
+\item 
+\+\#define \doxymbox{\hyperlink{sdcard_8h_a528f25ce439a7f3d61b0a1459e7cbc36}{SD\+\_\+\+SPI\+\_\+\+SLOW}}~0
+\item 
+\+\#define \doxymbox{\hyperlink{sdcard_8h_a8d406118e9797b47ed8303280092d24f}{SD\+\_\+\+SPI\+\_\+\+FAST}}~1
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Definições de tipos}
+\begin{DoxyCompactItemize}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{sdcard_8h_a2da50f302754f690acac08c4a9a8b3c5}{sd\+\_\+stream\+\_\+callback\+\_\+t}}) (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint16\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Callback para leitura de dados em streaming. \end{DoxyCompactList}\item 
+typedef uint16\+\_\+t(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{sdcard_8h_a2d66b1cc480b12e06c53a747bfe9956b}{sd\+\_\+stream\+\_\+reader\+\_\+t}}) (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}data)
+\item 
+typedef uint16\+\_\+t(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{sdcard_8h_ac67bbb1e31bcacb9e8587345be355844}{sd\+\_\+write\+\_\+callback\+\_\+t}}) (uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint16\+\_\+t max\+\_\+len)
+\begin{DoxyCompactList}\small\item\em Callback para fornecimento de dados em escrita streaming. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerações}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} \{ \newline
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a643bd28d210b4419014f2551e9693739}{SD\+\_\+\+SUCCESS}} = 0x00
+, \doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a14b11604c3ed9ee39181fc6fab308955}{SD\+\_\+\+ERR\+\_\+\+TIMEOUT}} = 0x\+FF
+, \doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a146731d35a1d8740f0eb0cf661c103ed}{SD\+\_\+\+ERR\+\_\+\+IDLE}} = 0x01
+, \doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a61d9e358314d498179ee6cddee676057}{SD\+\_\+\+ERR\+\_\+\+VOLTAGE}} = 0x02
+, \newline
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a52473d72c38eafac2742124cf83f53be}{SD\+\_\+\+ERR\+\_\+\+INITIALIZATION}} = 0x03
+, \doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9ab7cc4e45e949280a9c5cb735ab4c8aef}{SD\+\_\+\+ERR\+\_\+\+READY}} = 0x04
+, \doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a9b4fc7313b4696633c9427c93700f336}{SD\+\_\+\+ERR\+\_\+\+MBR}} = 0x10
+, \doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9ac7f110d7619d9c7445eeef8e3cb7e40b}{SD\+\_\+\+ERR\+\_\+\+BOOT}} = 0x11
+, \newline
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a32dc84ab312e61bc0931748cac6e0067}{SD\+\_\+\+ERR\+\_\+\+MOUNT}} = 0x12
+, \doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9ac0bc69be493b77f0dbe5e8c4953a7628}{SD\+\_\+\+ERR\+\_\+\+NOT\+\_\+\+FOUND}} = 0x20
+, \doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a10dc803e32a2d9a618c945798e50dc82}{SD\+\_\+\+ERR\+\_\+\+FILE\+\_\+\+FULL}} = 0x21
+, \doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a0fd9019a9f8cc2e80f1992a7ff5363c4}{SD\+\_\+\+ERR\+\_\+\+DISK\+\_\+\+FULL}} = 0x22
+, \newline
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a066fa77db8a2ef11426ce03d4822c690}{SD\+\_\+\+ERR\+\_\+\+WRITE}} = 0x23
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} \doxymbox{\hyperlink{sdcard_8h_a0de914bcd39f32ddd2f8412744267322}{sd\+\_\+begin}} (\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}ctx, void(\texorpdfstring{$\ast$}{*}delay\+\_\+func)(uint32\+\_\+t ms))
+\begin{DoxyCompactList}\small\item\em Prepara o contexto da biblioteca e inicializa a interface de hardware. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} \doxymbox{\hyperlink{sdcard_8h_afac6d670e786eaea1f07a4eb95b25ac6}{sd\+\_\+quick\+\_\+init}} (\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}ctx)
+\begin{DoxyCompactList}\small\item\em Inicialização rápida para AVR (configura pinos + HAL interno). \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} \doxymbox{\hyperlink{sdcard_8h_a8fb3672dbc5a29bab3e7614f4c655aff}{sd\+\_\+fat\+\_\+mount}} (\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}ctx, \doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \texorpdfstring{$\ast$}{*}fs)
+\begin{DoxyCompactList}\small\item\em Localiza e monta o sistema de arquivos FAT32 no cartão SD. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} \doxymbox{\hyperlink{sdcard_8h_af2ad3468d37d6d256e022bafa756ac32}{sd\+\_\+set\+\_\+filename}} (\doxymbox{\hyperlink{struct_s_d___file_name}{SD\+\_\+\+File\+Name}} \texorpdfstring{$\ast$}{*}file\+\_\+out, const char \texorpdfstring{$\ast$}{*}name\+\_\+in)
+\begin{DoxyCompactList}\small\item\em Converte uma string convencional para o formato FAT 8.\+3. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} \doxymbox{\hyperlink{sdcard_8h_a6bb4db7466137c6d4346e2264d403230}{sd\+\_\+file\+\_\+exists}} (\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}ctx, \doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \texorpdfstring{$\ast$}{*}fs, const \doxymbox{\hyperlink{struct_s_d___file_name}{SD\+\_\+\+File\+Name}} \texorpdfstring{$\ast$}{*}file)
+\begin{DoxyCompactList}\small\item\em Verifica se arquivo existe. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} \doxymbox{\hyperlink{sdcard_8h_a62fe3cc3e143e0df2bd0bc2c8badc78a}{sd\+\_\+file\+\_\+get\+\_\+size}} (\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}ctx, \doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \texorpdfstring{$\ast$}{*}fs, const \doxymbox{\hyperlink{struct_s_d___file_name}{SD\+\_\+\+File\+Name}} \texorpdfstring{$\ast$}{*}file, uint32\+\_\+t \texorpdfstring{$\ast$}{*}size)
+\begin{DoxyCompactList}\small\item\em Obtém tamanho do arquivo. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} \doxymbox{\hyperlink{sdcard_8h_aeb8a12857aacd74c71460265f529e634}{sd\+\_\+file\+\_\+read}} (\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}ctx, \doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \texorpdfstring{$\ast$}{*}fs, const \doxymbox{\hyperlink{struct_s_d___file_name}{SD\+\_\+\+File\+Name}} \texorpdfstring{$\ast$}{*}file, uint8\+\_\+t \texorpdfstring{$\ast$}{*}buffer, uint32\+\_\+t buffer\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Lê o conteúdo de um arquivo FAT32 para um buffer externo. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} \doxymbox{\hyperlink{sdcard_8h_a4c9e96825f9777aab8c8980c35310db6}{sd\+\_\+file\+\_\+read\+\_\+stream}} (\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}ctx, \doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \texorpdfstring{$\ast$}{*}fs, const \doxymbox{\hyperlink{struct_s_d___file_name}{SD\+\_\+\+File\+Name}} \texorpdfstring{$\ast$}{*}file, \doxymbox{\hyperlink{sdcard_8h_a2da50f302754f690acac08c4a9a8b3c5}{sd\+\_\+stream\+\_\+callback\+\_\+t}} callback)
+\begin{DoxyCompactList}\small\item\em Lê o conteúdo de um arquivo em modo streaming via callback. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} \doxymbox{\hyperlink{sdcard_8h_a5228ed5a829330c001b1614c8476236c}{sd\+\_\+file\+\_\+create}} (\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}ctx, \doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \texorpdfstring{$\ast$}{*}fs, const \doxymbox{\hyperlink{struct_s_d___file_name}{SD\+\_\+\+File\+Name}} \texorpdfstring{$\ast$}{*}file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Cria um novo arquivo no diretorio raiz com expansao de cluster. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} \doxymbox{\hyperlink{sdcard_8h_ac738738df5abe4582855b5b34312e41e}{sd\+\_\+file\+\_\+write\+\_\+stream}} (\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}ctx, \doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \texorpdfstring{$\ast$}{*}fs, const \doxymbox{\hyperlink{struct_s_d___file_name}{SD\+\_\+\+File\+Name}} \texorpdfstring{$\ast$}{*}file, \doxymbox{\hyperlink{sdcard_8h_ac67bbb1e31bcacb9e8587345be355844}{sd\+\_\+write\+\_\+callback\+\_\+t}} callback)
+\begin{DoxyCompactList}\small\item\em Escreve dados em um arquivo FAT32 existente (modo streaming). \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} \doxymbox{\hyperlink{sdcard_8h_a3cb6e9bbb79a21ebf8cf7357ed262726}{sd\+\_\+file\+\_\+append\+\_\+stream}} (\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}ctx, \doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \texorpdfstring{$\ast$}{*}fs, const \doxymbox{\hyperlink{struct_s_d___file_name}{SD\+\_\+\+File\+Name}} \texorpdfstring{$\ast$}{*}file, \doxymbox{\hyperlink{sdcard_8h_a2d66b1cc480b12e06c53a747bfe9956b}{sd\+\_\+stream\+\_\+reader\+\_\+t}} reader)
+\begin{DoxyCompactList}\small\item\em Adiciona dados ao final de um arquivo, expandindo clusters se necessário. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} \doxymbox{\hyperlink{sdcard_8h_af2ad75b395d583c12294747d47860497}{sd\+\_\+file\+\_\+delete}} (\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}ctx, \doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \texorpdfstring{$\ast$}{*}fs, const \doxymbox{\hyperlink{struct_s_d___file_name}{SD\+\_\+\+File\+Name}} \texorpdfstring{$\ast$}{*}file)
+\begin{DoxyCompactList}\small\item\em Exclui um arquivo do diretório e libera seu espaço no disco. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} \doxymbox{\hyperlink{sdcard_8h_aec0c2db609a8f514fa7487deecd78461}{sd\+\_\+file\+\_\+sync}} (\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}ctx, \doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \texorpdfstring{$\ast$}{*}fs, const \doxymbox{\hyperlink{struct_s_d___file_name}{SD\+\_\+\+File\+Name}} \texorpdfstring{$\ast$}{*}file, uint32\+\_\+t current\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Sincroniza o tamanho do arquivo no diretório físico (Flush). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{sdcard_8h_ac0efead9da3dedebd72b376562fca898}{sd\+\_\+dir\+\_\+list}} (\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}ctx, \doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \texorpdfstring{$\ast$}{*}fs)
+\begin{DoxyCompactList}\small\item\em Lista todos os arquivos presentes no diretório raiz via Serial. \end{DoxyCompactList}\item 
+uint32\+\_\+t \doxymbox{\hyperlink{sdcard_8h_aec719268715a8022ad876f40ef9bb2fa}{sd\+\_\+get\+\_\+capacity\+\_\+mb}} (\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}ctx)
+\begin{DoxyCompactList}\small\item\em Calcula a capacidade total do cartão SD em Megabytes (MB). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variáveis}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{struct_s_d___date_time}{SD\+\_\+\+Date\+Time}} \doxymbox{\hyperlink{sdcard_8h_ab7ced064cbfa0d2df307e496debd669f}{g\+\_\+sd\+\_\+datetime}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Driver SD Card SPI + FAT32 (Root-\/only) para AVR. 
+
+\begin{DoxyVersion}{Versão}
+V1.\+0 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Autor}
+Tiago Henrique dos Santos /\+ Canal do Youtube:\+ Ciência Elétrica 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Data}
+2026 
+\end{DoxyDate}
+
+
+\label{doc-define-members}
+\Hypertarget{sdcard_8h_doc-define-members}
+\doxysubsection{Documentação das macros}
+\Hypertarget{sdcard_8h_a43bafb28b29491ec7f871319b5a3b2f8}\index{sdcard.h@{sdcard.h}!F\_CPU@{F\_CPU}}
+\index{F\_CPU@{F\_CPU}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{F\_CPU}{F\_CPU}}
+{\footnotesize\ttfamily \label{sdcard_8h_a43bafb28b29491ec7f871319b5a3b2f8} 
+\+\#define F\+\_\+\+CPU~16000000\+UL}
+
+\Hypertarget{sdcard_8h_aecb75580e6d96b71a64123aee5bd3929}\index{sdcard.h@{sdcard.h}!MISO\_PIN@{MISO\_PIN}}
+\index{MISO\_PIN@{MISO\_PIN}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{MISO\_PIN}{MISO\_PIN}}
+{\footnotesize\ttfamily \label{sdcard_8h_aecb75580e6d96b71a64123aee5bd3929} 
+\+\#define MISO\+\_\+\+PIN~(1 $<$$<$ PB4)}
+
+\Hypertarget{sdcard_8h_a11338fccf824b29757c2b23edb0f690f}\index{sdcard.h@{sdcard.h}!MOSI\_PIN@{MOSI\_PIN}}
+\index{MOSI\_PIN@{MOSI\_PIN}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{MOSI\_PIN}{MOSI\_PIN}}
+{\footnotesize\ttfamily \label{sdcard_8h_a11338fccf824b29757c2b23edb0f690f} 
+\+\#define MOSI\+\_\+\+PIN~(1 $<$$<$ PB3)}
+
+\Hypertarget{sdcard_8h_a01153037fca70cfac03c8d67f17d766a}\index{sdcard.h@{sdcard.h}!SCK\_PIN@{SCK\_PIN}}
+\index{SCK\_PIN@{SCK\_PIN}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{SCK\_PIN}{SCK\_PIN}}
+{\footnotesize\ttfamily \label{sdcard_8h_a01153037fca70cfac03c8d67f17d766a} 
+\+\#define SCK\+\_\+\+PIN~(1 $<$$<$ PB5)}
+
+\Hypertarget{sdcard_8h_a457ad77a8444b1734599d60fd6bf31f7}\index{sdcard.h@{sdcard.h}!SD\_DDR@{SD\_DDR}}
+\index{SD\_DDR@{SD\_DDR}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{SD\_DDR}{SD\_DDR}}
+{\footnotesize\ttfamily \label{sdcard_8h_a457ad77a8444b1734599d60fd6bf31f7} 
+\+\#define SD\+\_\+\+DDR~DDRB}
+
+\Hypertarget{sdcard_8h_ab287cc8cf74deb96f4d1e1241e36a7f6}\index{sdcard.h@{sdcard.h}!SD\_PORT@{SD\_PORT}}
+\index{SD\_PORT@{SD\_PORT}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{SD\_PORT}{SD\_PORT}}
+{\footnotesize\ttfamily \label{sdcard_8h_ab287cc8cf74deb96f4d1e1241e36a7f6} 
+\+\#define SD\+\_\+\+PORT~PORTB}
+
+\Hypertarget{sdcard_8h_a8d406118e9797b47ed8303280092d24f}\index{sdcard.h@{sdcard.h}!SD\_SPI\_FAST@{SD\_SPI\_FAST}}
+\index{SD\_SPI\_FAST@{SD\_SPI\_FAST}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{SD\_SPI\_FAST}{SD\_SPI\_FAST}}
+{\footnotesize\ttfamily \label{sdcard_8h_a8d406118e9797b47ed8303280092d24f} 
+\+\#define SD\+\_\+\+SPI\+\_\+\+FAST~1}
+
+Velocidade máxima (fosc/\+2) \Hypertarget{sdcard_8h_a528f25ce439a7f3d61b0a1459e7cbc36}\index{sdcard.h@{sdcard.h}!SD\_SPI\_SLOW@{SD\_SPI\_SLOW}}
+\index{SD\_SPI\_SLOW@{SD\_SPI\_SLOW}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{SD\_SPI\_SLOW}{SD\_SPI\_SLOW}}
+{\footnotesize\ttfamily \label{sdcard_8h_a528f25ce439a7f3d61b0a1459e7cbc36} 
+\+\#define SD\+\_\+\+SPI\+\_\+\+SLOW~0}
+
+Velocidades do barramento SPI \texorpdfstring{$\sim$}{\string~}400 k\+Hz -\/ usado na inicialização \Hypertarget{sdcard_8h_a86fac98c9b4c98a3e50fc45440878391}\index{sdcard.h@{sdcard.h}!SS\_PIN@{SS\_PIN}}
+\index{SS\_PIN@{SS\_PIN}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{SS\_PIN}{SS\_PIN}}
+{\footnotesize\ttfamily \label{sdcard_8h_a86fac98c9b4c98a3e50fc45440878391} 
+\+\#define SS\+\_\+\+PIN~(1 $<$$<$ PB2)}
+
+
+
+Define as I/\+\+Os usadas na comunicação SPI com o sdcard. 
+
+
+
+\label{doc-typedef-members}
+\Hypertarget{sdcard_8h_doc-typedef-members}
+\doxysubsection{Documentação dos tipos}
+\Hypertarget{sdcard_8h_a2da50f302754f690acac08c4a9a8b3c5}\index{sdcard.h@{sdcard.h}!sd\_stream\_callback\_t@{sd\_stream\_callback\_t}}
+\index{sd\_stream\_callback\_t@{sd\_stream\_callback\_t}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{sd\_stream\_callback\_t}{sd\_stream\_callback\_t}}
+{\footnotesize\ttfamily \label{sdcard_8h_a2da50f302754f690acac08c4a9a8b3c5} 
+typedef void(\texorpdfstring{$\ast$}{*} sd\+\_\+stream\+\_\+callback\+\_\+t) (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint16\+\_\+t len)}
+
+
+
+Callback para leitura de dados em streaming. 
+
+Esta função é chamada a cada setor lido.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em data} & Ponteiro para os dados lidos \\
+\hline
+{\em len} & Quantidade de bytes válidos \\
+\hline
+\end{DoxyParams}
+\Hypertarget{sdcard_8h_a2d66b1cc480b12e06c53a747bfe9956b}\index{sdcard.h@{sdcard.h}!sd\_stream\_reader\_t@{sd\_stream\_reader\_t}}
+\index{sd\_stream\_reader\_t@{sd\_stream\_reader\_t}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{sd\_stream\_reader\_t}{sd\_stream\_reader\_t}}
+{\footnotesize\ttfamily \label{sdcard_8h_a2d66b1cc480b12e06c53a747bfe9956b} 
+typedef uint16\+\_\+t(\texorpdfstring{$\ast$}{*} sd\+\_\+stream\+\_\+reader\+\_\+t) (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}data)}
+
+Callback para fornecimento de dados em append (retorna 0 quando terminar) \Hypertarget{sdcard_8h_ac67bbb1e31bcacb9e8587345be355844}\index{sdcard.h@{sdcard.h}!sd\_write\_callback\_t@{sd\_write\_callback\_t}}
+\index{sd\_write\_callback\_t@{sd\_write\_callback\_t}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{sd\_write\_callback\_t}{sd\_write\_callback\_t}}
+{\footnotesize\ttfamily \label{sdcard_8h_ac67bbb1e31bcacb9e8587345be355844} 
+typedef uint16\+\_\+t(\texorpdfstring{$\ast$}{*} sd\+\_\+write\+\_\+callback\+\_\+t) (uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint16\+\_\+t max\+\_\+len)}
+
+
+
+Callback para fornecimento de dados em escrita streaming. 
+
+Esta função deve preencher o buffer com dados a serem escritos.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em data} & Buffer onde os dados devem ser escritos \\
+\hline
+{\em max\+\_\+len} & Tamanho máximo disponível no buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Número de bytes válidos escritos no buffer 
+\end{DoxyReturn}
+
+
+\label{doc-enum-members}
+\Hypertarget{sdcard_8h_doc-enum-members}
+\doxysubsection{Documentação dos valores da enumeração}
+\Hypertarget{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}\index{sdcard.h@{sdcard.h}!SD\_Status@{SD\_Status}}
+\index{SD\_Status@{SD\_Status}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{SD\_Status}{SD\_Status}}
+{\footnotesize\ttfamily \label{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9} 
+enum \doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}}}
+
+\begin{DoxyEnumFields}[2]{Valores de enumerações}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SD\_SUCCESS@{SD\_SUCCESS}!sdcard.h@{sdcard.h}}
+\index{sdcard.h@{sdcard.h}!SD\_SUCCESS@{SD\_SUCCESS}}
+}\Hypertarget{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a643bd28d210b4419014f2551e9693739}\label{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a643bd28d210b4419014f2551e9693739} 
+SD\+\_\+\+SUCCESS&Operação concluída com sucesso \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SD\_ERR\_TIMEOUT@{SD\_ERR\_TIMEOUT}!sdcard.h@{sdcard.h}}
+\index{sdcard.h@{sdcard.h}!SD\_ERR\_TIMEOUT@{SD\_ERR\_TIMEOUT}}
+}\Hypertarget{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a14b11604c3ed9ee39181fc6fab308955}\label{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a14b11604c3ed9ee39181fc6fab308955} 
+SD\+\_\+\+ERR\+\_\+\+TIMEOUT&Timeout na comunicação \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SD\_ERR\_IDLE@{SD\_ERR\_IDLE}!sdcard.h@{sdcard.h}}
+\index{sdcard.h@{sdcard.h}!SD\_ERR\_IDLE@{SD\_ERR\_IDLE}}
+}\Hypertarget{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a146731d35a1d8740f0eb0cf661c103ed}\label{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a146731d35a1d8740f0eb0cf661c103ed} 
+SD\+\_\+\+ERR\+\_\+\+IDLE&Falha ao entrar em modo Idle \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SD\_ERR\_VOLTAGE@{SD\_ERR\_VOLTAGE}!sdcard.h@{sdcard.h}}
+\index{sdcard.h@{sdcard.h}!SD\_ERR\_VOLTAGE@{SD\_ERR\_VOLTAGE}}
+}\Hypertarget{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a61d9e358314d498179ee6cddee676057}\label{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a61d9e358314d498179ee6cddee676057} 
+SD\+\_\+\+ERR\+\_\+\+VOLTAGE&Cartão não aceita a tensão \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SD\_ERR\_INITIALIZATION@{SD\_ERR\_INITIALIZATION}!sdcard.h@{sdcard.h}}
+\index{sdcard.h@{sdcard.h}!SD\_ERR\_INITIALIZATION@{SD\_ERR\_INITIALIZATION}}
+}\Hypertarget{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a52473d72c38eafac2742124cf83f53be}\label{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a52473d72c38eafac2742124cf83f53be} 
+SD\+\_\+\+ERR\+\_\+\+INITIALIZATION&Falha na inicialização \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SD\_ERR\_READY@{SD\_ERR\_READY}!sdcard.h@{sdcard.h}}
+\index{sdcard.h@{sdcard.h}!SD\_ERR\_READY@{SD\_ERR\_READY}}
+}\Hypertarget{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9ab7cc4e45e949280a9c5cb735ab4c8aef}\label{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9ab7cc4e45e949280a9c5cb735ab4c8aef} 
+SD\+\_\+\+ERR\+\_\+\+READY&Cartão não ficou pronto \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SD\_ERR\_MBR@{SD\_ERR\_MBR}!sdcard.h@{sdcard.h}}
+\index{sdcard.h@{sdcard.h}!SD\_ERR\_MBR@{SD\_ERR\_MBR}}
+}\Hypertarget{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a9b4fc7313b4696633c9427c93700f336}\label{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a9b4fc7313b4696633c9427c93700f336} 
+SD\+\_\+\+ERR\+\_\+\+MBR&MBR inválido \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SD\_ERR\_BOOT@{SD\_ERR\_BOOT}!sdcard.h@{sdcard.h}}
+\index{sdcard.h@{sdcard.h}!SD\_ERR\_BOOT@{SD\_ERR\_BOOT}}
+}\Hypertarget{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9ac7f110d7619d9c7445eeef8e3cb7e40b}\label{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9ac7f110d7619d9c7445eeef8e3cb7e40b} 
+SD\+\_\+\+ERR\+\_\+\+BOOT&Boot sector inválido \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SD\_ERR\_MOUNT@{SD\_ERR\_MOUNT}!sdcard.h@{sdcard.h}}
+\index{sdcard.h@{sdcard.h}!SD\_ERR\_MOUNT@{SD\_ERR\_MOUNT}}
+}\Hypertarget{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a32dc84ab312e61bc0931748cac6e0067}\label{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a32dc84ab312e61bc0931748cac6e0067} 
+SD\+\_\+\+ERR\+\_\+\+MOUNT&Falha ao montar FAT32 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SD\_ERR\_NOT\_FOUND@{SD\_ERR\_NOT\_FOUND}!sdcard.h@{sdcard.h}}
+\index{sdcard.h@{sdcard.h}!SD\_ERR\_NOT\_FOUND@{SD\_ERR\_NOT\_FOUND}}
+}\Hypertarget{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9ac0bc69be493b77f0dbe5e8c4953a7628}\label{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9ac0bc69be493b77f0dbe5e8c4953a7628} 
+SD\+\_\+\+ERR\+\_\+\+NOT\+\_\+\+FOUND&Arquivo não encontrado \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SD\_ERR\_FILE\_FULL@{SD\_ERR\_FILE\_FULL}!sdcard.h@{sdcard.h}}
+\index{sdcard.h@{sdcard.h}!SD\_ERR\_FILE\_FULL@{SD\_ERR\_FILE\_FULL}}
+}\Hypertarget{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a10dc803e32a2d9a618c945798e50dc82}\label{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a10dc803e32a2d9a618c945798e50dc82} 
+SD\+\_\+\+ERR\+\_\+\+FILE\+\_\+\+FULL&Diretório cheio \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SD\_ERR\_DISK\_FULL@{SD\_ERR\_DISK\_FULL}!sdcard.h@{sdcard.h}}
+\index{sdcard.h@{sdcard.h}!SD\_ERR\_DISK\_FULL@{SD\_ERR\_DISK\_FULL}}
+}\Hypertarget{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a0fd9019a9f8cc2e80f1992a7ff5363c4}\label{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a0fd9019a9f8cc2e80f1992a7ff5363c4} 
+SD\+\_\+\+ERR\+\_\+\+DISK\+\_\+\+FULL&Disco sem espaço \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SD\_ERR\_WRITE@{SD\_ERR\_WRITE}!sdcard.h@{sdcard.h}}
+\index{sdcard.h@{sdcard.h}!SD\_ERR\_WRITE@{SD\_ERR\_WRITE}}
+}\Hypertarget{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a066fa77db8a2ef11426ce03d4822c690}\label{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a066fa77db8a2ef11426ce03d4822c690} 
+SD\+\_\+\+ERR\+\_\+\+WRITE&Falha de escrita \\
+\hline
+
+\end{DoxyEnumFields}
+\begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_1_8c-example}{exemplo\+\_\+1.\+c}} e \doxymbox{\hyperlink{exemplo_2_8c-example}{exemplo\+\_\+2.\+c}}.\end{Desc}
+
+
+\label{doc-func-members}
+\Hypertarget{sdcard_8h_doc-func-members}
+\doxysubsection{Documentação das funções}
+\Hypertarget{sdcard_8h_a0de914bcd39f32ddd2f8412744267322}\index{sdcard.h@{sdcard.h}!sd\_begin@{sd\_begin}}
+\index{sd\_begin@{sd\_begin}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{sd\_begin()}{sd\_begin()}}
+{\footnotesize\ttfamily \label{sdcard_8h_a0de914bcd39f32ddd2f8412744267322} 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} sd\+\_\+begin (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{delay\+\_\+func~}{)(uint32\+\_\+t ms)}\end{DoxyParamCaption})}
+
+
+
+Prepara o contexto da biblioteca e inicializa a interface de hardware. 
+
+Configura os ponteiros de função HAL e executa a rotina inicial de sincronização do cartão SD (sd\+\_\+init). Deve ser a primeira função chamada no fluxo do programa principal (main).
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em ctx} & Ponteiro para o contexto que será inicializado. \\
+\hline
+{\em delay\+\_\+func} & Ponteiro para a função de delay (ms) do sistema. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+\doxylink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status} SD\+\_\+\+SUCCESS se o cartão foi reconhecido e inicializado. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_1_8c-example}{exemplo\+\_\+1.\+c}}, \doxymbox{\hyperlink{exemplo_2_8c-example}{exemplo\+\_\+2.\+c}}, \doxymbox{\hyperlink{exemplo_3_8c-example}{exemplo\+\_\+3.\+c}}, \doxymbox{\hyperlink{exemplo_4_8c-example}{exemplo\+\_\+4.\+c}} e \doxymbox{\hyperlink{exemplo_5_8c-example}{exemplo\+\_\+5.\+c}}.\end{Desc}
+Grafo de chamadas desta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_a0de914bcd39f32ddd2f8412744267322_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_a0de914bcd39f32ddd2f8412744267322_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{sdcard_8h_ac0efead9da3dedebd72b376562fca898}\index{sdcard.h@{sdcard.h}!sd\_dir\_list@{sd\_dir\_list}}
+\index{sd\_dir\_list@{sd\_dir\_list}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{sd\_dir\_list()}{sd\_dir\_list()}}
+{\footnotesize\ttfamily \label{sdcard_8h_ac0efead9da3dedebd72b376562fca898} 
+void sd\+\_\+dir\+\_\+list (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{, }\item[{\doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \texorpdfstring{$\ast$}{*}}]{fs}{}\end{DoxyParamCaption})}
+
+
+
+Lista todos os arquivos presentes no diretório raiz via Serial. 
+
+Percorre toda a corrente de clusters do diretório raiz e imprime o nome, extensão e tamanho de cada arquivo válido. Útil para depuração e verificação de persistência após operações de escrita/\+deleção.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em ctx} & Ponteiro para o contexto da biblioteca. \\
+\hline
+{\em fs} & Ponteiro para a estrutura FAT32 montada. \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_1_8c-example}{exemplo\+\_\+1.\+c}}, \doxymbox{\hyperlink{exemplo_2_8c-example}{exemplo\+\_\+2.\+c}}, \doxymbox{\hyperlink{exemplo_4_8c-example}{exemplo\+\_\+4.\+c}} e \doxymbox{\hyperlink{exemplo_5_8c-example}{exemplo\+\_\+5.\+c}}.\end{Desc}
+Grafo de chamadas desta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_ac0efead9da3dedebd72b376562fca898_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_ac0efead9da3dedebd72b376562fca898_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{sdcard_8h_a8fb3672dbc5a29bab3e7614f4c655aff}\index{sdcard.h@{sdcard.h}!sd\_fat\_mount@{sd\_fat\_mount}}
+\index{sd\_fat\_mount@{sd\_fat\_mount}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{sd\_fat\_mount()}{sd\_fat\_mount()}}
+{\footnotesize\ttfamily \label{sdcard_8h_a8fb3672dbc5a29bab3e7614f4c655aff} 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} sd\+\_\+fat\+\_\+mount (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{, }\item[{\doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \texorpdfstring{$\ast$}{*}}]{fs}{}\end{DoxyParamCaption})}
+
+
+
+Localiza e monta o sistema de arquivos FAT32 no cartão SD. 
+
+Realiza a leitura do MBR para localizar a primeira partição primária. Em seguida, extrai os parâmetros do BPB (BIOS Parameter Block):\+ setores por cluster, setores reservados, localização das FATs e do diretório raiz. Inicializa também os caches internos de diretório e FAT para operações O(1).
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em ctx} & Ponteiro para o contexto da biblioteca SD inicializado. \\
+\hline
+{\em fs} & Ponteiro para a estrutura \doxylink{struct_f_a_t32___info}{FAT32\+\_\+\+Info} que será preenchida. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+\doxylink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status} SD\+\_\+\+SUCCESS, SD\+\_\+\+ERR\+\_\+\+MBR (assinatura inválida) ou SD\+\_\+\+ERR\+\_\+\+BOOT. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_1_8c-example}{exemplo\+\_\+1.\+c}}, \doxymbox{\hyperlink{exemplo_2_8c-example}{exemplo\+\_\+2.\+c}}, \doxymbox{\hyperlink{exemplo_3_8c-example}{exemplo\+\_\+3.\+c}}, \doxymbox{\hyperlink{exemplo_4_8c-example}{exemplo\+\_\+4.\+c}} e \doxymbox{\hyperlink{exemplo_5_8c-example}{exemplo\+\_\+5.\+c}}.\end{Desc}
+Grafo de chamadas desta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_a8fb3672dbc5a29bab3e7614f4c655aff_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_a8fb3672dbc5a29bab3e7614f4c655aff_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{sdcard_8h_a3cb6e9bbb79a21ebf8cf7357ed262726}\index{sdcard.h@{sdcard.h}!sd\_file\_append\_stream@{sd\_file\_append\_stream}}
+\index{sd\_file\_append\_stream@{sd\_file\_append\_stream}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{sd\_file\_append\_stream()}{sd\_file\_append\_stream()}}
+{\footnotesize\ttfamily \label{sdcard_8h_a3cb6e9bbb79a21ebf8cf7357ed262726} 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} sd\+\_\+file\+\_\+append\+\_\+stream (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{, }\item[{\doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \texorpdfstring{$\ast$}{*}}]{fs}{, }\item[{const \doxymbox{\hyperlink{struct_s_d___file_name}{SD\+\_\+\+File\+Name}} \texorpdfstring{$\ast$}{*}}]{file}{, }\item[{\doxymbox{\hyperlink{sdcard_8h_a2d66b1cc480b12e06c53a747bfe9956b}{sd\+\_\+stream\+\_\+reader\+\_\+t}}}]{reader}{}\end{DoxyParamCaption})}
+
+
+
+Adiciona dados ao final de um arquivo, expandindo clusters se necessário. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em ctx} & Ponteiro para o contexto da biblioteca. \\
+\hline
+{\em fs} & Ponteiro para a estrutura FAT32 montada. \\
+\hline
+{\em file} & Ponteiro para a estrutura com o nome do arquivo (8.\+3). \\
+\hline
+{\em reader} & Função que fornece os dados a serem gravados. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+\doxylink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status} SD\+\_\+\+SUCCESS, SD\+\_\+\+ERR\+\_\+\+WRITE ou SD\+\_\+\+ERR\+\_\+\+DISK\+\_\+\+FULL. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_1_8c-example}{exemplo\+\_\+1.\+c}}, \doxymbox{\hyperlink{exemplo_2_8c-example}{exemplo\+\_\+2.\+c}} e \doxymbox{\hyperlink{exemplo_3_8c-example}{exemplo\+\_\+3.\+c}}.\end{Desc}
+Grafo de chamadas desta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_a3cb6e9bbb79a21ebf8cf7357ed262726_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_a3cb6e9bbb79a21ebf8cf7357ed262726_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{sdcard_8h_a5228ed5a829330c001b1614c8476236c}\index{sdcard.h@{sdcard.h}!sd\_file\_create@{sd\_file\_create}}
+\index{sd\_file\_create@{sd\_file\_create}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{sd\_file\_create()}{sd\_file\_create()}}
+{\footnotesize\ttfamily \label{sdcard_8h_a5228ed5a829330c001b1614c8476236c} 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} sd\+\_\+file\+\_\+create (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{, }\item[{\doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \texorpdfstring{$\ast$}{*}}]{fs}{, }\item[{const \doxymbox{\hyperlink{struct_s_d___file_name}{SD\+\_\+\+File\+Name}} \texorpdfstring{$\ast$}{*}}]{file\+\_\+name}{}\end{DoxyParamCaption})}
+
+
+
+Cria um novo arquivo no diretorio raiz com expansao de cluster. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em ctx} & Ponteiro para o contexto da biblioteca. \\
+\hline
+{\em fs} & Ponteiro para a estrutura FAT32 montada. \\
+\hline
+{\em file\+\_\+name} & Ponteiro para a estrutura com o nome do arquivo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+\doxylink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status} Status da operacao. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_1_8c-example}{exemplo\+\_\+1.\+c}}, \doxymbox{\hyperlink{exemplo_2_8c-example}{exemplo\+\_\+2.\+c}} e \doxymbox{\hyperlink{exemplo_3_8c-example}{exemplo\+\_\+3.\+c}}.\end{Desc}
+Grafo de chamadas desta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_a5228ed5a829330c001b1614c8476236c_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_a5228ed5a829330c001b1614c8476236c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{sdcard_8h_af2ad75b395d583c12294747d47860497}\index{sdcard.h@{sdcard.h}!sd\_file\_delete@{sd\_file\_delete}}
+\index{sd\_file\_delete@{sd\_file\_delete}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{sd\_file\_delete()}{sd\_file\_delete()}}
+{\footnotesize\ttfamily \label{sdcard_8h_af2ad75b395d583c12294747d47860497} 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} sd\+\_\+file\+\_\+delete (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{, }\item[{\doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \texorpdfstring{$\ast$}{*}}]{fs}{, }\item[{const \doxymbox{\hyperlink{struct_s_d___file_name}{SD\+\_\+\+File\+Name}} \texorpdfstring{$\ast$}{*}}]{file}{}\end{DoxyParamCaption})}
+
+
+
+Exclui um arquivo do diretório e libera seu espaço no disco. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em ctx} & Ponteiro para o contexto SD. \\
+\hline
+{\em fs} & Ponteiro para o FAT32 montado. \\
+\hline
+{\em file} & Nome do arquivo (8.\+3). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+\doxylink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status} Status da exclusão. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_1_8c-example}{exemplo\+\_\+1.\+c}}, \doxymbox{\hyperlink{exemplo_2_8c-example}{exemplo\+\_\+2.\+c}} e \doxymbox{\hyperlink{exemplo_5_8c-example}{exemplo\+\_\+5.\+c}}.\end{Desc}
+Grafo de chamadas desta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_af2ad75b395d583c12294747d47860497_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_af2ad75b395d583c12294747d47860497_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{sdcard_8h_a6bb4db7466137c6d4346e2264d403230}\index{sdcard.h@{sdcard.h}!sd\_file\_exists@{sd\_file\_exists}}
+\index{sd\_file\_exists@{sd\_file\_exists}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{sd\_file\_exists()}{sd\_file\_exists()}}
+{\footnotesize\ttfamily \label{sdcard_8h_a6bb4db7466137c6d4346e2264d403230} 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} sd\+\_\+file\+\_\+exists (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{, }\item[{\doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \texorpdfstring{$\ast$}{*}}]{fs}{, }\item[{const \doxymbox{\hyperlink{struct_s_d___file_name}{SD\+\_\+\+File\+Name}} \texorpdfstring{$\ast$}{*}}]{file}{}\end{DoxyParamCaption})}
+
+
+
+Verifica se arquivo existe. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em ctx} & Contexto \\
+\hline
+{\em fs} & Sistema FAT32 \\
+\hline
+{\em file} & Nome do arquivo\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+\doxylink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status} 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_3_8c-example}{exemplo\+\_\+3.\+c}} e \doxymbox{\hyperlink{exemplo_4_8c-example}{exemplo\+\_\+4.\+c}}.\end{Desc}
+Grafo de chamadas desta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_a6bb4db7466137c6d4346e2264d403230_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_a6bb4db7466137c6d4346e2264d403230_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{sdcard_8h_a62fe3cc3e143e0df2bd0bc2c8badc78a}\index{sdcard.h@{sdcard.h}!sd\_file\_get\_size@{sd\_file\_get\_size}}
+\index{sd\_file\_get\_size@{sd\_file\_get\_size}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{sd\_file\_get\_size()}{sd\_file\_get\_size()}}
+{\footnotesize\ttfamily \label{sdcard_8h_a62fe3cc3e143e0df2bd0bc2c8badc78a} 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} sd\+\_\+file\+\_\+get\+\_\+size (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{, }\item[{\doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \texorpdfstring{$\ast$}{*}}]{fs}{, }\item[{const \doxymbox{\hyperlink{struct_s_d___file_name}{SD\+\_\+\+File\+Name}} \texorpdfstring{$\ast$}{*}}]{file}{, }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Obtém tamanho do arquivo. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em ctx} & Contexto \\
+\hline
+{\em fs} & Sistema FAT32 \\
+\hline
+{\em file} & Nome do arquivo \\
+\hline
+{\em size} & Ponteiro para retornar o tamanho do arquivo em bytes\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+\doxylink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status} 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_3_8c-example}{exemplo\+\_\+3.\+c}}.\end{Desc}
+Grafo de chamadas desta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_a62fe3cc3e143e0df2bd0bc2c8badc78a_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_a62fe3cc3e143e0df2bd0bc2c8badc78a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{sdcard_8h_aeb8a12857aacd74c71460265f529e634}\index{sdcard.h@{sdcard.h}!sd\_file\_read@{sd\_file\_read}}
+\index{sd\_file\_read@{sd\_file\_read}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{sd\_file\_read()}{sd\_file\_read()}}
+{\footnotesize\ttfamily \label{sdcard_8h_aeb8a12857aacd74c71460265f529e634} 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} sd\+\_\+file\+\_\+read (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{, }\item[{\doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \texorpdfstring{$\ast$}{*}}]{fs}{, }\item[{const \doxymbox{\hyperlink{struct_s_d___file_name}{SD\+\_\+\+File\+Name}} \texorpdfstring{$\ast$}{*}}]{file}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{buffer}{, }\item[{uint32\+\_\+t}]{buffer\+\_\+size}{}\end{DoxyParamCaption})}
+
+
+
+Lê o conteúdo de um arquivo FAT32 para um buffer externo. 
+
+Esta função realiza a leitura completa de um arquivo, percorrendo toda a cadeia de clusters (cluster chain) na FAT32.
+
+Os dados são copiados sequencialmente para o buffer fornecido pelo usuário.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em ctx} & Ponteiro para o contexto da biblioteca SD \\
+\hline
+{\em fs} & Ponteiro para a estrutura do sistema FAT32 montado \\
+\hline
+{\em file} & Ponteiro para estrutura contendo nome do arquivo (formato 8.\+3) \\
+\hline
+{\em buffer} & Buffer externo onde os dados serão armazenados \\
+\hline
+{\em buffer\+\_\+size} & Tamanho máximo do buffer em bytes\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\begin{DoxyItemize}
+\item SD\+\_\+\+SUCCESS:\+ leitura realizada com sucesso
+\item SD\+\_\+\+ERR\+\_\+\+NOT\+\_\+\+FOUND:\+ arquivo não encontrado
+\item SD\+\_\+\+ERR\+\_\+\+READ:\+ erro durante leitura de bloco ou cluster
+\item SD\+\_\+\+ERR\+\_\+\+DISK\+\_\+\+FULL:\+ buffer insuficiente para armazenar o arquivo 
+\end{DoxyItemize}
+\end{DoxyReturn}
+Grafo de chamadas desta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_aeb8a12857aacd74c71460265f529e634_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{sdcard_8h_a4c9e96825f9777aab8c8980c35310db6}\index{sdcard.h@{sdcard.h}!sd\_file\_read\_stream@{sd\_file\_read\_stream}}
+\index{sd\_file\_read\_stream@{sd\_file\_read\_stream}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{sd\_file\_read\_stream()}{sd\_file\_read\_stream()}}
+{\footnotesize\ttfamily \label{sdcard_8h_a4c9e96825f9777aab8c8980c35310db6} 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} sd\+\_\+file\+\_\+read\+\_\+stream (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{, }\item[{\doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \texorpdfstring{$\ast$}{*}}]{fs}{, }\item[{const \doxymbox{\hyperlink{struct_s_d___file_name}{SD\+\_\+\+File\+Name}} \texorpdfstring{$\ast$}{*}}]{file}{, }\item[{\doxymbox{\hyperlink{sdcard_8h_a2da50f302754f690acac08c4a9a8b3c5}{sd\+\_\+stream\+\_\+callback\+\_\+t}}}]{callback}{}\end{DoxyParamCaption})}
+
+
+
+Lê o conteúdo de um arquivo em modo streaming via callback. 
+
+Recomendado para AVR por economizar memória RAM, processando o arquivo setor a setor.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em ctx} & Ponteiro para o contexto da biblioteca. \\
+\hline
+{\em fs} & Ponteiro para a estrutura FAT32 montada. \\
+\hline
+{\em file} & Ponteiro para a estrutura com o nome do arquivo (8.\+3). \\
+\hline
+{\em callback} & Função chamada a cada 512 bytes lidos. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+\doxylink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status} Status da operação de leitura. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_2_8c-example}{exemplo\+\_\+2.\+c}} e \doxymbox{\hyperlink{exemplo_4_8c-example}{exemplo\+\_\+4.\+c}}.\end{Desc}
+Grafo de chamadas desta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_a4c9e96825f9777aab8c8980c35310db6_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_a4c9e96825f9777aab8c8980c35310db6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{sdcard_8h_aec0c2db609a8f514fa7487deecd78461}\index{sdcard.h@{sdcard.h}!sd\_file\_sync@{sd\_file\_sync}}
+\index{sd\_file\_sync@{sd\_file\_sync}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{sd\_file\_sync()}{sd\_file\_sync()}}
+{\footnotesize\ttfamily \label{sdcard_8h_aec0c2db609a8f514fa7487deecd78461} 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} sd\+\_\+file\+\_\+sync (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{, }\item[{\doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \texorpdfstring{$\ast$}{*}}]{fs}{, }\item[{const \doxymbox{\hyperlink{struct_s_d___file_name}{SD\+\_\+\+File\+Name}} \texorpdfstring{$\ast$}{*}}]{file}{, }\item[{uint32\+\_\+t}]{current\+\_\+size}{}\end{DoxyParamCaption})}
+
+
+
+Sincroniza o tamanho do arquivo no diretório físico (Flush). 
+
+Atualiza o campo de tamanho (4 bytes) na entrada de diretório correspondente. Esta função deve ser chamada após operações de escrita para garantir que, em caso de queda de energia, os dados gravados não sejam perdidos pelo sistema.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em ctx} & Ponteiro para o contexto da biblioteca SD. \\
+\hline
+{\em fs} & Ponteiro para o sistema FAT32 montado. \\
+\hline
+{\em file} & Estrutura com o nome do arquivo (8.\+3). \\
+\hline
+{\em current\+\_\+size} & O tamanho atualizado do arquivo em bytes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+\doxylink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status} Status da gravação no setor de diretório. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_1_8c-example}{exemplo\+\_\+1.\+c}}.\end{Desc}
+Grafo de chamadas desta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_aec0c2db609a8f514fa7487deecd78461_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_aec0c2db609a8f514fa7487deecd78461_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{sdcard_8h_ac738738df5abe4582855b5b34312e41e}\index{sdcard.h@{sdcard.h}!sd\_file\_write\_stream@{sd\_file\_write\_stream}}
+\index{sd\_file\_write\_stream@{sd\_file\_write\_stream}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{sd\_file\_write\_stream()}{sd\_file\_write\_stream()}}
+{\footnotesize\ttfamily \label{sdcard_8h_ac738738df5abe4582855b5b34312e41e} 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} sd\+\_\+file\+\_\+write\+\_\+stream (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{, }\item[{\doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\+\_\+\+Info}} \texorpdfstring{$\ast$}{*}}]{fs}{, }\item[{const \doxymbox{\hyperlink{struct_s_d___file_name}{SD\+\_\+\+File\+Name}} \texorpdfstring{$\ast$}{*}}]{file}{, }\item[{\doxymbox{\hyperlink{sdcard_8h_ac67bbb1e31bcacb9e8587345be355844}{sd\+\_\+write\+\_\+callback\+\_\+t}}}]{callback}{}\end{DoxyParamCaption})}
+
+
+
+Escreve dados em um arquivo FAT32 existente (modo streaming). 
+
+Sobrescreve o conteúdo do arquivo a partir do início, utilizando a cadeia de clusters já existente.
+
+\begin{DoxyNote}{Nota}
+Não aloca novos clusters. Limitado ao tamanho atual do arquivo
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parâmetros}
+{\em ctx} & Contexto SD \\
+\hline
+{\em fs} & Sistema FAT32 montado \\
+\hline
+{\em file} & Nome do arquivo (8.\+3) \\
+\hline
+{\em callback} & Função que fornece os dados a serem escritos\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\begin{DoxyItemize}
+\item SD\+\_\+\+SUCCESS:\+ escrita concluída
+\item SD\+\_\+\+ERR\+\_\+\+NOT\+\_\+\+FOUND:\+ arquivo não encontrado
+\item SD\+\_\+\+ERR\+\_\+\+WRITE:\+ erro durante escrita 
+\end{DoxyItemize}
+\end{DoxyReturn}
+Grafo de chamadas desta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_ac738738df5abe4582855b5b34312e41e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{sdcard_8h_aec719268715a8022ad876f40ef9bb2fa}\index{sdcard.h@{sdcard.h}!sd\_get\_capacity\_mb@{sd\_get\_capacity\_mb}}
+\index{sd\_get\_capacity\_mb@{sd\_get\_capacity\_mb}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{sd\_get\_capacity\_mb()}{sd\_get\_capacity\_mb()}}
+{\footnotesize\ttfamily \label{sdcard_8h_aec719268715a8022ad876f40ef9bb2fa} 
+uint32\+\_\+t sd\+\_\+get\+\_\+capacity\+\_\+mb (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{}\end{DoxyParamCaption})}
+
+
+
+Calcula a capacidade total do cartão SD em Megabytes (MB). 
+
+Realiza a leitura do registrador CSD (Card Specific Data) via CMD9. O cálculo é otimizado para a estrutura CSD v2.\+0, utilizada em cartões de alta capacidade (SDHC e SDXC).
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em ctx} & Ponteiro para o contexto da biblioteca SD. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+uint32\+\_\+t Capacidade em MB ou 0 em caso de erro de leitura ou versão incompatível. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_1_8c-example}{exemplo\+\_\+1.\+c}} e \doxymbox{\hyperlink{exemplo_5_8c-example}{exemplo\+\_\+5.\+c}}.\end{Desc}
+Grafo de chamadas desta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=299pt]{sdcard_8h_aec719268715a8022ad876f40ef9bb2fa_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_aec719268715a8022ad876f40ef9bb2fa_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{sdcard_8h_afac6d670e786eaea1f07a4eb95b25ac6}\index{sdcard.h@{sdcard.h}!sd\_quick\_init@{sd\_quick\_init}}
+\index{sd\_quick\_init@{sd\_quick\_init}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{sd\_quick\_init()}{sd\_quick\_init()}}
+{\footnotesize\ttfamily \label{sdcard_8h_afac6d670e786eaea1f07a4eb95b25ac6} 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} sd\+\_\+quick\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_s_d___context}{SD\+\_\+\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{}\end{DoxyParamCaption})}
+
+
+
+Inicialização rápida para AVR (configura pinos + HAL interno). 
+
+Configura automaticamente:\+
+\begin{DoxyItemize}
+\item Pinos PB2=CS, PB3=MOSI, PB5=SCK, PB4=MISO
+\item SPI Mestre, modo 0
+\item HAL interno (transfer, cs\+\_\+low, cs\+\_\+high)
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Nota}
+O delay\+\_\+ms deve ser injetado antes ou via \doxylink{sdcard_8h_a0de914bcd39f32ddd2f8412744267322}{sd\+\_\+begin()} 
+\end{DoxyNote}
+Grafo de chamadas desta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_afac6d670e786eaea1f07a4eb95b25ac6_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_afac6d670e786eaea1f07a4eb95b25ac6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{sdcard_8h_af2ad3468d37d6d256e022bafa756ac32}\index{sdcard.h@{sdcard.h}!sd\_set\_filename@{sd\_set\_filename}}
+\index{sd\_set\_filename@{sd\_set\_filename}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{sd\_set\_filename()}{sd\_set\_filename()}}
+{\footnotesize\ttfamily \label{sdcard_8h_af2ad3468d37d6d256e022bafa756ac32} 
+\doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status}} sd\+\_\+set\+\_\+filename (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_s_d___file_name}{SD\+\_\+\+File\+Name}} \texorpdfstring{$\ast$}{*}}]{file\+\_\+out}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{name\+\_\+in}{}\end{DoxyParamCaption})}
+
+
+
+Converte uma string convencional para o formato FAT 8.\+3. 
+
+Limpa a estrutura de destino com espaços e realiza a conversão automática para caracteres maiúsculos. O nome é limitado a 8 caracteres e a extensão a 3. Caracteres especiais e pontos extras são ignorados conforme o padrão FAT.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em file\+\_\+out} & Ponteiro para a estrutura \doxylink{struct_s_d___file_name}{SD\+\_\+\+File\+Name} que será preenchida. \\
+\hline
+{\em name\+\_\+in} & String de entrada (ex:\+ "{}\+LOG\+\_\+2026.\+txt"{} vira "{}\+LOG\+\_\+2026"{} e "{}\+TXT"{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+\doxylink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\+\_\+\+Status} SD\+\_\+\+SUCCESS ou SD\+\_\+\+ERR\+\_\+\+READY se os ponteiros forem nulos. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Exemplos]\par
+\doxymbox{\hyperlink{exemplo_1_8c-example}{exemplo\+\_\+1.\+c}}, \doxymbox{\hyperlink{exemplo_2_8c-example}{exemplo\+\_\+2.\+c}}, \doxymbox{\hyperlink{exemplo_3_8c-example}{exemplo\+\_\+3.\+c}}, \doxymbox{\hyperlink{exemplo_4_8c-example}{exemplo\+\_\+4.\+c}} e \doxymbox{\hyperlink{exemplo_5_8c-example}{exemplo\+\_\+5.\+c}}.\end{Desc}
+Este é o diagrama das funções que utilizam esta função:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdcard_8h_af2ad3468d37d6d256e022bafa756ac32_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-var-members}
+\Hypertarget{sdcard_8h_doc-var-members}
+\doxysubsection{Documentação das variáveis}
+\Hypertarget{sdcard_8h_ab7ced064cbfa0d2df307e496debd669f}\index{sdcard.h@{sdcard.h}!g\_sd\_datetime@{g\_sd\_datetime}}
+\index{g\_sd\_datetime@{g\_sd\_datetime}!sdcard.h@{sdcard.h}}
+\doxysubsubsection{\texorpdfstring{g\_sd\_datetime}{g\_sd\_datetime}}
+{\footnotesize\ttfamily \label{sdcard_8h_ab7ced064cbfa0d2df307e496debd669f} 
+\doxymbox{\hyperlink{struct_s_d___date_time}{SD\+\_\+\+Date\+Time}} g\+\_\+sd\+\_\+datetime\hspace{0.3cm}{\ttfamily [extern]}}
+

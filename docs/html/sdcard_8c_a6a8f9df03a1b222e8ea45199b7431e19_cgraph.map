@@ -1,0 +1,7 @@
+<map id="sd_init" name="sd_init">
+<area shape="rect" id="Node000001" title="Inicializa o cartão SD no modo SPI." alt="" coords="5,43,65,69"/>
+<area shape="rect" id="Node000002" href="$sdcard_8c.html#abf6c02ac2130c37a0bff2e6b9a6c25cb" title="Configura a velocidade do SPI no AVR (função interna)." alt="" coords="113,5,264,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="64,48,99,43,95,46,66,53"/>
+<area shape="rect" id="Node000003" href="$sdcard_8c.html#aae1cfbcba5f92f4639e23fd8ed8fa3c0" title="Envia um comando SPI para o cartão SD e aguarda resposta R1." alt="" coords="137,72,240,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="65,59,124,71,120,74,65,64"/>
+</map>

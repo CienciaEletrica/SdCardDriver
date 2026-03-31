@@ -1,0 +1,38 @@
+\doxysection{Exemplos de Uso }
+\hypertarget{exemplos_lista}{}\label{exemplos_lista}\index{Exemplos de Uso@{Exemplos de Uso}}
+\label{exemplos_lista_md_inc_2exemplos}%
+\Hypertarget{exemplos_lista_md_inc_2exemplos}%
+
+
+Nesta seção, você encontrará exemplos práticos de aplicação da biblioteca {\bfseries{AVR SD Card}}.\hypertarget{exemplos_lista_autotoc_md0}{}\doxysubsection{\texorpdfstring{1. Testes Básicos de Primitivas}{1. Testes Básicos de Primitivas}}\label{exemplos_lista_autotoc_md0}
+Este é um exemplo simples e completo para quem está começando a usar a lib.
+\begin{DoxyItemize}
+\item {\bfseries{Arquivo:\+}} \doxylink{exemplo_1_8c-example}{exemplo\+\_\+1.\+c}
+\item {\bfseries{Funcionalidades:\+}} {\ttfamily \doxylink{sdcard_8h_a0de914bcd39f32ddd2f8412744267322}{sd\+\_\+begin}}, {\ttfamily \doxylink{sdcard_8h_a8fb3672dbc5a29bab3e7614f4c655aff}{sd\+\_\+fat\+\_\+mount}}, {\ttfamily \doxylink{sdcard_8h_af2ad3468d37d6d256e022bafa756ac32}{sd\+\_\+set\+\_\+filename}}, {\ttfamily \doxylink{sdcard_8h_a5228ed5a829330c001b1614c8476236c}{sd\+\_\+file\+\_\+create}}, {\ttfamily \doxylink{sdcard_8h_af2ad75b395d583c12294747d47860497}{sd\+\_\+file\+\_\+delete}}, {\ttfamily \doxylink{sdcard_8h_a3cb6e9bbb79a21ebf8cf7357ed262726}{sd\+\_\+file\+\_\+append\+\_\+stream}}, {\ttfamily \doxylink{sdcard_8h_aec0c2db609a8f514fa7487deecd78461}{sd\+\_\+file\+\_\+sync}}, {\ttfamily \doxylink{sdcard_8h_aec719268715a8022ad876f40ef9bb2fa}{sd\+\_\+get\+\_\+capacity\+\_\+mb}}.
+\end{DoxyItemize}\hypertarget{exemplos_lista_autotoc_md1}{}\doxysubsection{\texorpdfstring{2. Datalogger CSV com Busca por Coluna}{2. Datalogger CSV com Busca por Coluna}}\label{exemplos_lista_autotoc_md1}
+Este exemplo demonstra como criar um arquivo, gravar dados de sensores e realizar buscas inteligentes.
+\begin{DoxyItemize}
+\item {\bfseries{Arquivo:\+}} \doxylink{exemplo_2_8c-example}{exemplo\+\_\+2.\+c}
+\item {\bfseries{Funcionalidades:\+}} {\ttfamily \doxylink{sdcard_8h_a3cb6e9bbb79a21ebf8cf7357ed262726}{sd\+\_\+file\+\_\+append\+\_\+stream}}, {\ttfamily \doxylink{sdcard_8h_a4c9e96825f9777aab8c8980c35310db6}{sd\+\_\+file\+\_\+read\+\_\+stream}}, {\ttfamily strtok}.
+\end{DoxyItemize}\hypertarget{exemplos_lista_autotoc_md2}{}\doxysubsection{\texorpdfstring{3. Sistema de Datalogger com Rotação Automática de Arquivos e Timestamp}{3. Sistema de Datalogger com Rotação Automática de Arquivos e Timestamp}}\label{exemplos_lista_autotoc_md2}
+Este exemplo demonstra como gerenciar o armazenamento de forma profissional em cartões SD. O sistema monitora o tamanho do arquivo atual e, ao atingir um limite (2,5KB), cria automaticamente um novo volume (LOG001.\+TXT, LOG002.\+TXT, etc). Inclui carimbo de data/\+hora (\doxylink{struct_timestamp}{Timestamp}) simulado para cada registro.
+\begin{DoxyItemize}
+\item {\bfseries{Arquivo:\+}} \doxylink{exemplo_3_8c-example}{exemplo\+\_\+3.\+c}
+\item {\bfseries{Funcionalidades:\+}} {\ttfamily \doxylink{sdcard_8h_a6bb4db7466137c6d4346e2264d403230}{sd\+\_\+file\+\_\+exists}}, {\ttfamily \doxylink{sdcard_8h_a62fe3cc3e143e0df2bd0bc2c8badc78a}{sd\+\_\+file\+\_\+get\+\_\+size}}, {\ttfamily \doxylink{sdcard_8h_a5228ed5a829330c001b1614c8476236c}{sd\+\_\+file\+\_\+create}}, {\ttfamily \doxylink{sdcard_8h_a3cb6e9bbb79a21ebf8cf7357ed262726}{sd\+\_\+file\+\_\+append\+\_\+stream}}.
+\end{DoxyItemize}\hypertarget{exemplos_lista_autotoc_md3}{}\doxysubsection{\texorpdfstring{4. Exemplo de leitura de parâmetros de configuração (.ini) via SD Card}{4. Exemplo de leitura de parâmetros de configuração (.ini) via SD Card}}\label{exemplos_lista_autotoc_md3}
+Demonstra como carregar parâmetros do sistema (como taxa de amostragem) de um arquivo de texto no SD, permitindo configurar o hardware sem precisar recompilar o código. Inclui função de delay variável.
+\begin{DoxyItemize}
+\item {\bfseries{Arquivo:\+}} \doxylink{exemplo_4_8c-example}{exemplo\+\_\+4.\+c}
+\item {\bfseries{Funcionalidades:\+}} {\ttfamily \doxylink{sdcard_8h_a4c9e96825f9777aab8c8980c35310db6}{sd\+\_\+file\+\_\+read\+\_\+stream}}, {\ttfamily \doxylink{sdcard_8h_af2ad3468d37d6d256e022bafa756ac32}{sd\+\_\+set\+\_\+filename}}.
+\item O arquivo CONFIG.\+ini no SD deve seguir este formato (sem espaços)
+\item O arquivo CONFIG.\+ini desse exemplo está na pasta "{}examples"{}
+\item Deixe sempre uma linha vazia no final do arquivo CONFIG.\+ini
+\end{DoxyItemize}\hypertarget{exemplos_lista_autotoc_md4}{}\doxysubsection{\texorpdfstring{5. Terminal de Comandos (Shell) para diagnóstico e manutenção do SD Card}{5. Terminal de Comandos (Shell) para diagnóstico e manutenção do SD Card}}\label{exemplos_lista_autotoc_md4}
+Este exemplo demonstra como interagir com o sistema de arquivos em tempo real via comandos seriais (UART), permitindo listar arquivos, verificar o espaço em disco e deletar logs antigos.
+\begin{DoxyItemize}
+\item {\bfseries{Arquivo:\+}} \doxylink{exemplo_5_8c-example}{exemplo\+\_\+5.\+c}
+\item {\bfseries{Funcionalidades:\+}} {\ttfamily \doxylink{sdcard_8h_ac0efead9da3dedebd72b376562fca898}{sd\+\_\+dir\+\_\+list}}, {\ttfamily \doxylink{sdcard_8h_aec719268715a8022ad876f40ef9bb2fa}{sd\+\_\+get\+\_\+capacity\+\_\+mb}}, {\ttfamily \doxylink{sdcard_8h_af2ad75b395d583c12294747d47860497}{sd\+\_\+file\+\_\+delete}}, {\ttfamily \doxylink{sdcard_8h_af2ad3468d37d6d256e022bafa756ac32}{sd\+\_\+set\+\_\+filename}}.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ {\itshape Para ver o código-\/fonte completo, clique nos links dos arquivos acima ou acesse a aba {\bfseries{Exemplos}} no menu superior.} 

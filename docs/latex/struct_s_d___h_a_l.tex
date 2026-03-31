@@ -1,0 +1,59 @@
+\doxysection{Referência à estrutura SD\+\_\+\+HAL}
+\hypertarget{struct_s_d___h_a_l}{}\label{struct_s_d___h_a_l}\index{SD\_HAL@{SD\_HAL}}
+
+
+{\ttfamily \+\#include $<$sdcard.\+h$>$}
+
+\doxysubsubsection*{Campos de Dados}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct_s_d___h_a_l_a135af8cae4d5f5b750d5e0df7bb21a5b}{spi\+\_\+tx\+\_\+rx}} )(uint8\+\_\+t data)
+\item 
+void(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct_s_d___h_a_l_a3ad649bf763c48a77cd167b39d08ee9c}{cs\+\_\+low}} )(void)
+\item 
+void(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct_s_d___h_a_l_a2ea540968afcfcead4f9e7627818abd6}{cs\+\_\+high}} )(void)
+\item 
+void(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct_s_d___h_a_l_a5d83d71ab6927c75d0374cc530ba0645}{delay\+\_\+ms}} )(uint32\+\_\+t ms)
+\item 
+void(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct_s_d___h_a_l_a5efe9133410060eb6fd543d58da28ac2}{set\+\_\+speed}} )(uint8\+\_\+t speed\+\_\+mode)
+\end{DoxyCompactItemize}
+
+
+\label{doc-variable-members}
+\Hypertarget{struct_s_d___h_a_l_doc-variable-members}
+\doxysubsection{Documentação dos campos e atributos}
+\Hypertarget{struct_s_d___h_a_l_a2ea540968afcfcead4f9e7627818abd6}\index{SD\_HAL@{SD\_HAL}!cs\_high@{cs\_high}}
+\index{cs\_high@{cs\_high}!SD\_HAL@{SD\_HAL}}
+\doxysubsubsection{\texorpdfstring{cs\_high}{cs\_high}}
+{\footnotesize\ttfamily \label{struct_s_d___h_a_l_a2ea540968afcfcead4f9e7627818abd6} 
+void(\texorpdfstring{$\ast$}{*} SD\+\_\+\+HAL::\+cs\+\_\+high) (void)}
+
+Desativa Chip Select \Hypertarget{struct_s_d___h_a_l_a3ad649bf763c48a77cd167b39d08ee9c}\index{SD\_HAL@{SD\_HAL}!cs\_low@{cs\_low}}
+\index{cs\_low@{cs\_low}!SD\_HAL@{SD\_HAL}}
+\doxysubsubsection{\texorpdfstring{cs\_low}{cs\_low}}
+{\footnotesize\ttfamily \label{struct_s_d___h_a_l_a3ad649bf763c48a77cd167b39d08ee9c} 
+void(\texorpdfstring{$\ast$}{*} SD\+\_\+\+HAL::\+cs\+\_\+low) (void)}
+
+Ativa Chip Select \Hypertarget{struct_s_d___h_a_l_a5d83d71ab6927c75d0374cc530ba0645}\index{SD\_HAL@{SD\_HAL}!delay\_ms@{delay\_ms}}
+\index{delay\_ms@{delay\_ms}!SD\_HAL@{SD\_HAL}}
+\doxysubsubsection{\texorpdfstring{delay\_ms}{delay\_ms}}
+{\footnotesize\ttfamily \label{struct_s_d___h_a_l_a5d83d71ab6927c75d0374cc530ba0645} 
+void(\texorpdfstring{$\ast$}{*} SD\+\_\+\+HAL::\+delay\+\_\+ms) (uint32\+\_\+t ms)}
+
+Delay em milissegundos \Hypertarget{struct_s_d___h_a_l_a5efe9133410060eb6fd543d58da28ac2}\index{SD\_HAL@{SD\_HAL}!set\_speed@{set\_speed}}
+\index{set\_speed@{set\_speed}!SD\_HAL@{SD\_HAL}}
+\doxysubsubsection{\texorpdfstring{set\_speed}{set\_speed}}
+{\footnotesize\ttfamily \label{struct_s_d___h_a_l_a5efe9133410060eb6fd543d58da28ac2} 
+void(\texorpdfstring{$\ast$}{*} SD\+\_\+\+HAL::\+set\+\_\+speed) (uint8\+\_\+t speed\+\_\+mode)}
+
+Seleção de clock 0=Lento, 1=Rápido \Hypertarget{struct_s_d___h_a_l_a135af8cae4d5f5b750d5e0df7bb21a5b}\index{SD\_HAL@{SD\_HAL}!spi\_tx\_rx@{spi\_tx\_rx}}
+\index{spi\_tx\_rx@{spi\_tx\_rx}!SD\_HAL@{SD\_HAL}}
+\doxysubsubsection{\texorpdfstring{spi\_tx\_rx}{spi\_tx\_rx}}
+{\footnotesize\ttfamily \label{struct_s_d___h_a_l_a135af8cae4d5f5b750d5e0df7bb21a5b} 
+uint8\+\_\+t(\texorpdfstring{$\ast$}{*} SD\+\_\+\+HAL::\+spi\+\_\+tx\+\_\+rx) (uint8\+\_\+t data)}
+
+Transmite e recebe via SPI 
+
+A documentação para esta estrutura foi gerada a partir do seguinte ficheiro:\+\begin{DoxyCompactItemize}
+\item 
+inc/\+\doxymbox{\hyperlink{sdcard_8h}{sdcard.\+h}}\end{DoxyCompactItemize}

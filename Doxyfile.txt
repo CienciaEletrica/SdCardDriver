@@ -1,0 +1,58 @@
+# Configurações Básicas do Projeto
+PROJECT_NAME           = "AVR SD Card FAT32 Driver"
+PROJECT_NUMBER         = "V1.0"
+OUTPUT_DIRECTORY       = "G:/Bibliotecas AVR/sdcard/docs"
+OUTPUT_LANGUAGE        = Brazilian
+INPUT_ENCODING         = UTF-8
+DOXYFILE_ENCODING      = UTF-8
+
+# Entrada de Arquivos
+INPUT                  = "G:/Bibliotecas AVR/sdcard/inc" "G:/Bibliotecas AVR/sdcard/src"
+RECURSIVE              = YES
+OPTIMIZE_OUTPUT_FOR_C  = YES
+STRIP_FROM_PATH        = "G:/Bibliotecas AVR/sdcard"
+
+# Configurações de Extração
+EXTRACT_ALL            = YES
+EXTRACT_STATIC         = YES
+GENERATE_LATEX         = YES
+GENERATE_HTML          = YES
+
+# Integração com Graphviz (Para Diagramas de Chamada)
+HAVE_DOT               = YES
+DOT_PATH               = "C:/Program Files/Graphviz/bin" # Verifique se este é o seu caminho
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+EXTRACT_ALL            = YES
+EXTRACT_STATIC         = YES
+DOT_TRANSPARENT        = YES
+DOT_IMAGE_FORMAT       = svg
+INTERACTIVE_SVG        = YES
+
+USE_MDRENDERER = YES
+
+HTML_HEADER            = header.html
+HTML_FOOTER            = footer.html
+HTML_STYLESHEET        = stylesheet.css
+
+# Define a ordem das páginas no menu lateral
+LAYOUT_FILE            = DoxygenLayout.xml
+
+# Adicione o caminho da pasta onde estão os seus arquivos .c de exemplo
+EXAMPLE_PATH           = "G:/Bibliotecas AVR/sdcard/examples"
+# Garante que o Doxygen procure arquivos de exemplo recursivamente
+EXAMPLE_RECURSIVE       = YES
+
+# Entrada de Arquivos Principal
+INPUT                  = "G:/Bibliotecas AVR/sdcard/inc" \
+                         "G:/Bibliotecas AVR/sdcard/src"
+
+# Adiciona a pasta de exemplos ao processamento (importante para os links \ref)
+INPUT                 += "G:/Bibliotecas AVR/sdcard/examples"
+
+# Filtros para garantir que ele leia arquivos C e Markdown
+FILE_PATTERNS          = *.c *.h *.md
+
+# No seu Doxyfile
+IMAGE_PATH             = "G:/Bibliotecas AVR/sdcard/img"
+PROJECT_LOGO           = "G:/Bibliotecas AVR/sdcard/img/FIGURA2.png"

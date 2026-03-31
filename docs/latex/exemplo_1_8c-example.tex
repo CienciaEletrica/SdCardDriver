@@ -1,0 +1,223 @@
+\doxysection{exemplo\+\_\+1.\+c}
+\hypertarget{exemplo_1_8c-example}{}\label{exemplo_1_8c-example}EXEMPLO DIDÁ\+TICO 1 da biblioteca SD Card SPI + FAT32
+
+\begin{DoxyAuthor}{Autor}
+Tiago Henrique dos Santos /\+ Canal Ciência Elétrica 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Data}
+30 de Março de 2026
+\end{DoxyDate}
+Este é um exemplo simples e completo para quem está começando a usar a lib:\+
+\begin{DoxyEnumerate}
+\item Inicializa o SD Card (sd\+\_\+begin)
+\item Monta o FAT32 (sd\+\_\+fat\+\_\+mount)
+\item Cria o arquivo "{}\+EXEMPLO.\+TXT"{} no diretório raiz
+\item Escreve uma string de texto usando APPEND STREAMING (melhor método para AVR)
+\item Faz o flush (sd\+\_\+file\+\_\+sync) para garantir que o tamanho fique gravado
+\item Mostra o diretório raiz e a capacidade do cartão
+\end{DoxyEnumerate}
+
+Tudo está dentro de uma única função:\+ \doxylink{exemplo__1_8c_a45578ec38e9d0ae49d3313fa3900f338}{teste\+\_\+basico\+\_\+escrever\+\_\+string()} O \doxylink{exemplo__1_8c_a840291bc02cba5474a4cb46a9b9566fe}{main()} apenas chama essa função e entra em loop infinito.
+
+UART configurada em 9600 bps (monitor serial). F\+\_\+\+CPU = 16 MHz (padrão AVR).
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ F\_CPU\ 16000000UL}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <avr/io.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <util/delay.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <avr/pgmspace.h>}\ \ \ \ \textcolor{comment}{//\ para\ salvar\ a\ string\ longa\ na\ Flash,\ não\ na\ RAM}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{sdcard_8h}{sdcard.h}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ =============================================}}
+\DoxyCodeLine{\textcolor{comment}{//\ VARIÁVEIS\ GLOBAIS\ DA\ BIBLIOTECA\ (obrigatórias)}}
+\DoxyCodeLine{\textcolor{comment}{//\ =============================================}}
+\DoxyCodeLine{\doxymbox{\hyperlink{struct_s_d___context}{SD\_Context}}\ \ \ \doxymbox{\hyperlink{exemplo__1_8c_a7cbd3f3dbf08060c4a624e0e8719dec0}{sd\_ctx}};\ \ \ \ \ \textcolor{comment}{//\ Contexto\ completo\ (HAL\ +\ buffer\ interno\ de\ 512\ bytes)}}
+\DoxyCodeLine{\doxymbox{\hyperlink{struct_f_a_t32___info}{FAT32\_Info}}\ \ \ \doxymbox{\hyperlink{exemplo__1_8c_a446b14d2e6d612f42f49773ba65419a8}{fat\_fs}};\ \ \ \ \ \textcolor{comment}{//\ Informações\ do\ sistema\ FAT32\ montado}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ =============================================}}
+\DoxyCodeLine{\textcolor{comment}{//\ UART\ 9600\ bps\ (para\ monitor\ serial\ no\ PC)}}
+\DoxyCodeLine{\textcolor{comment}{//\ =============================================}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ BAUD\ 9600}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ MYUBRR\ (F\_CPU/16/BAUD\ -\/\ 1)}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{exemplo__1_8c_a0c0ca72359ddf28dcd15900dfba19343}{uart\_init}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\ \ \ \ UBRR0H\ =\ (uint8\_t)(\doxymbox{\hyperlink{exemplo__1_8c_a711e9130c825a7269c8c87dbb57a85e0}{MYUBRR}}\ >>\ 8);}
+\DoxyCodeLine{\ \ \ \ UBRR0L\ =\ (uint8\_t)\doxymbox{\hyperlink{exemplo__1_8c_a711e9130c825a7269c8c87dbb57a85e0}{MYUBRR}};}
+\DoxyCodeLine{\ \ \ \ UCSR0B\ =\ (1\ <<\ TXEN0);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Apenas\ TX}}
+\DoxyCodeLine{\ \ \ \ UCSR0C\ =\ (1\ <<\ UCSZ01)\ |\ (1\ <<\ UCSZ00);\ \ \textcolor{comment}{//\ 8N1}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{exemplo__1_8c_a985ba70f2a53d95f1fd11f70f1d8f4f6}{uart\_putchar}}(\textcolor{keywordtype}{char}\ c,\ FILE\ *stream)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (c\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\ \doxymbox{\hyperlink{exemplo__1_8c_a985ba70f2a53d95f1fd11f70f1d8f4f6}{uart\_putchar}}(\textcolor{charliteral}{'\(\backslash\)r'},\ stream);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{while}\ (!(UCSR0A\ \&\ (1\ <<\ UDRE0)));}
+\DoxyCodeLine{\ \ \ \ UDR0\ =\ c;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{static}\ FILE\ \doxymbox{\hyperlink{exemplo__1_8c_aaa1fc0ff1aeb77f1feff261fa5ea792b}{mystdout}}\ =\ FDEV\_SETUP\_STREAM(\doxymbox{\hyperlink{exemplo__1_8c_a985ba70f2a53d95f1fd11f70f1d8f4f6}{uart\_putchar}},\ NULL,\ \_FDEV\_SETUP\_WRITE);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ =============================================}}
+\DoxyCodeLine{\textcolor{comment}{//\ DELAY\ (obrigatório\ para\ sd\_begin)}}
+\DoxyCodeLine{\textcolor{comment}{//\ =============================================}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{exemplo__1_8c_a9ddddd20ec13dcafa912ee1d93f76a37}{my\_delay\_ms}}(uint32\_t\ ms)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{while}\ (ms-\/-\/)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \_delay\_ms(1);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ =============================================}}
+\DoxyCodeLine{\textcolor{comment}{//\ CALLBACK\ PARA\ APPEND\ STREAMING\ (sd\_stream\_reader\_t)}}
+\DoxyCodeLine{\textcolor{comment}{//\ =============================================}}
+\DoxyCodeLine{uint16\_t\ \doxymbox{\hyperlink{exemplo__1_8c_a014f66c320f488d0c93cf4b998611466}{callback\_escreve\_string}}(\textcolor{keyword}{const}\ uint8\_t\ **data\_ptr)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ String\ que\ será\ gravada\ no\ arquivo\ EXEMPLO.TXT}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ texto[]\ PROGMEM\ =\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Olá,\ mundo!\(\backslash\)r\(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Este\ arquivo\ foi\ criado\ pela\ biblioteca\ SD\ Card\ V19\(\backslash\)r\(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}do\ Canal\ Ciência\ Elétrica\ (Tiago\ Henrique).\(\backslash\)r\(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Data\ da\ biblioteca:\ 30/03/2026\(\backslash\)r\(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Teste\ básico\ de\ escrita\ com\ append\_stream.\(\backslash\)r\(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Fim\ do\ arquivo.\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ uint8\_t\ ja\_enviado\ =\ 0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (ja\_enviado\ ==\ 0)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ *data\_ptr\ =\ (\textcolor{keyword}{const}\ uint8\_t\ *)texto;\ \ \ \textcolor{comment}{//\ Aponta\ para\ a\ string}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ja\_enviado\ =\ 1;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ strlen\_P(texto);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Quantidade\ de\ bytes}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ ja\_enviado\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ 0;\ \ \ \textcolor{comment}{//\ Fim\ dos\ dados}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ =============================================}}
+\DoxyCodeLine{\textcolor{comment}{//\ FUNÇÃO\ PRINCIPAL\ DO\ EXEMPLO}}
+\DoxyCodeLine{\textcolor{comment}{//\ =============================================}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{exemplo__1_8c_a45578ec38e9d0ae49d3313fa3900f338}{teste\_basico\_escrever\_string}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9}{SD\_Status}}\ status;}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{struct_s_d___file_name}{SD\_FileName}}\ arquivo;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n===\ EXEMPLO\ 1\ ===\(\backslash\)n"{}});}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}Canal\ Ciência\ Elétrica\ -\/\ Tiago\ Henrique\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ 1.\ INICIALIZAÇÃO\ DO\ SD\ CARD\ (método\ recomendado)}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}[1]\ sd\_begin()...\ "{}});}
+\DoxyCodeLine{\ \ \ \ status\ =\ \doxymbox{\hyperlink{sdcard_8h_a0de914bcd39f32ddd2f8412744267322}{sd\_begin}}(\&\doxymbox{\hyperlink{exemplo__1_8c_a7cbd3f3dbf08060c4a624e0e8719dec0}{sd\_ctx}},\ \doxymbox{\hyperlink{exemplo__1_8c_a9ddddd20ec13dcafa912ee1d93f76a37}{my\_delay\_ms}});}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (status\ !=\ \doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a643bd28d210b4419014f2551e9693739}{SD\_SUCCESS}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}ERRO\ \%02X\(\backslash\)n"{}},\ status);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}OK\ (SPI\ +\ cartão\ inicializado)\(\backslash\)n"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ 2.\ MONTA\ O\ SISTEMA\ DE\ ARQUIVOS\ FAT32}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}[2]\ sd\_fat\_mount()...\ "{}});}
+\DoxyCodeLine{\ \ \ \ status\ =\ \doxymbox{\hyperlink{sdcard_8h_a8fb3672dbc5a29bab3e7614f4c655aff}{sd\_fat\_mount}}(\&\doxymbox{\hyperlink{exemplo__1_8c_a7cbd3f3dbf08060c4a624e0e8719dec0}{sd\_ctx}},\ \&\doxymbox{\hyperlink{exemplo__1_8c_a446b14d2e6d612f42f49773ba65419a8}{fat\_fs}});}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (status\ !=\ \doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a643bd28d210b4419014f2551e9693739}{SD\_SUCCESS}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}ERRO\ \%02X\(\backslash\)n"{}},\ status);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}OK\ (FAT32\ montado\ com\ sucesso)\(\backslash\)n"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ 3.\ PREPARA\ NOME\ DO\ ARQUIVO\ (formato\ 8.3)}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}[3]\ sd\_set\_filename()...\ "{}});}
+\DoxyCodeLine{\ \ \ \ status\ =\ \doxymbox{\hyperlink{sdcard_8h_af2ad3468d37d6d256e022bafa756ac32}{sd\_set\_filename}}(\&arquivo,\ \textcolor{stringliteral}{"{}EXEMPLO.TXT"{}});}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (status\ !=\ \doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a643bd28d210b4419014f2551e9693739}{SD\_SUCCESS}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}ERRO\ nome\ invalido\(\backslash\)n"{}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}OK\ (EXEMPLO.TXT)\(\backslash\)n"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ 4.\ REMOVE\ ARQUIVO\ ANTIGO\ (opcional\ -\/\ para\ teste\ limpo)}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}[4]\ sd\_file\_delete()\ (se\ existir)...\ "{}});}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{sdcard_8h_af2ad75b395d583c12294747d47860497}{sd\_file\_delete}}(\&\doxymbox{\hyperlink{exemplo__1_8c_a7cbd3f3dbf08060c4a624e0e8719dec0}{sd\_ctx}},\ \&\doxymbox{\hyperlink{exemplo__1_8c_a446b14d2e6d612f42f49773ba65419a8}{fat\_fs}},\ \&arquivo);\ \ \ \textcolor{comment}{//\ Ignora\ erro\ se\ não\ existir}}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}OK\(\backslash\)n"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ 5.\ CRIA\ O\ ARQUIVO\ VAZIO\ NO\ DIRETÓRIO\ RAIZ}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}[5]\ sd\_file\_create()...\ "{}});}
+\DoxyCodeLine{\ \ \ \ status\ =\ \doxymbox{\hyperlink{sdcard_8h_a5228ed5a829330c001b1614c8476236c}{sd\_file\_create}}(\&\doxymbox{\hyperlink{exemplo__1_8c_a7cbd3f3dbf08060c4a624e0e8719dec0}{sd\_ctx}},\ \&\doxymbox{\hyperlink{exemplo__1_8c_a446b14d2e6d612f42f49773ba65419a8}{fat\_fs}},\ \&arquivo);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (status\ !=\ \doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a643bd28d210b4419014f2551e9693739}{SD\_SUCCESS}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}ERRO\ \%02X\(\backslash\)n"{}},\ status);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}OK\(\backslash\)n"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ 6.\ ESCREVE\ A\ STRING\ USANDO\ APPEND\ STREAMING}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}[6]\ sd\_file\_append\_stream()...\ "{}});}
+\DoxyCodeLine{\ \ \ \ status\ =\ \doxymbox{\hyperlink{sdcard_8h_a3cb6e9bbb79a21ebf8cf7357ed262726}{sd\_file\_append\_stream}}(\&\doxymbox{\hyperlink{exemplo__1_8c_a7cbd3f3dbf08060c4a624e0e8719dec0}{sd\_ctx}},\ \&\doxymbox{\hyperlink{exemplo__1_8c_a446b14d2e6d612f42f49773ba65419a8}{fat\_fs}},\ \&arquivo,\ \doxymbox{\hyperlink{exemplo__1_8c_a014f66c320f488d0c93cf4b998611466}{callback\_escreve\_string}});}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (status\ !=\ \doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a643bd28d210b4419014f2551e9693739}{SD\_SUCCESS}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}ERRO\ \%02X\(\backslash\)n"{}},\ status);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}OK\(\backslash\)n"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ 7.\ SINCRONIZA\ (FLUSH)\ -\/\ ESSENCIAL!}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ \ \ \ Atualiza\ o\ tamanho\ do\ arquivo\ no\ diretório}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\ \ \ \ uint32\_t\ tamanho\ =\ strlen\_P(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Olá,\ mundo!\(\backslash\)r\(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Este\ arquivo\ foi\ criado\ pela\ biblioteca\ SD\ Card\(\backslash\)r\(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}do\ Canal\ Ciência\ Elétrica\ (Tiago\ Henrique).\(\backslash\)r\(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Data\ da\ biblioteca:\ 30/03/2026\(\backslash\)r\(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Teste\ básico\ de\ escrita\ com\ append\_stream.\(\backslash\)r\(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Fim\ do\ arquivo.\(\backslash\)r\(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ );}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}[7]\ sd\_file\_sync()\ (flush)...\ "{}});}
+\DoxyCodeLine{\ \ \ \ status\ =\ \doxymbox{\hyperlink{sdcard_8h_aec0c2db609a8f514fa7487deecd78461}{sd\_file\_sync}}(\&\doxymbox{\hyperlink{exemplo__1_8c_a7cbd3f3dbf08060c4a624e0e8719dec0}{sd\_ctx}},\ \&\doxymbox{\hyperlink{exemplo__1_8c_a446b14d2e6d612f42f49773ba65419a8}{fat\_fs}},\ \&arquivo,\ tamanho);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (status\ !=\ \doxymbox{\hyperlink{sdcard_8h_a725698981494a7c497cec2a7ebbb94a9a643bd28d210b4419014f2551e9693739}{SD\_SUCCESS}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}ERRO\ \%02X\(\backslash\)n"{}},\ status);}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}OK\ (tamanho\ \%lu\ bytes\ gravado)\(\backslash\)n"{}},\ tamanho);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ 8.\ LISTAGEM\ FINAL\ E\ INFORMAÇÕES\ ÚTEIS}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n[8]\ Listagem\ do\ diretório\ raiz:\(\backslash\)n"{}});}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{sdcard_8h_ac0efead9da3dedebd72b376562fca898}{sd\_dir\_list}}(\&\doxymbox{\hyperlink{exemplo__1_8c_a7cbd3f3dbf08060c4a624e0e8719dec0}{sd\_ctx}},\ \&\doxymbox{\hyperlink{exemplo__1_8c_a446b14d2e6d612f42f49773ba65419a8}{fat\_fs}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ uint32\_t\ capacidade\_mb\ =\ \doxymbox{\hyperlink{sdcard_8h_aec719268715a8022ad876f40ef9bb2fa}{sd\_get\_capacity\_mb}}(\&\doxymbox{\hyperlink{exemplo__1_8c_a7cbd3f3dbf08060c4a624e0e8719dec0}{sd\_ctx}});}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nCapacidade\ do\ cartão:\ \%lu\ MB\(\backslash\)n"{}},\ capacidade\_mb);}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n===\ ARQUIVO\ EXEMPLO.TXT\ CRIADO\ COM\ SUCESSO!\ ===\(\backslash\)n"{}});}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}Insira\ o\ cartão\ no\ PC\ e\ abra\ EXEMPLO.TXT\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ =============================================}}
+\DoxyCodeLine{\textcolor{comment}{//\ MAIN}}
+\DoxyCodeLine{\textcolor{comment}{//\ =============================================}}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{exemplo__1_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Configura\ UART\ para\ 9600\ bps}}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{exemplo__1_8c_a0c0ca72359ddf28dcd15900dfba19343}{uart\_init}}();}
+\DoxyCodeLine{\ \ \ \ stdout\ =\ \&\doxymbox{\hyperlink{exemplo__1_8c_aaa1fc0ff1aeb77f1feff261fa5ea792b}{mystdout}};\ \textcolor{comment}{//\ Faz\ printf()\ ir\ para\ o\ monitor\ serial}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \_delay\_ms(1000);\ \textcolor{comment}{//\ Tempo\ para\ o\ terminal\ abrir}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Chama\ a\ função\ de\ exemplo\ (tudo\ acontece\ aqui)}}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{exemplo__1_8c_a45578ec38e9d0ae49d3313fa3900f338}{teste\_basico\_escrever\_string}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Loop\ infinito\ (programa\ termina\ aqui)}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ quiser\ piscar\ LED\ ou\ fazer\ outra\ coisa,\ coloque\ aqui}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 
