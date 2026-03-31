@@ -1,0 +1,63 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,190,55,216"/>
+<area shape="rect" id="Node000002" href="$exemplo__4_8c.html#a9b602da3b929a3986801ce8dc359d8c4" title="Função de delay exigida pela biblioteca sd_begin." alt="" coords="111,63,233,90"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="35,188,60,145,79,121,101,100,111,95,108,100,104,104,83,124,65,148,40,190"/>
+<area shape="rect" id="Node000003" href="$exemplo__5_8c.html#a1ebabf5df3f5856d744054ab8d011d87" title="Interpreta e executa o comando digitado." alt="" coords="103,164,241,191"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="53,197,89,191,86,195,57,201"/>
+<area shape="rect" id="Node000015" href="$sdcard_8c.html#a0de914bcd39f32ddd2f8412744267322" title="Prepara o contexto da biblioteca e inicializa a interface de hardware." alt="" coords="135,215,208,242"/>
+<area shape="poly" id="edge22_Node000001_Node000015" title=" " alt="" coords="54,205,122,217,118,221,56,210"/>
+<area shape="rect" id="Node000023" href="$sdcard_8c.html#a8fb3672dbc5a29bab3e7614f4c655aff" title="Localiza e monta o sistema de arquivos FAT32 no cartão SD." alt="" coords="122,114,222,140"/>
+<area shape="poly" id="edge31_Node000001_Node000023" title=" " alt="" coords="46,188,101,150,116,145,113,149,104,155,50,191"/>
+<area shape="rect" id="Node000024" href="$exemplo__5_8c.html#ab623c1f26019eb7e6ba94279fab87446" title="Lê uma linha inteira de caracteres da UART até encontrar &#39;Enter&#39;. Faz o &quot;echo&quot; (devolve o caractere) ..." alt="" coords="124,266,220,292"/>
+<area shape="poly" id="edge33_Node000001_Node000024" title=" " alt="" coords="48,214,104,251,117,258,112,260,101,256,49,220"/>
+<area shape="rect" id="Node000026" href="$exemplo__1_8c.html#a0c0ca72359ddf28dcd15900dfba19343" title=" " alt="" coords="138,316,206,343"/>
+<area shape="poly" id="edge35_Node000001_Node000026" title=" " alt="" coords="37,214,65,258,83,282,104,302,126,316,121,317,101,307,79,285,60,261,38,220"/>
+<area shape="rect" id="Node000004" href="$sdcard_8c.html#ac0efead9da3dedebd72b376562fca898" title="Lista todos os arquivos presentes no diretório raiz via Serial." alt="" coords="307,63,387,90"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="217,162,240,150,254,138,263,126,272,113,287,100,298,95,294,99,291,104,276,117,267,129,258,142,242,155,221,166"/>
+<area shape="rect" id="Node000008" href="$sdcard_8c.html#af2ad75b395d583c12294747d47860497" title="Exclui um arquivo do diretório e libera seu espaço no disco." alt="" coords="296,164,398,191"/>
+<area shape="poly" id="edge8_Node000003_Node000008" title=" " alt="" coords="240,175,283,176,279,179,242,180"/>
+<area shape="rect" id="Node000013" href="$sdcard_8c.html#aec719268715a8022ad876f40ef9bb2fa" title="Calcula a capacidade total do cartão SD em Megabytes (MB)." alt="" coords="662,266,803,292"/>
+<area shape="poly" id="edge19_Node000003_Node000013" title=" " alt="" coords="234,189,290,200,648,264,644,268,288,206,235,194"/>
+<area shape="rect" id="Node000014" href="$sdcard_8c.html#af2ad3468d37d6d256e022bafa756ac32" title="Converte uma string convencional para o formato FAT 8.3." alt="" coords="289,114,405,140"/>
+<area shape="poly" id="edge21_Node000003_Node000014" title=" " alt="" coords="219,161,286,144,282,147,222,166"/>
+<area shape="rect" id="Node000005" href="$sdcard_8c.html#aba9c8b9a5590e13424ab4a69280f0c1d" title="Lê um único bloco de 512 bytes do cartão (LBA)." alt="" coords="687,63,778,90"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="387,62,453,48,533,42,614,48,674,60,669,62,613,54,533,48,454,54,389,67"/>
+<area shape="rect" id="Node000007" href="$sdcard_8c.html#a7b0d2ab1fae193461c611a4f2e6c9245" title="Obtém o próximo cluster na tabela FAT." alt="" coords="453,63,614,90"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="387,74,440,75,436,78,389,79"/>
+<area shape="rect" id="Node000006" href="$sdcard_8c.html#aae1cfbcba5f92f4639e23fd8ed8fa3c0" title="Envia um comando SPI para o cartão SD e aguarda resposta R1." alt="" coords="1050,215,1153,242"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="778,68,827,65,885,67,946,77,976,87,1004,99,1032,120,1057,147,1090,202,1085,200,1052,150,1029,124,1001,104,974,91,945,82,885,72,827,70,779,73"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="613,74,674,76,669,77,615,79"/>
+<area shape="poly" id="edge9_Node000008_Node000005" title=" " alt="" coords="397,162,674,90,669,94,399,167"/>
+<area shape="poly" id="edge18_Node000008_Node000007" title=" " alt="" coords="383,162,404,150,427,128,452,106,478,95,474,98,455,111,431,132,407,155,386,166"/>
+<area shape="rect" id="Node000009" href="$sdcard_8c.html#ac6d558621f33abf80f245adb3d0f4e67" title="Escreve um único bloco de 512 bytes." alt="" coords="685,164,780,191"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="395,189,454,200,533,206,613,200,672,193,667,194,614,206,533,212,453,206,396,194"/>
+<area shape="rect" id="Node000012" href="$sdcard_8c.html#a5afd6e264210d197c43e84b5e7dd8856" title="Libera uma cadeia de clusters na tabela FAT, marcando&#45;os como disponíveis." alt="" coords="471,164,596,191"/>
+<area shape="poly" id="edge15_Node000008_Node000012" title=" " alt="" coords="397,175,458,177,453,179,399,180"/>
+<area shape="poly" id="edge11_Node000009_Node000006" title=" " alt="" coords="780,177,883,185,1003,200,1041,211,1035,211,1002,206,882,190,780,183"/>
+<area shape="rect" id="Node000010" href="$sdcard_8c.html#afcdb9112d386e92b29ad0cac9f5fc277" title="Obtém o status atual do cartão SD (comando CMD13)." alt="" coords="875,215,978,242"/>
+<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="780,187,863,211,857,211,780,193"/>
+<area shape="rect" id="Node000011" href="$sdcard_8c.html#a8c2c0ebbeee0d06d43335bc9df4b3142" title="Aguarda o cartão sair do estado de ocupado (busy)." alt="" coords="862,114,991,140"/>
+<area shape="poly" id="edge14_Node000009_Node000011" title=" " alt="" coords="779,163,860,144,855,146,781,168"/>
+<area shape="poly" id="edge13_Node000010_Node000006" title=" " alt="" coords="978,226,1037,228,1032,229,979,231"/>
+<area shape="poly" id="edge16_Node000012_Node000005" title=" " alt="" coords="571,161,612,143,700,97,695,99,615,148,573,166"/>
+<area shape="poly" id="edge17_Node000012_Node000009" title=" " alt="" coords="595,175,672,177,667,178,596,180"/>
+<area shape="poly" id="edge20_Node000013_Node000006" title=" " alt="" coords="803,273,898,265,1002,251,1041,245,1036,247,1003,256,899,270,804,278"/>
+<area shape="rect" id="Node000016" href="$sdcard_8c.html#afac6d670e786eaea1f07a4eb95b25ac6" title="Inicialização rápida para AVR (configura pinos + HAL interno)." alt="" coords="298,342,396,368"/>
+<area shape="poly" id="edge23_Node000015_Node000016" title=" " alt="" coords="209,236,243,252,324,330,319,331,239,256,209,241"/>
+<area shape="rect" id="Node000017" href="$sdcard_8c.html#a6cf66af945c22b51e07f145a63869c5a" title="Desativa o Chip Select (CS) &#45; Pino PB2." alt="" coords="486,468,581,495"/>
+<area shape="poly" id="edge24_Node000016_Node000017" title=" " alt="" coords="388,366,407,378,423,399,431,418,439,436,455,454,475,468,469,467,452,458,435,439,426,420,419,401,404,382,387,371"/>
+<area shape="rect" id="Node000018" href="$sdcard_8c.html#aeabfda2a0d078f02c8fdedc7c840cc69" title="Ativa o Chip Select (CS) &#45; Pino PB2." alt="" coords="488,316,579,343"/>
+<area shape="poly" id="edge25_Node000016_Node000018" title=" " alt="" coords="396,346,475,337,470,339,397,351"/>
+<area shape="rect" id="Node000019" href="$sdcard_8c.html#a8092c4cbf898989b2bf07325565e0cbd" title="Transmissão/recepção de um byte via SPI (função interna)." alt="" coords="475,367,592,394"/>
+<area shape="poly" id="edge26_Node000016_Node000019" title=" " alt="" coords="396,359,462,370,457,371,396,364"/>
+<area shape="rect" id="Node000020" href="$sdcard_8c.html#abb7664cb3bec0e4c545128d134f0e054" title="Tenta inicializar o cartão até 3 vezes com delay entre tentativas." alt="" coords="487,418,580,444"/>
+<area shape="poly" id="edge27_Node000016_Node000020" title=" " alt="" coords="381,366,407,378,454,403,475,413,470,413,452,408,404,383,380,372"/>
+<area shape="rect" id="Node000021" href="$sdcard_8c.html#a6a8f9df03a1b222e8ea45199b7431e19" title="Inicializa o cartão SD no modo SPI." alt="" coords="703,407,762,434"/>
+<area shape="poly" id="edge28_Node000020_Node000021" title=" " alt="" coords="580,426,690,423,684,423,581,431"/>
+<area shape="poly" id="edge30_Node000021_Node000006" title=" " alt="" coords="759,404,1057,250,1063,249,761,409"/>
+<area shape="rect" id="Node000022" href="$sdcard_8c.html#abf6c02ac2130c37a0bff2e6b9a6c25cb" title="Configura a velocidade do SPI no AVR (função interna)." alt="" coords="851,399,1002,442"/>
+<area shape="poly" id="edge29_Node000021_Node000022" title=" " alt="" coords="762,418,838,420,833,421,762,423"/>
+<area shape="poly" id="edge32_Node000023_Node000005" title=" " alt="" coords="217,111,239,100,253,87,262,74,272,61,288,49,333,28,373,14,411,6,446,3,522,10,614,27,655,38,693,56,688,56,653,44,613,32,521,15,446,8,411,11,375,19,335,33,290,53,275,64,267,77,258,90,243,104,221,115"/>
+<area shape="rect" id="Node000025" href="$exemplo__5_8c.html#a00dbbc6e035bfd12196ec47a99f8e1fe" title="Recebe um caractere da UART." alt="" coords="300,392,394,419"/>
+<area shape="poly" id="edge34_Node000024_Node000025" title=" " alt="" coords="220,289,243,302,260,322,268,341,275,360,291,378,296,384,291,384,287,382,271,362,263,343,255,325,239,306,220,295"/>
+</map>

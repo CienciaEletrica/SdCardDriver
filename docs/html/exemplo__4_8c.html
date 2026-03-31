@@ -1,0 +1,529 @@
+<!-- HTML header for doxygen 1.16.1-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta charset="utf-8">
+<title>AVR SD Card FAT32 Driver: Referência ao ficheiro examples/exemplo_4.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="stylesheet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+  <table cellspacing="0" cellpadding="0">
+   <tbody>
+   <tr style="height: 56px;">
+    <td id="projectalign" style="padding-left: 0.5em;">
+     <div id="projectname">Driver SD Card FAT32 - YouTube: Ciência Elétrica</div>
+     <div id="projectbrief">Biblioteca para Microcontroladores AVR</div>
+    </td>
+   </tr>
+   </tbody>
+  </table>
+  </div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Localizar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('exemplo__4_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referência ao ficheiro exemplo_4.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;avr/io.h&gt;</code><br />
+<code>#include &lt;util/delay.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="sdcard_8h_source.html">sdcard.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Diagrama de dependências de inclusão para exemplo_4.c:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="exemplo__4_8c__incl.svg" width="635" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a43bafb28b29491ec7f871319b5a3b2f8" id="r_a43bafb28b29491ec7f871319b5a3b2f8"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a43bafb28b29491ec7f871319b5a3b2f8">F_CPU</a>&#160;&#160;&#160;16000000UL</td></tr>
+<tr class="memitem:a62634036639f88eece6fbf226b45f84b" id="r_a62634036639f88eece6fbf226b45f84b"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a62634036639f88eece6fbf226b45f84b">BAUD</a>&#160;&#160;&#160;9600</td></tr>
+<tr class="memitem:a711e9130c825a7269c8c87dbb57a85e0" id="r_a711e9130c825a7269c8c87dbb57a85e0"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a711e9130c825a7269c8c87dbb57a85e0">MYUBRR</a>&#160;&#160;&#160;(<a class="el" href="#a43bafb28b29491ec7f871319b5a3b2f8">F_CPU</a>/16/<a class="el" href="#a62634036639f88eece6fbf226b45f84b">BAUD</a> - 1)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a0c0ca72359ddf28dcd15900dfba19343" id="r_a0c0ca72359ddf28dcd15900dfba19343"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0c0ca72359ddf28dcd15900dfba19343">uart_init</a> (void)</td></tr>
+<tr class="memitem:a985ba70f2a53d95f1fd11f70f1d8f4f6" id="r_a985ba70f2a53d95f1fd11f70f1d8f4f6"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a985ba70f2a53d95f1fd11f70f1d8f4f6">uart_putchar</a> (char c, FILE *stream)</td></tr>
+<tr class="memitem:ae6c6593780313a1f8717301f24224b2e" id="r_ae6c6593780313a1f8717301f24224b2e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae6c6593780313a1f8717301f24224b2e">delay_ms_variavel</a> (uint16_t ms)</td></tr>
+<tr class="memdesc:ae6c6593780313a1f8717301f24224b2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executa um delay variável em milissegundos.  <br /></td></tr>
+<tr class="memitem:a9b602da3b929a3986801ce8dc359d8c4" id="r_a9b602da3b929a3986801ce8dc359d8c4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9b602da3b929a3986801ce8dc359d8c4">my_delay_ms_lib</a> (uint32_t ms)</td></tr>
+<tr class="memdesc:a9b602da3b929a3986801ce8dc359d8c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função de delay exigida pela biblioteca sd_begin.  <br /></td></tr>
+<tr class="memitem:a95f3b940be7bd6926d8ef9532f3db2a3" id="r_a95f3b940be7bd6926d8ef9532f3db2a3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a95f3b940be7bd6926d8ef9532f3db2a3">callback_parser_config</a> (const uint8_t *data, uint16_t len)</td></tr>
+<tr class="memdesc:a95f3b940be7bd6926d8ef9532f3db2a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback chamado pela sd_file_read_stream para processar dados lidos.  <br /></td></tr>
+<tr class="memitem:aea5f9f33267c7ef0c394d9a9e8d45c17" id="r_aea5f9f33267c7ef0c394d9a9e8d45c17"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aea5f9f33267c7ef0c394d9a9e8d45c17">carregar_parametros_boot</a> (void)</td></tr>
+<tr class="memdesc:aea5f9f33267c7ef0c394d9a9e8d45c17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Localiza e processa o arquivo CONFIG.ini no cartão SD.  <br /></td></tr>
+<tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe" id="r_a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
+<tr class="memdesc:a840291bc02cba5474a4cb46a9b9566fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função main demonstrando o fluxo completo de carregamento e uso.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variáveis</h2></td></tr>
+<tr class="memitem:a7cbd3f3dbf08060c4a624e0e8719dec0" id="r_a7cbd3f3dbf08060c4a624e0e8719dec0"><td class="memItemLeft"><a class="el" href="struct_s_d___context.html">SD_Context</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7cbd3f3dbf08060c4a624e0e8719dec0">sd_ctx</a></td></tr>
+<tr class="memdesc:a7cbd3f3dbf08060c4a624e0e8719dec0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instância real do contexto do SD (Alocação de memória).  <br /></td></tr>
+<tr class="memitem:a446b14d2e6d612f42f49773ba65419a8" id="r_a446b14d2e6d612f42f49773ba65419a8"><td class="memItemLeft"><a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a>&#160;</td><td class="memItemRight"><a class="el" href="#a446b14d2e6d612f42f49773ba65419a8">fat_fs</a></td></tr>
+<tr class="memdesc:a446b14d2e6d612f42f49773ba65419a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instância real da estrutura FAT32 (Alocação de memória).  <br /></td></tr>
+<tr class="memitem:aaa1fc0ff1aeb77f1feff261fa5ea792b" id="r_aaa1fc0ff1aeb77f1feff261fa5ea792b"><td class="memItemLeft">static FILE&#160;</td><td class="memItemRight"><a class="el" href="#aaa1fc0ff1aeb77f1feff261fa5ea792b">mystdout</a> = FDEV_SETUP_STREAM(<a class="el" href="#a985ba70f2a53d95f1fd11f70f1d8f4f6">uart_putchar</a>, NULL, _FDEV_SETUP_WRITE)</td></tr>
+<tr class="memitem:ac438007bb7711eb3943d03c26569dd01" id="r_ac438007bb7711eb3943d03c26569dd01"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#ac438007bb7711eb3943d03c26569dd01">cfg_sampling_rate</a> = 1000</td></tr>
+<tr class="memdesc:ac438007bb7711eb3943d03c26569dd01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Taxa de amostragem em ms lida do arquivo CONFIG.ini.  <br /></td></tr>
+<tr class="memitem:a498511d3d06308b4d635ebf8b55fabf1" id="r_a498511d3d06308b4d635ebf8b55fabf1"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a498511d3d06308b4d635ebf8b55fabf1">cfg_temp_limit</a> = 50.0</td></tr>
+<tr class="memdesc:a498511d3d06308b4d635ebf8b55fabf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Limite de temperatura lido do arquivo CONFIG.ini.  <br /></td></tr>
+<tr class="memitem:a271ccf298b4870ab1eb500845742c98a" id="r_a271ccf298b4870ab1eb500845742c98a"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a271ccf298b4870ab1eb500845742c98a">cfg_device_id</a> = 1</td></tr>
+<tr class="memdesc:a271ccf298b4870ab1eb500845742c98a"><td class="mdescLeft">&#160;</td><td class="mdescRight">ID do dispositivo lido do arquivo CONFIG.ini.  <br /></td></tr>
+<tr class="memitem:ae368a2863a12fe37e5c8469026186a75" id="r_ae368a2863a12fe37e5c8469026186a75"><td class="memItemLeft">static char&#160;</td><td class="memItemRight"><a class="el" href="#ae368a2863a12fe37e5c8469026186a75">line_buffer</a> [64]</td></tr>
+<tr class="memdesc:ae368a2863a12fe37e5c8469026186a75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer para processamento de cada linha do arquivo .ini.  <br /></td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Documentação das macros</h2>
+<a id="a62634036639f88eece6fbf226b45f84b" name="a62634036639f88eece6fbf226b45f84b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62634036639f88eece6fbf226b45f84b">&#9670;&#160;</a></span>BAUD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BAUD&#160;&#160;&#160;9600</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a43bafb28b29491ec7f871319b5a3b2f8" name="a43bafb28b29491ec7f871319b5a3b2f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43bafb28b29491ec7f871319b5a3b2f8">&#9670;&#160;</a></span>F_CPU</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define F_CPU&#160;&#160;&#160;16000000UL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a711e9130c825a7269c8c87dbb57a85e0" name="a711e9130c825a7269c8c87dbb57a85e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a711e9130c825a7269c8c87dbb57a85e0">&#9670;&#160;</a></span>MYUBRR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MYUBRR&#160;&#160;&#160;(<a class="el" href="#a43bafb28b29491ec7f871319b5a3b2f8">F_CPU</a>/16/<a class="el" href="#a62634036639f88eece6fbf226b45f84b">BAUD</a> - 1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
+<a id="a95f3b940be7bd6926d8ef9532f3db2a3" name="a95f3b940be7bd6926d8ef9532f3db2a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95f3b940be7bd6926d8ef9532f3db2a3">&#9670;&#160;</a></span>callback_parser_config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void callback_parser_config </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Callback chamado pela sd_file_read_stream para processar dados lidos. </p>
+<p>Identifica o separador '=' e associa o valor à chave correspondente. </p>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_4_8c-example.html#a14">exemplo_4.c</a>.</dd>
+</dl>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="exemplo__4_8c_a95f3b940be7bd6926d8ef9532f3db2a3_icgraph.svg" width="483" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aea5f9f33267c7ef0c394d9a9e8d45c17" name="aea5f9f33267c7ef0c394d9a9e8d45c17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea5f9f33267c7ef0c394d9a9e8d45c17">&#9670;&#160;</a></span>carregar_parametros_boot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void carregar_parametros_boot </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Localiza e processa o arquivo CONFIG.ini no cartão SD. </p>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_4_8c-example.html#a15">exemplo_4.c</a>.</dd>
+</dl>
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="exemplo__4_8c_aea5f9f33267c7ef0c394d9a9e8d45c17_cgraph.svg" width="100%" height="442"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="exemplo__4_8c_aea5f9f33267c7ef0c394d9a9e8d45c17_icgraph.svg" width="280" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae6c6593780313a1f8717301f24224b2e" name="ae6c6593780313a1f8717301f24224b2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6c6593780313a1f8717301f24224b2e">&#9670;&#160;</a></span>delay_ms_variavel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void delay_ms_variavel </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>ms</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Executa um delay variável em milissegundos. </p>
+<p>Como a macro _delay_ms() do AVR exige um valor constante em tempo de compilação, usamos esta função que repete o delay de 1ms n vezes, permitindo usar o valor lido do cartão SD.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ms</td><td>Quantidade de milissegundos para aguardar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_4_8c-example.html#a12">exemplo_4.c</a>.</dd>
+</dl>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="exemplo__4_8c_ae6c6593780313a1f8717301f24224b2e_icgraph.svg" width="238" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a840291bc02cba5474a4cb46a9b9566fe" name="a840291bc02cba5474a4cb46a9b9566fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a840291bc02cba5474a4cb46a9b9566fe">&#9670;&#160;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função main demonstrando o fluxo completo de carregamento e uso. </p>
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="exemplo__4_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a9b602da3b929a3986801ce8dc359d8c4" name="a9b602da3b929a3986801ce8dc359d8c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b602da3b929a3986801ce8dc359d8c4">&#9670;&#160;</a></span>my_delay_ms_lib()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void my_delay_ms_lib </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>ms</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função de delay exigida pela biblioteca sd_begin. </p>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_4_8c-example.html#a13">exemplo_4.c</a> e <a class="el" href="exemplo_5_8c-example.html#a18">exemplo_5.c</a>.</dd>
+</dl>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="exemplo__4_8c_a9b602da3b929a3986801ce8dc359d8c4_icgraph.svg" width="231" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0c0ca72359ddf28dcd15900dfba19343" name="a0c0ca72359ddf28dcd15900dfba19343"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c0ca72359ddf28dcd15900dfba19343">&#9670;&#160;</a></span>uart_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void uart_init </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a985ba70f2a53d95f1fd11f70f1d8f4f6" name="a985ba70f2a53d95f1fd11f70f1d8f4f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a985ba70f2a53d95f1fd11f70f1d8f4f6">&#9670;&#160;</a></span>uart_putchar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int uart_putchar </td>
+          <td>(</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>stream</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="exemplo__4_8c_a985ba70f2a53d95f1fd11f70f1d8f4f6_cgraph.svg" width="246" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentação das variáveis</h2>
+<a id="a271ccf298b4870ab1eb500845742c98a" name="a271ccf298b4870ab1eb500845742c98a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a271ccf298b4870ab1eb500845742c98a">&#9670;&#160;</a></span>cfg_device_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t cfg_device_id = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ID do dispositivo lido do arquivo CONFIG.ini. </p>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_4_8c-example.html#_a10">exemplo_4.c</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="ac438007bb7711eb3943d03c26569dd01" name="ac438007bb7711eb3943d03c26569dd01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac438007bb7711eb3943d03c26569dd01">&#9670;&#160;</a></span>cfg_sampling_rate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t cfg_sampling_rate = 1000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Taxa de amostragem em ms lida do arquivo CONFIG.ini. </p>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_4_8c-example.html#_a8">exemplo_4.c</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a498511d3d06308b4d635ebf8b55fabf1" name="a498511d3d06308b4d635ebf8b55fabf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a498511d3d06308b4d635ebf8b55fabf1">&#9670;&#160;</a></span>cfg_temp_limit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float cfg_temp_limit = 50.0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Limite de temperatura lido do arquivo CONFIG.ini. </p>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_4_8c-example.html#_a9">exemplo_4.c</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a446b14d2e6d612f42f49773ba65419a8" name="a446b14d2e6d612f42f49773ba65419a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a446b14d2e6d612f42f49773ba65419a8">&#9670;&#160;</a></span>fat_fs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> fat_fs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Instância real da estrutura FAT32 (Alocação de memória). </p>
+
+</div>
+</div>
+<a id="ae368a2863a12fe37e5c8469026186a75" name="ae368a2863a12fe37e5c8469026186a75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae368a2863a12fe37e5c8469026186a75">&#9670;&#160;</a></span>line_buffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char line_buffer[64]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Buffer para processamento de cada linha do arquivo .ini. </p>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_4_8c-example.html#_a11">exemplo_4.c</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="aaa1fc0ff1aeb77f1feff261fa5ea792b" name="aaa1fc0ff1aeb77f1feff261fa5ea792b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa1fc0ff1aeb77f1feff261fa5ea792b">&#9670;&#160;</a></span>mystdout</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILE mystdout = FDEV_SETUP_STREAM(<a class="el" href="#a985ba70f2a53d95f1fd11f70f1d8f4f6">uart_putchar</a>, NULL, _FDEV_SETUP_WRITE)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7cbd3f3dbf08060c4a624e0e8719dec0" name="a7cbd3f3dbf08060c4a624e0e8719dec0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cbd3f3dbf08060c4a624e0e8719dec0">&#9670;&#160;</a></span>sd_ctx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_s_d___context.html">SD_Context</a> sd_ctx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Instância real do contexto do SD (Alocação de memória). </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- HTML footer for doxygen 1.16.1-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_d28a4824dc47e487b107a5db32ef43c4.html">examples</a></li><li class="navelem"><a href="exemplo__4_8c.html">exemplo_4.c</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>

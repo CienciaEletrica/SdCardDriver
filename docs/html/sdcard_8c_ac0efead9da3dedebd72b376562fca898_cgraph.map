@@ -1,0 +1,10 @@
+<map id="sd_dir_list" name="sd_dir_list">
+<area shape="rect" id="Node000001" title="Lista todos os arquivos presentes no diretório raiz via Serial." alt="" coords="5,5,86,32"/>
+<area shape="rect" id="Node000002" href="$sdcard_8c.html#aba9c8b9a5590e13424ab4a69280f0c1d" title="Lê um único bloco de 512 bytes do cartão (LBA)." alt="" coords="342,5,433,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,16,327,16,326,21,86,21"/>
+<area shape="rect" id="Node000004" href="$sdcard_8c.html#a7b0d2ab1fae193461c611a4f2e6c9245" title="Obtém o próximo cluster na tabela FAT." alt="" coords="134,31,294,57"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="86,22,121,29,116,30,86,27"/>
+<area shape="rect" id="Node000003" href="$sdcard_8c.html#aae1cfbcba5f92f4639e23fd8ed8fa3c0" title="Envia um comando SPI para o cartão SD e aguarda resposta R1." alt="" coords="481,5,584,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="434,16,469,19,463,19,434,21"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="294,30,324,28,329,27,295,35"/>
+</map>

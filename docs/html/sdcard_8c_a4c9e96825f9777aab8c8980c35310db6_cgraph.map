@@ -1,0 +1,14 @@
+<map id="sd_file_read_stream" name="sd_file_read_stream">
+<area shape="rect" id="Node000001" title="Lê o conteúdo de um arquivo em modo streaming via callback." alt="" coords="5,28,144,55"/>
+<area shape="rect" id="Node000002" href="$sdcard_8c.html#aba9c8b9a5590e13424ab4a69280f0c1d" title="Lê um único bloco de 512 bytes do cartão (LBA)." alt="" coords="571,28,663,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,26,191,20,358,4,431,4,524,13,562,24,557,24,523,19,430,9,358,9,192,25,145,32"/>
+<area shape="rect" id="Node000004" href="$sdcard_8c.html#a7b0d2ab1fae193461c611a4f2e6c9245" title="Obtém o próximo cluster na tabela FAT." alt="" coords="363,28,523,55"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="144,39,349,39,347,44,144,44"/>
+<area shape="rect" id="Node000005" href="$sdcard_8c.html#a3794ef278970bdb3d1d50b3f10fc4e9f" title="Localiza a entrada de um arquivo no diretório raiz." alt="" coords="192,79,315,105"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="125,53,192,73,187,75,124,58"/>
+<area shape="rect" id="Node000003" href="$sdcard_8c.html#aae1cfbcba5f92f4639e23fd8ed8fa3c0" title="Envia um comando SPI para o cartão SD e aguarda resposta R1." alt="" coords="711,28,813,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="663,39,698,41,693,42,663,44"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="523,39,558,41,553,42,524,44"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="315,87,413,79,523,64,554,60,559,59,524,69,414,84,316,92"/>
+<area shape="poly" id="edge7_Node000005_Node000004" title=" " alt="" coords="306,76,373,60,378,59,307,81"/>
+</map>

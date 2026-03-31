@@ -1,0 +1,170 @@
+<!-- HTML header for doxygen 1.16.1-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta charset="utf-8">
+<title>AVR SD Card FAT32 Driver: Driver SD Card FAT32 para AVR</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="stylesheet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+  <table cellspacing="0" cellpadding="0">
+   <tbody>
+   <tr style="height: 56px;">
+    <td id="projectalign" style="padding-left: 0.5em;">
+     <div id="projectname">Driver SD Card FAT32 - YouTube: Ciência Elétrica</div>
+     <div id="projectbrief">Biblioteca para Microcontroladores AVR</div>
+    </td>
+   </tr>
+   </tbody>
+  </table>
+  </div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Localizar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('index.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">Driver SD Card FAT32 para AVR </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="mainpage"></a></p>
+<div class="image">
+<img src="FIGURA2.png" alt="" width="70px"/>
+<div class="caption">
+Ciência Elétrica</div></div>
+<p>Bem-vindo à documentação oficial da biblioteca <b>AVR SD Card</b>. Este driver foi desenvolvido para permitir que microcontroladores da linha AVR (como o ATmega328P) manipulem arquivos em cartões SD formatados em <b>FAT32</b>.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+Principais Recursos</h1>
+<ul>
+<li><b>Baixo Consumo de RAM:</b> Utiliza buffers otimizados para operar em apenas 2KB de SRAM.</li>
+<li><b>Streaming de Dados:</b> Funções de leitura e escrita via callback para processamento em tempo real.</li>
+<li><b>Gerenciamento FAT32:</b> Suporte a criação, exclusão, append e expansão automática de diretórios.</li>
+<li><b>Documentação Completa:</b> Grafos de chamadas gerados automaticamente para facilitar o entendimento do fluxo SPI/FAT.</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+Pinagem Sugerida (ATmega328P)</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">SD Card  </th><th class="markdownTableHeadCenter">AVR Pin  </th><th class="markdownTableHeadCenter">Função  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">CS  </td><td class="markdownTableBodyCenter">PB2  </td><td class="markdownTableBodyCenter">SS  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">MOSI  </td><td class="markdownTableBodyCenter">PB3  </td><td class="markdownTableBodyCenter">MOSI  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">MISO  </td><td class="markdownTableBodyCenter">PB4  </td><td class="markdownTableBodyCenter">MISO  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">SCK  </td><td class="markdownTableBodyCenter">PB5  </td><td class="markdownTableBodyCenter">SCK  </td></tr>
+</table>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+Exemplos Completos de Estudo</h1>
+<p>Para facilitar o aprendizado, acesse a nossa seção dedicada:</p><ul>
+<li><a class="el" href="exemplos_lista.html" title="Exemplos de Uso">Clique aqui para ver a lista de exemplos detalhada</a></li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+Exemplo Rápido</h1>
+<div class="fragment"><div class="line"><span class="preprocessor">#define F_CPU 16000000UL</span></div>
+<div class="line"><span class="preprocessor">#include &lt;util/delay.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="sdcard_8h.html">sdcard.h</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="exemplo__1_8c.html#a9ddddd20ec13dcafa912ee1d93f76a37">my_delay_ms</a>(uint32_t ms) {</div>
+<div class="line">    <span class="keywordflow">while</span> (ms--) _delay_ms(1);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_struct" href="struct_s_d___context.html">SD_Context</a> <a class="code hl_variable" href="exemplo__1_8c.html#a7cbd3f3dbf08060c4a624e0e8719dec0">sd_ctx</a>;</div>
+<div class="line"><a class="code hl_struct" href="struct_f_a_t32___info.html">FAT32_Info</a> <a class="code hl_variable" href="exemplo__1_8c.html#a446b14d2e6d612f42f49773ba65419a8">fat_fs</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="exemplo__1_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a>() {</div>
+<div class="line">    <a class="code hl_function" href="sdcard_8h.html#a0de914bcd39f32ddd2f8412744267322">sd_begin</a>(&amp;<a class="code hl_variable" href="exemplo__1_8c.html#a7cbd3f3dbf08060c4a624e0e8719dec0">sd_ctx</a>, <a class="code hl_function" href="exemplo__1_8c.html#a9ddddd20ec13dcafa912ee1d93f76a37">my_delay_ms</a>);</div>
+<div class="line">    <span class="keywordflow">if</span> (<a class="code hl_function" href="sdcard_8h.html#a8fb3672dbc5a29bab3e7614f4c655aff">sd_fat_mount</a>(&amp;<a class="code hl_variable" href="exemplo__1_8c.html#a7cbd3f3dbf08060c4a624e0e8719dec0">sd_ctx</a>, &amp;<a class="code hl_variable" href="exemplo__1_8c.html#a446b14d2e6d612f42f49773ba65419a8">fat_fs</a>) == <a class="code hl_enumvalue" href="sdcard_8h.html#a725698981494a7c497cec2a7ebbb94a9a643bd28d210b4419014f2551e9693739">SD_SUCCESS</a>) {</div>
+<div class="line">        <a class="code hl_function" href="sdcard_8h.html#ac0efead9da3dedebd72b376562fca898">sd_dir_list</a>(&amp;<a class="code hl_variable" href="exemplo__1_8c.html#a7cbd3f3dbf08060c4a624e0e8719dec0">sd_ctx</a>, &amp;<a class="code hl_variable" href="exemplo__1_8c.html#a446b14d2e6d612f42f49773ba65419a8">fat_fs</a>);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aexemplo__1_8c_html_a446b14d2e6d612f42f49773ba65419a8"><div class="ttname"><a href="exemplo__1_8c.html#a446b14d2e6d612f42f49773ba65419a8">fat_fs</a></div><div class="ttdeci">FAT32_Info fat_fs</div><div class="ttdef"><b>Definição</b> exemplo_1.c:36</div></div>
+<div class="ttc" id="aexemplo__1_8c_html_a7cbd3f3dbf08060c4a624e0e8719dec0"><div class="ttname"><a href="exemplo__1_8c.html#a7cbd3f3dbf08060c4a624e0e8719dec0">sd_ctx</a></div><div class="ttdeci">SD_Context sd_ctx</div><div class="ttdef"><b>Definição</b> exemplo_1.c:35</div></div>
+<div class="ttc" id="aexemplo__1_8c_html_a840291bc02cba5474a4cb46a9b9566fe"><div class="ttname"><a href="exemplo__1_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a></div><div class="ttdeci">int main(void)</div><div class="ttdef"><b>Definição</b> exemplo_1.c:217</div></div>
+<div class="ttc" id="aexemplo__1_8c_html_a9ddddd20ec13dcafa912ee1d93f76a37"><div class="ttname"><a href="exemplo__1_8c.html#a9ddddd20ec13dcafa912ee1d93f76a37">my_delay_ms</a></div><div class="ttdeci">void my_delay_ms(uint32_t ms)</div><div class="ttdef"><b>Definição</b> exemplo_1.c:63</div></div>
+<div class="ttc" id="asdcard_8h_html"><div class="ttname"><a href="sdcard_8h.html">sdcard.h</a></div><div class="ttdoc">Driver SD Card SPI + FAT32 (Root-only) para AVR.</div></div>
+<div class="ttc" id="asdcard_8h_html_a0de914bcd39f32ddd2f8412744267322"><div class="ttname"><a href="sdcard_8h.html#a0de914bcd39f32ddd2f8412744267322">sd_begin</a></div><div class="ttdeci">SD_Status sd_begin(SD_Context *ctx, void(*delay_func)(uint32_t ms))</div><div class="ttdoc">Prepara o contexto da biblioteca e inicializa a interface de hardware.</div><div class="ttdef"><b>Definição</b> sdcard.c:259</div></div>
+<div class="ttc" id="asdcard_8h_html_a725698981494a7c497cec2a7ebbb94a9a643bd28d210b4419014f2551e9693739"><div class="ttname"><a href="sdcard_8h.html#a725698981494a7c497cec2a7ebbb94a9a643bd28d210b4419014f2551e9693739">SD_SUCCESS</a></div><div class="ttdeci">@ SD_SUCCESS</div><div class="ttdef"><b>Definição</b> sdcard.h:53</div></div>
+<div class="ttc" id="asdcard_8h_html_a8fb3672dbc5a29bab3e7614f4c655aff"><div class="ttname"><a href="sdcard_8h.html#a8fb3672dbc5a29bab3e7614f4c655aff">sd_fat_mount</a></div><div class="ttdeci">SD_Status sd_fat_mount(SD_Context *ctx, FAT32_Info *fs)</div><div class="ttdoc">Localiza e monta o sistema de arquivos FAT32 no cartão SD.</div><div class="ttdef"><b>Definição</b> sdcard.c:472</div></div>
+<div class="ttc" id="asdcard_8h_html_ac0efead9da3dedebd72b376562fca898"><div class="ttname"><a href="sdcard_8h.html#ac0efead9da3dedebd72b376562fca898">sd_dir_list</a></div><div class="ttdeci">void sd_dir_list(SD_Context *ctx, FAT32_Info *fs)</div><div class="ttdoc">Lista todos os arquivos presentes no diretório raiz via Serial.</div><div class="ttdef"><b>Definição</b> sdcard.c:1336</div></div>
+<div class="ttc" id="astruct_f_a_t32___info_html"><div class="ttname"><a href="struct_f_a_t32___info.html">FAT32_Info</a></div><div class="ttdef"><b>Definição</b> sdcard.h:109</div></div>
+<div class="ttc" id="astruct_s_d___context_html"><div class="ttname"><a href="struct_s_d___context.html">SD_Context</a></div><div class="ttdoc">Contexto da biblioteca SD Card.</div><div class="ttdef"><b>Definição</b> sdcard.h:139</div></div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
+<a href="doxygen_crawl.html"></a>
+</div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- HTML footer for doxygen 1.16.1-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
