@@ -1,7 +1,0 @@
-<map id="uart_getchar" name="uart_getchar">
-<area shape="rect" id="Node000001" title="Recebe um caractere da UART." alt="" coords="246,5,339,32"/>
-<area shape="rect" id="Node000002" href="$exemplo__5_8c.html#ab623c1f26019eb7e6ba94279fab87446" title="Lê uma linha inteira de caracteres da UART até encontrar &#39;Enter&#39;. Faz o &quot;echo&quot; (devolve o caractere) ..." alt="" coords="103,5,198,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="228,19,199,21,198,16,233,19"/>
-<area shape="rect" id="Node000003" href="$exemplo__5_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,55,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="85,20,55,21,55,16,90,18"/>
-</map>

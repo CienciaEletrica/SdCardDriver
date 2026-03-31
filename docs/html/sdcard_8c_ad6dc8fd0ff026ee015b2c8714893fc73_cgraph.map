@@ -1,7 +1,0 @@
-<map id="sd_blk_read_multi" name="sd_blk_read_multi">
-<area shape="rect" id="Node000001" title="Lê múltiplos blocos sequenciais." alt="" coords="5,5,132,32"/>
-<area shape="rect" id="Node000002" href="$sdcard_8c.html#aba9c8b9a5590e13424ab4a69280f0c1d" title="Lê um único bloco de 512 bytes do cartão (LBA)." alt="" coords="180,5,271,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,16,166,18,161,19,132,21"/>
-<area shape="rect" id="Node000003" href="$sdcard_8c.html#aae1cfbcba5f92f4639e23fd8ed8fa3c0" title="Envia um comando SPI para o cartão SD e aguarda resposta R1." alt="" coords="319,5,421,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="272,16,306,19,301,19,272,21"/>
-</map>

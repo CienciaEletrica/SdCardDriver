@@ -1,7 +1,0 @@
-<map id="callback_datalogger" name="callback_datalogger">
-<area shape="rect" id="Node000001" title="Gera linhas formatadas em CSV para gravação via Streaming." alt="" coords="296,5,432,32"/>
-<area shape="rect" id="Node000002" href="$exemplo__2_8c.html#a71c134181186f04ca234d95f2b605e9a" title="Executa o teste completo: Inicialização, Gravação e Busca." alt="" coords="103,5,248,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="278,19,248,21,248,16,283,19"/>
-<area shape="rect" id="Node000003" href="$exemplo__2_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Função principal." alt="" coords="5,5,55,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="85,20,55,21,55,16,90,18"/>
-</map>

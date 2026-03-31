@@ -1,7 +1,0 @@
-<map id="callback_escreve_string" name="callback_escreve_string">
-<area shape="rect" id="Node000001" title="Callback chamado pela biblioteca sd_file_append_stream()." alt="" coords="303,13,464,40"/>
-<area shape="rect" id="Node000002" href="$exemplo__1_8c.html#a45578ec38e9d0ae49d3313fa3900f338" title="Demonstração completa e básica da biblioteca." alt="" coords="103,5,255,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="285,27,256,29,255,24,290,27"/>
-<area shape="rect" id="Node000003" href="$exemplo__1_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,13,55,40"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="85,28,56,29,55,24,90,26"/>
-</map>

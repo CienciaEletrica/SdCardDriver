@@ -1,6 +1,0 @@
-<map id="uart_putchar" name="uart_putchar">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,99,56"/>
-<area shape="rect" id="Node000002" href="$exemplo__1_8c.html#a985ba70f2a53d95f1fd11f70f1d8f4f6" title=" " alt="" coords="147,29,240,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,40,134,42,128,43,99,45"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="168,28,164,21,167,11,177,5,193,3,211,5,221,15,216,14,209,10,193,8,179,10,171,14,170,20,173,30"/>
-</map>

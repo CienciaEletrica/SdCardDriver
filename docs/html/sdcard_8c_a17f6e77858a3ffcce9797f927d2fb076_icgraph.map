@@ -1,5 +1,0 @@
-<map id="sd_fat_next_cluster" name="sd_fat_next_cluster">
-<area shape="rect" id="Node000001" title="Obtém próximo cluster na FAT." alt="" coords="145,5,280,32"/>
-<area shape="rect" id="Node000002" href="$sdcard_8c.html#aeb8a12857aacd74c71460265f529e634" title="Lê o conteúdo de um arquivo FAT32 para um buffer externo." alt="" coords="5,5,97,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,19,97,21,97,16,132,18"/>
-</map>

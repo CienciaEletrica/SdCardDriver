@@ -1,9 +1,0 @@
-<map id="sd_init_retry" name="sd_init_retry">
-<area shape="rect" id="Node000001" title="Tenta inicializar o cartão até 3 vezes com delay entre tentativas." alt="" coords="5,43,98,69"/>
-<area shape="rect" id="Node000002" href="$sdcard_8c.html#a6a8f9df03a1b222e8ea45199b7431e19" title="Inicializa o cartão SD no modo SPI." alt="" coords="146,43,205,69"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,53,133,55,128,57,99,59"/>
-<area shape="rect" id="Node000003" href="$sdcard_8c.html#abf6c02ac2130c37a0bff2e6b9a6c25cb" title="Configura a velocidade do SPI no AVR (função interna)." alt="" coords="253,5,404,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="205,48,240,44,235,45,206,53"/>
-<area shape="rect" id="Node000004" href="$sdcard_8c.html#aae1cfbcba5f92f4639e23fd8ed8fa3c0" title="Envia um comando SPI para o cartão SD e aguarda resposta R1." alt="" coords="278,72,380,99"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="206,59,265,73,260,73,205,64"/>
-</map>
