@@ -1,14 +1,15 @@
-# 💾 Driver SD Card FAT32 para AVR (ATmega328P)
+# Driver SD Card FAT32 para AVR (ATmega328P)
 
-[![License: MIT](https://shields.io)](https://opensource.org)
-[![AVR](https://shields.io)](https://microchip.com)
-[![Compiler: XC8](https://shields.io)](https://microchip.com)
+![License](https://img.shields.io/badge/license-MIT-green)
+![AVR](https://img.shields.io/badge/MCU-AVR-blue)
+![Language](https://img.shields.io/badge/language-C-darkblue)
+![Compiler](https://img.shields.io/badge/compiler-XC8-orange)
 
 Biblioteca otimizada para manipulação de cartões SD formatados em **FAT32** utilizando microcontroladores AVR. Desenvolvida com foco em baixo consumo de memória RAM e confiabilidade para sistemas de telemetria e dataloggers.
 
 ---
 
-## 🚀 Diferenciais Técnicos
+## Diferenciais Técnicos
 - **Streaming Real:** Processamento de leitura e escrita via *callbacks*, permitindo manipular arquivos de Gigabytes com apenas 2KB de RAM.
 - **Escrita Inteligente:** Motor de *append* corrigido para evitar "lixo" de memória (zero-padding), garantindo arquivos CSV perfeitamente compatíveis com Excel.
 - **Gestão de Clusters:** Alocação dinâmica de setores e suporte a expansão automática de arquivos.
@@ -16,7 +17,7 @@ Biblioteca otimizada para manipulação de cartões SD formatados em **FAT32** u
 
 ---
 
-## 🔌 Conexão de Hardware (Pinagem)
+## Conexão de Hardware (Pinagem)
 
 Para o **ATmega328P** (Arduino Uno/Nano), utilize as seguintes conexões SPI:
 
@@ -32,7 +33,7 @@ Para o **ATmega328P** (Arduino Uno/Nano), utilize as seguintes conexões SPI:
 
 ---
 
-## 📂 Exemplos Inclusos
+## Exemplos Inclusos
 
 O repositório conta com 4 demonstrações completas:
 
@@ -43,7 +44,7 @@ O repositório conta com 4 demonstrações completas:
 
 ---
 
-## 🛠️ Como Usar
+## Como Usar
 
 1. Adicione as pastas `/inc` e `/src` ao seu projeto no **MPLAB X**.
 2. Configure a frequência do cristal (`F_CPU`) nas propriedades do projeto.
