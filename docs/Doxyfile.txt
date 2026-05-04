@@ -1,0 +1,53 @@
+# Configurações Básicas do Projeto
+PROJECT_NAME           = "AVR SD Card FAT32 Driver"
+PROJECT_NUMBER         = "V1.0"
+OUTPUT_DIRECTORY       = .
+OUTPUT_LANGUAGE        = Brazilian
+INPUT_ENCODING         = UTF-8
+DOXYFILE_ENCODING      = UTF-8
+
+# Entrada de Arquivos
+INPUT                  = . ../inc ../src ../examples
+RECURSIVE              = YES
+OPTIMIZE_OUTPUT_FOR_C  = YES
+STRIP_FROM_PATH        = ..
+
+# Configurações de Extração
+EXTRACT_ALL            = YES
+EXTRACT_STATIC         = YES
+GENERATE_LATEX         = YES
+GENERATE_HTML          = YES
+
+# Integração com Graphviz (Para Diagramas de Chamada)
+HAVE_DOT               = YES
+DOT_PATH               = "C:/Program Files/Graphviz/bin" # Verifique se este é o seu caminho
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+EXTRACT_ALL            = YES
+EXTRACT_STATIC         = YES
+DOT_IMAGE_FORMAT       = svg
+INTERACTIVE_SVG        = YES
+
+DOXYFILE_ENCODING      = UTF-8
+INPUT_ENCODING         = UTF-8
+HTML_EXTRA_STYLESHEET  = 
+
+HTML_HEADER            = header.html
+HTML_FOOTER            = footer.html
+HTML_STYLESHEET        = stylesheet.css
+
+# Define a ordem das páginas no menu lateral
+LAYOUT_FILE            = DoxygenLayout.xml
+
+# Adicione o caminho da pasta onde estão os seus arquivos .c de exemplo
+EXAMPLE_PATH = ../examples
+
+# Garante que o Doxygen procure arquivos de exemplo recursivamente
+EXAMPLE_RECURSIVE       = YES
+
+# Filtros para garantir que ele leia arquivos C e Markdown
+FILE_PATTERNS          = *.c *.h *.md
+
+# No seu Doxyfile
+IMAGE_PATH             = ./img
+PROJECT_LOGO           = ./img/FIGURA2.png

@@ -1,0 +1,43 @@
+# Arquivos de compilação (Objetos e Binários)
+*.o
+*.obj
+*.hex
+*.elf
+*.lss
+*.map
+*.a
+*.lib
+
+# Pastas de saída do compilador (Build)
+Debug/
+Release/
+bin/
+obj/
+
+# Arquivos do Microchip Studio / Atmel Studio
+*.atsln
+*.atp
+*.user
+*.suo
+*.bak
+.vs/
+
+# Documentação (Não envie o HTML gerado, pois o GitHub gera o seu ou ocupa muito espaço)
+# O ideal é que o usuário gere a documentação localmente usando o seu Doxyfile
+docs/html/
+docs/latex/
+doxygen_sqlite3.db
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+
+# Pastas de recursos privados
+img/
+Fases de dev/
+
+# Arquivos de configuração e templates do Doxygen
+Doxyfile
+header.html
+footer.html
+custom_styles.css
