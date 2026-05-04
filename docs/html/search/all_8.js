@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['callback_5fbusca_0',['callback_busca',['../exemplo__2_8c.html#a1d139aeb7facf235c50daa42a1924ae5',1,'exemplo_2.c']]],
+  ['callback_5fdatalogger_1',['callback_datalogger',['../exemplo__2_8c.html#abefbf62945c5d9d22081fc557119d711',1,'exemplo_2.c']]],
+  ['callback_5fescreve_5fstring_2',['callback_escreve_string',['../exemplo__1_8c.html#a014f66c320f488d0c93cf4b998611466',1,'exemplo_1.c']]],
+  ['callback_5fescrita_5frotacao_3',['callback_escrita_rotacao',['../exemplo__3_8c.html#a71f1a2293174059d753ba1816e7df0e2',1,'exemplo_3.c']]],
+  ['callback_5fparser_5fconfig_4',['callback_parser_config',['../exemplo__4_8c.html#a95f3b940be7bd6926d8ef9532f3db2a3',1,'exemplo_4.c']]],
+  ['card_5',['Card',['../exemplos_lista.html#autotoc_md3',1,'4. Exemplo de leitura de parâmetros de configuração (.ini) via SD Card'],['../exemplos_lista.html#autotoc_md4',1,'5. Terminal de Comandos (Shell) para diagnóstico e manutenção do SD Card']]],
+  ['card_20fat32_20para_20avr_6',['Driver SD Card FAT32 para AVR',['../index.html',1,'']]],
+  ['card_5ftype_7',['card_type',['../struct_s_d___context.html#ac311da18a2dc0822b6925b230d9d3d6b',1,'SD_Context']]],
+  ['carregar_5fparametros_5fboot_8',['carregar_parametros_boot',['../exemplo__4_8c.html#aea5f9f33267c7ef0c394d9a9e8d45c17',1,'exemplo_4.c']]],
+  ['cfg_5fdevice_5fid_9',['cfg_device_id',['../exemplo__4_8c.html#a271ccf298b4870ab1eb500845742c98a',1,'exemplo_4.c']]],
+  ['cfg_5fsampling_5frate_10',['cfg_sampling_rate',['../exemplo__4_8c.html#ac438007bb7711eb3943d03c26569dd01',1,'exemplo_4.c']]],
+  ['cfg_5ftemp_5flimit_11',['cfg_temp_limit',['../exemplo__4_8c.html#a498511d3d06308b4d635ebf8b55fabf1',1,'exemplo_4.c']]],
+  ['cmd_5fbuffer_12',['cmd_buffer',['../exemplo__5_8c.html#a03897d92b865251d81cd0c8795515c45',1,'exemplo_5.c']]],
+  ['coluna_13',['2. Datalogger CSV com Busca por Coluna',['../exemplos_lista.html#autotoc_md1',1,'']]],
+  ['com_20busca_20por_20coluna_14',['2. Datalogger CSV com Busca por Coluna',['../exemplos_lista.html#autotoc_md1',1,'']]],
+  ['com_20rotação_20automática_20de_20arquivos_20e_20timestamp_15',['3. Sistema de Datalogger com Rotação Automática de Arquivos e Timestamp',['../exemplos_lista.html#autotoc_md2',1,'']]],
+  ['comandos_20shell_20para_20diagnóstico_20e_20manutenção_20do_20sd_20card_16',['5. Terminal de Comandos (Shell) para diagnóstico e manutenção do SD Card',['../exemplos_lista.html#autotoc_md4',1,'']]],
+  ['completos_20de_20estudo_17',['Exemplos Completos de Estudo',['../index.html#autotoc_md8',1,'']]],
+  ['configuração_20ini_20via_20sd_20card_18',['4. Exemplo de leitura de parâmetros de configuração (.ini) via SD Card',['../exemplos_lista.html#autotoc_md3',1,'']]],
+  ['cs_5fhigh_19',['cs_high',['../struct_s_d___h_a_l.html#a2ea540968afcfcead4f9e7627818abd6',1,'SD_HAL']]],
+  ['cs_5flow_20',['cs_low',['../struct_s_d___h_a_l.html#a3ad649bf763c48a77cd167b39d08ee9c',1,'SD_HAL']]],
+  ['csv_20com_20busca_20por_20coluna_21',['2. Datalogger CSV com Busca por Coluna',['../exemplos_lista.html#autotoc_md1',1,'']]]
+];

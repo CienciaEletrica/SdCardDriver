@@ -1,0 +1,13 @@
+<map id="sd_file_read_stream" name="sd_file_read_stream">
+<area shape="rect" id="Node000001" title="Lê o conteúdo de um arquivo em modo streaming via callback." alt="" coords="516,31,655,57"/>
+<area shape="rect" id="Node000002" href="$exemplo__2_8c.html#aba31b1e3919797222f981b3bc0fa1eda" title="Inicia a busca por um valor em uma coluna específica do arquivo CSV." alt="" coords="314,5,450,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="498,33,451,30,451,24,503,33"/>
+<area shape="rect" id="Node000005" href="$exemplo__4_8c.html#aea5f9f33267c7ef0c394d9a9e8d45c17" title="Localiza e processa o arquivo CONFIG.ini no cartão SD." alt="" coords="296,56,468,83"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="503,54,469,61,468,56,498,55"/>
+<area shape="rect" id="Node000003" href="$exemplo__2_8c.html#a71c134181186f04ca234d95f2b605e9a" title="Executa o teste completo: Inicialização, Gravação e Busca." alt="" coords="103,5,248,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="296,19,249,21,248,16,301,18"/>
+<area shape="rect" id="Node000004" href="$exemplo__2_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Função principal." alt="" coords="5,5,55,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="85,20,55,21,54,16,89,17"/>
+<area shape="rect" id="Node000006" href="$exemplo__4_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Função main demonstrando o fluxo completo de carregamento e uso." alt="" coords="151,56,200,83"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="278,69,200,72,200,67,283,69"/>
+</map>

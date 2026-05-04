@@ -1,0 +1,12 @@
+<map id="sd_file_exists" name="sd_file_exists">
+<area shape="rect" id="Node000001" title="Verifica se arquivo existe." alt="" coords="5,5,107,32"/>
+<area shape="rect" id="Node000002" href="$sdcard_8c.html#a3794ef278970bdb3d1d50b3f10fc4e9f" title="Localiza a entrada de um arquivo no diretório raiz." alt="" coords="155,5,278,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,16,142,18,137,19,108,21"/>
+<area shape="rect" id="Node000003" href="$sdcard_8c.html#aba9c8b9a5590e13424ab4a69280f0c1d" title="Lê um único bloco de 512 bytes do cartão (LBA)." alt="" coords="534,5,626,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="278,16,521,18,517,20,279,21"/>
+<area shape="rect" id="Node000005" href="$sdcard_8c.html#a7b0d2ab1fae193461c611a4f2e6c9245" title="Obtém o próximo cluster na tabela FAT." alt="" coords="326,31,486,57"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="279,24,313,31,308,31,278,30"/>
+<area shape="rect" id="Node000004" href="$sdcard_8c.html#aae1cfbcba5f92f4639e23fd8ed8fa3c0" title="Envia um comando SPI para o cartão SD e aguarda resposta R1." alt="" coords="674,5,776,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="626,16,661,19,656,19,626,21"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="486,30,516,28,522,27,487,35"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="gerenciar_proximo_volume" name="gerenciar_proximo_volume">
+<area shape="rect" id="Node000001" title="Localiza ou cria o volume de log adequado no cartão." alt="" coords="286,5,462,32"/>
+<area shape="rect" id="Node000002" href="$exemplo__3_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Ponto de entrada do programa." alt="" coords="5,5,55,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="270,18,103,17,56,20,55,14,103,12,271,13"/>
+<area shape="rect" id="Node000003" href="$exemplo__3_8c.html#a9765d93a7e9eac42493b89eb0dc1ab12" title="Formata e grava um registro CSV com data, hora e 4 sensores." alt="" coords="103,27,238,69"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="273,33,239,41,238,36,268,34"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="85,32,55,26,55,21,90,29"/>
+</map>

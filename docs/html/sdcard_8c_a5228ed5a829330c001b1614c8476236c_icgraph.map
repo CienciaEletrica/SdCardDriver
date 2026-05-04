@@ -1,0 +1,19 @@
+<map id="sd_file_create" name="sd_file_create">
+<area shape="rect" id="Node000001" title="Cria um novo arquivo no diretório raiz com expansão de cluster." alt="" coords="510,93,613,120"/>
+<area shape="poly" id="edge5_Node000001_Node000001" title=" " alt="" coords="592,78,582,74,561,72,542,74,532,79,529,84,534,94,529,92,524,85,528,75,541,69,562,67,584,69,597,78"/>
+<area shape="rect" id="Node000002" href="$exemplo__3_8c.html#a1888a7d50f8090bc2f0c577e2ce4074f" title="Localiza ou cria o volume de log adequado no cartão." alt="" coords="286,35,462,61"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="504,88,462,76,425,65,425,59,463,71,509,88"/>
+<area shape="rect" id="Node000005" href="$exemplo__1_8c.html#a45578ec38e9d0ae49d3313fa3900f338" title="Demonstração completa e básica da biblioteca." alt="" coords="298,85,450,128"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="492,107,451,109,451,104,497,106"/>
+<area shape="rect" id="Node000007" href="$exemplo__2_8c.html#a71c134181186f04ca234d95f2b605e9a" title="Executa o teste completo: Inicialização, Gravação e Busca." alt="" coords="302,152,447,179"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="509,125,463,143,425,154,424,149,462,137,504,126"/>
+<area shape="rect" id="Node000003" href="$exemplo__3_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Ponto de entrada do programa." alt="" coords="5,5,55,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="311,31,238,17,170,14,103,17,56,19,54,15,103,12,170,9,238,12,316,29"/>
+<area shape="rect" id="Node000004" href="$exemplo__3_8c.html#a9765d93a7e9eac42493b89eb0dc1ab12" title="Formata e grava um registro CSV com data, hora e 4 sensores." alt="" coords="103,27,238,69"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="268,49,239,51,238,45,273,47"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="85,32,56,26,54,21,90,29"/>
+<area shape="rect" id="Node000006" href="$exemplo__1_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="146,93,195,120"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="280,107,196,109,195,104,285,106"/>
+<area shape="rect" id="Node000008" href="$exemplo__2_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Função principal." alt="" coords="146,152,195,179"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="284,166,196,168,195,163,289,165"/>
+</map>

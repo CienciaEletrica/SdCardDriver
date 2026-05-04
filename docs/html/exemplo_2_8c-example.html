@@ -1,0 +1,340 @@
+<!-- HTML header for doxygen 1.16.1-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta charset="utf-8">
+<title>AVR SD Card FAT32 Driver: exemplo_2.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="stylesheet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+  <table cellspacing="0" cellpadding="0">
+   <tbody>
+   <tr style="height: 56px;">
+    <td id="projectalign" style="padding-left: 0.5em;">
+     <div id="projectname">Driver SD Card FAT32 - YouTube: Ciência Elétrica</div>
+     <div id="projectbrief">Biblioteca para Microcontroladores AVR</div>
+    </td>
+   </tr>
+   </tbody>
+  </table>
+  </div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('exemplo_2_8c-example.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">exemplo_2.c</div></div>
+</div><!--header-->
+<div class="contents">
+<p>Sistema de Datalogger CSV com busca por coluna para microcontroladores AVR.</p>
+<p>Este exemplo demonstra como criar um arquivo CSV, gravar múltiplos registros simulando sensores e realizar buscas inteligentes por valores em colunas específicas, tudo otimizado para o compilador XC8 e baixa utilização de memória RAM.</p>
+<dl class="section author"><dt>Autor</dt><dd>Tiago Henrique dos Santos / Canal Ciência Elétrica </dd></dl>
+<dl class="section version"><dt>Versão</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>2026-03-30</dd></dl>
+<div class="fragment"><div class="line"></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#define F_CPU 16000000UL</span></div>
+<div class="line"><span class="preprocessor">#include &lt;avr/io.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;util/delay.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="sdcard_8h.html">sdcard.h</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/* ==========================================================================</span></div>
+<div class="line"><span class="comment">   VARIÁVEIS GLOBAIS E ESTRUTURAS</span></div>
+<div class="line"><span class="comment">   ========================================================================== */</span></div>
+<div class="line"></div>
+<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_struct" href="struct_s_d___context.html">SD_Context</a>   <a id="_a1" name="_a1"></a><a class="code hl_variable" href="exemplo__1_8c.html#a7cbd3f3dbf08060c4a624e0e8719dec0">sd_ctx</a>;</div>
+<div class="line"></div>
+<div class="line"><a id="_a2" name="_a2"></a><a class="code hl_struct" href="struct_f_a_t32___info.html">FAT32_Info</a>   <a id="_a3" name="_a3"></a><a class="code hl_variable" href="exemplo__1_8c.html#a446b14d2e6d612f42f49773ba65419a8">fat_fs</a>;</div>
+<div class="line"></div>
+<div class="line"><span class="keyword">static</span> uint32_t <a id="_a4" name="_a4"></a><a class="code hl_variable" href="exemplo__2_8c.html#aee7fefadbf61784b8db311f95191eb4d">busca_valor_global</a>;</div>
+<div class="line"></div>
+<div class="line"><span class="keyword">static</span> uint8_t  <a id="_a5" name="_a5"></a><a class="code hl_variable" href="exemplo__2_8c.html#a10144904614a62dc5bdb195d3b313f3c">busca_coluna_global</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/* ==========================================================================</span></div>
+<div class="line"><span class="comment">   COMUNICAÇÃO SERIAL (UART) - MONITORAMENTO</span></div>
+<div class="line"><span class="comment">   ========================================================================== */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#define BAUD 9600</span></div>
+<div class="line"><span class="preprocessor">#define MYUBRR (F_CPU/16/BAUD - 1)</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> <a id="a6" name="a6"></a><a class="code hl_function" href="exemplo__1_8c.html#a0c0ca72359ddf28dcd15900dfba19343">uart_init</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line">    UBRR0H = (uint8_t)(<a id="_a7" name="_a7"></a><a class="code hl_define" href="exemplo__1_8c.html#a711e9130c825a7269c8c87dbb57a85e0">MYUBRR</a> &gt;&gt; 8);</div>
+<div class="line">    UBRR0L = (uint8_t)<a class="code hl_define" href="exemplo__1_8c.html#a711e9130c825a7269c8c87dbb57a85e0">MYUBRR</a>;</div>
+<div class="line">    UCSR0B = (1 &lt;&lt; TXEN0); <span class="comment">// Habilita apenas transmissão</span></div>
+<div class="line">    UCSR0C = (1 &lt;&lt; UCSZ01) | (1 &lt;&lt; UCSZ00); <span class="comment">// 8-N-1</span></div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> <a id="a8" name="a8"></a><a class="code hl_function" href="exemplo__1_8c.html#a985ba70f2a53d95f1fd11f70f1d8f4f6">uart_putchar</a>(<span class="keywordtype">char</span> c, FILE *stream) {</div>
+<div class="line">    <span class="keywordflow">if</span> (c == <span class="charliteral">&#39;\n&#39;</span>) <a class="code hl_function" href="exemplo__1_8c.html#a985ba70f2a53d95f1fd11f70f1d8f4f6">uart_putchar</a>(<span class="charliteral">&#39;\r&#39;</span>, stream); <span class="comment">// Adiciona Carriage Return ao New Line</span></div>
+<div class="line">    <span class="keywordflow">while</span> (!(UCSR0A &amp; (1 &lt;&lt; UDRE0))); <span class="comment">// Aguarda buffer estar vazio</span></div>
+<div class="line">    UDR0 = c;</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keyword">static</span> FILE <a id="_a9" name="_a9"></a><a class="code hl_variable" href="exemplo__1_8c.html#aaa1fc0ff1aeb77f1feff261fa5ea792b">mystdout</a> = FDEV_SETUP_STREAM(<a class="code hl_function" href="exemplo__1_8c.html#a985ba70f2a53d95f1fd11f70f1d8f4f6">uart_putchar</a>, NULL, _FDEV_SETUP_WRITE);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/* ==========================================================================</span></div>
+<div class="line"><span class="comment">   UTILITÁRIOS</span></div>
+<div class="line"><span class="comment">   ========================================================================== */</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> <a id="a10" name="a10"></a><a class="code hl_function" href="exemplo__1_8c.html#a9ddddd20ec13dcafa912ee1d93f76a37">my_delay_ms</a>(uint32_t ms) {</div>
+<div class="line">    <span class="keywordflow">while</span> (ms--) _delay_ms(1);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/* ==========================================================================</span></div>
+<div class="line"><span class="comment">   CALLBACKS (FUNÇÕES DE RETORNO)</span></div>
+<div class="line"><span class="comment">   ========================================================================== */</span></div>
+<div class="line"></div>
+<div class="line">uint16_t <a id="a11" name="a11"></a><a class="code hl_function" href="exemplo__2_8c.html#abefbf62945c5d9d22081fc557119d711">callback_datalogger</a>(<span class="keyword">const</span> uint8_t **data_ptr) {</div>
+<div class="line">    <span class="keyword">static</span> uint16_t contador = 1;</div>
+<div class="line">    <span class="keyword">static</span> <span class="keywordtype">char</span> linha[64]; <span class="comment">// Buffer estático para manter a string ativa durante a gravação</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Define o limite de 30 registros</span></div>
+<div class="line">    <span class="keywordflow">if</span> (contador &gt; 30) {</div>
+<div class="line">        contador = 1; <span class="comment">// Reseta para próxima execução</span></div>
+<div class="line">        <span class="keywordflow">return</span> 0;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Simulação de dados de sensores (Cálculos fictícios)</span></div>
+<div class="line">    uint16_t s1 = 20 + (contador % 15);</div>
+<div class="line">    uint16_t s2 = 40 + (contador % 20);</div>
+<div class="line">    uint16_t s3 = 500 + (contador * 10);</div>
+<div class="line">    uint16_t s4 = 300 + (contador % 30);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Formata a linha: Contador,S1,S2,S3,S4\r\n</span></div>
+<div class="line">    sprintf(linha, <span class="stringliteral">&quot;%u,%u,%u,%u,%u\r\n&quot;</span>, contador, s1, s2, s3, s4);</div>
+<div class="line"> </div>
+<div class="line">    *data_ptr = (<span class="keyword">const</span> uint8_t *)linha;</div>
+<div class="line">    contador++;</div>
+<div class="line">    <span class="keywordflow">return</span> (uint16_t)strlen(linha);</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> <a id="a12" name="a12"></a><a class="code hl_function" href="exemplo__2_8c.html#a1d139aeb7facf235c50daa42a1924ae5">callback_busca</a>(<span class="keyword">const</span> uint8_t *data, uint16_t len) {</div>
+<div class="line">    <span class="keyword">static</span> <span class="keywordtype">char</span> buffer[128]; <span class="comment">// Buffer para reconstruir a linha do CSV</span></div>
+<div class="line">    <span class="keyword">static</span> uint8_t idx = 0;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">for</span> (uint16_t i = 0; i &lt; len; i++) {</div>
+<div class="line">        <span class="keywordtype">char</span> c = (char)data[i];</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Verifica fim de linha (\r ou \n)</span></div>
+<div class="line">        <span class="keywordflow">if</span> (c == <span class="charliteral">&#39;\r&#39;</span> || c == <span class="charliteral">&#39;\n&#39;</span>) {</div>
+<div class="line">            <span class="keywordflow">if</span> (idx &gt; 0) {</div>
+<div class="line">                buffer[idx] = <span class="charliteral">&#39;\0&#39;</span>; <span class="comment">// Finaliza a string da linha</span></div>
+<div class="line"> </div>
+<div class="line">                <span class="comment">// Cria uma cópia da linha pois o strtok modifica o original</span></div>
+<div class="line">                <span class="keywordtype">char</span> copia_linha[128];</div>
+<div class="line">                strcpy(copia_linha, buffer);</div>
+<div class="line"> </div>
+<div class="line">                <span class="keywordtype">char</span> *token = strtok(buffer, <span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line">                uint8_t col = 1;</div>
+<div class="line"> </div>
+<div class="line">                <span class="keywordflow">while</span> (token) {</div>
+<div class="line">                    <span class="comment">// Verifica se chegamos na coluna desejada</span></div>
+<div class="line">                    <span class="keywordflow">if</span> (col == <a class="code hl_variable" href="exemplo__2_8c.html#a10144904614a62dc5bdb195d3b313f3c">busca_coluna_global</a>) {</div>
+<div class="line">                        <span class="comment">// Converte texto para número e compara</span></div>
+<div class="line">                        <span class="keywordflow">if</span> ((uint32_t)atoi(token) == <a class="code hl_variable" href="exemplo__2_8c.html#aee7fefadbf61784b8db311f95191eb4d">busca_valor_global</a>) {</div>
+<div class="line">                            printf(<span class="stringliteral">&quot;&gt;&gt;&gt; LINHA ENCONTRADA: %s\n&quot;</span>, copia_linha);</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">break</span>;</div>
+<div class="line">                    }</div>
+<div class="line">                    token = strtok(NULL, <span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line">                    col++;</div>
+<div class="line">                }</div>
+<div class="line">                idx = 0; <span class="comment">// Prepara para a próxima linha</span></div>
+<div class="line">            }</div>
+<div class="line">        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (idx &lt; 127) {</div>
+<div class="line">            buffer[idx++] = c; <span class="comment">// Armazena caractere no buffer de linha</span></div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/* ==========================================================================</span></div>
+<div class="line"><span class="comment">   LÓGICA PRINCIPAL DO DATALOGGER</span></div>
+<div class="line"><span class="comment">   ========================================================================== */</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> <a id="a13" name="a13"></a><a class="code hl_function" href="exemplo__2_8c.html#aba31b1e3919797222f981b3bc0fa1eda">busca_valor_coluna</a>(uint32_t valor_busca, uint8_t coluna) {</div>
+<div class="line">    printf(<span class="stringliteral">&quot;\n[Busca] Procurando %lu na coluna %u...\n&quot;</span>, valor_busca, coluna);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_variable" href="exemplo__2_8c.html#aee7fefadbf61784b8db311f95191eb4d">busca_valor_global</a>  = valor_busca;</div>
+<div class="line">    <a class="code hl_variable" href="exemplo__2_8c.html#a10144904614a62dc5bdb195d3b313f3c">busca_coluna_global</a> = coluna;</div>
+<div class="line"> </div>
+<div class="line">    <a id="_a14" name="_a14"></a><a class="code hl_struct" href="struct_s_d___file_name.html">SD_FileName</a> arquivo;</div>
+<div class="line">    <a id="a15" name="a15"></a><a class="code hl_function" href="sdcard_8h.html#af2ad3468d37d6d256e022bafa756ac32">sd_set_filename</a>(&amp;arquivo, <span class="stringliteral">&quot;DATALOG.CSV&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Lê o arquivo em modo streaming processando cada bloco via callback_busca</span></div>
+<div class="line">    <a id="_a16" name="_a16"></a><a class="code hl_enumeration" href="sdcard_8h.html#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> st = <a id="a17" name="a17"></a><a class="code hl_function" href="sdcard_8h.html#a4c9e96825f9777aab8c8980c35310db6">sd_file_read_stream</a>(&amp;<a class="code hl_variable" href="exemplo__1_8c.html#a7cbd3f3dbf08060c4a624e0e8719dec0">sd_ctx</a>, &amp;<a class="code hl_variable" href="exemplo__1_8c.html#a446b14d2e6d612f42f49773ba65419a8">fat_fs</a>, &amp;arquivo, <a class="code hl_function" href="exemplo__2_8c.html#a1d139aeb7facf235c50daa42a1924ae5">callback_busca</a>);</div>
+<div class="line">    <span class="keywordflow">if</span> (st != <a id="_a18" name="_a18"></a><a class="code hl_enumvalue" href="sdcard_8h.html#a725698981494a7c497cec2a7ebbb94a9a643bd28d210b4419014f2551e9693739">SD_SUCCESS</a> &amp;&amp; st != <a id="_a19" name="_a19"></a><a class="code hl_enumvalue" href="sdcard_8h.html#a725698981494a7c497cec2a7ebbb94a9ac0bc69be493b77f0dbe5e8c4953a7628">SD_ERR_NOT_FOUND</a>) {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;Erro na leitura: %02X\n&quot;</span>, st);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> <a id="a20" name="a20"></a><a class="code hl_function" href="exemplo__2_8c.html#a71c134181186f04ca234d95f2b605e9a">teste_datalogger_csv</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line">    <a class="code hl_enumeration" href="sdcard_8h.html#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> status;</div>
+<div class="line">    <a class="code hl_struct" href="struct_s_d___file_name.html">SD_FileName</a> arquivo;</div>
+<div class="line"> </div>
+<div class="line">    printf(<span class="stringliteral">&quot;\n=== DATALOGGER CSV + BUSCA POR COLUNA ===\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;Canal Ciencia Eletrica - Tiago Henrique\n\n&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// 1. Inicializa o hardware SPI e o Cartão SD</span></div>
+<div class="line">    status = <a id="a21" name="a21"></a><a class="code hl_function" href="sdcard_8h.html#a0de914bcd39f32ddd2f8412744267322">sd_begin</a>(&amp;<a class="code hl_variable" href="exemplo__1_8c.html#a7cbd3f3dbf08060c4a624e0e8719dec0">sd_ctx</a>, <a class="code hl_function" href="exemplo__1_8c.html#a9ddddd20ec13dcafa912ee1d93f76a37">my_delay_ms</a>);</div>
+<div class="line">    <span class="keywordflow">if</span> (status != <a class="code hl_enumvalue" href="sdcard_8h.html#a725698981494a7c497cec2a7ebbb94a9a643bd28d210b4419014f2551e9693739">SD_SUCCESS</a>) { printf(<span class="stringliteral">&quot;ERRO Inicializacao: %02X\n&quot;</span>, status); <span class="keywordflow">return</span>; }</div>
+<div class="line">    printf(<span class="stringliteral">&quot;[OK] Cartao Detectado\n&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// 2. Monta a partição FAT32 (Root-only)</span></div>
+<div class="line">    status = <a id="a22" name="a22"></a><a class="code hl_function" href="sdcard_8h.html#a8fb3672dbc5a29bab3e7614f4c655aff">sd_fat_mount</a>(&amp;<a class="code hl_variable" href="exemplo__1_8c.html#a7cbd3f3dbf08060c4a624e0e8719dec0">sd_ctx</a>, &amp;<a class="code hl_variable" href="exemplo__1_8c.html#a446b14d2e6d612f42f49773ba65419a8">fat_fs</a>);</div>
+<div class="line">    <span class="keywordflow">if</span> (status != <a class="code hl_enumvalue" href="sdcard_8h.html#a725698981494a7c497cec2a7ebbb94a9a643bd28d210b4419014f2551e9693739">SD_SUCCESS</a>) { printf(<span class="stringliteral">&quot;ERRO Particao: %02X\n&quot;</span>, status); <span class="keywordflow">return</span>; }</div>
+<div class="line">    printf(<span class="stringliteral">&quot;[OK] FAT32 Montada\n&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_function" href="sdcard_8h.html#af2ad3468d37d6d256e022bafa756ac32">sd_set_filename</a>(&amp;arquivo, <span class="stringliteral">&quot;DATALOG.CSV&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// 3. Limpa testes anteriores</span></div>
+<div class="line">    <a id="a23" name="a23"></a><a class="code hl_function" href="sdcard_8h.html#af2ad75b395d583c12294747d47860497">sd_file_delete</a>(&amp;<a class="code hl_variable" href="exemplo__1_8c.html#a7cbd3f3dbf08060c4a624e0e8719dec0">sd_ctx</a>, &amp;<a class="code hl_variable" href="exemplo__1_8c.html#a446b14d2e6d612f42f49773ba65419a8">fat_fs</a>, &amp;arquivo);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;[OK] Arquivo anterior removido\n&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// 4. Cria novo arquivo</span></div>
+<div class="line">    status = <a id="a24" name="a24"></a><a class="code hl_function" href="sdcard_8h.html#a5228ed5a829330c001b1614c8476236c">sd_file_create</a>(&amp;<a class="code hl_variable" href="exemplo__1_8c.html#a7cbd3f3dbf08060c4a624e0e8719dec0">sd_ctx</a>, &amp;<a class="code hl_variable" href="exemplo__1_8c.html#a446b14d2e6d612f42f49773ba65419a8">fat_fs</a>, &amp;arquivo);</div>
+<div class="line">    <span class="keywordflow">if</span> (status != <a class="code hl_enumvalue" href="sdcard_8h.html#a725698981494a7c497cec2a7ebbb94a9a643bd28d210b4419014f2551e9693739">SD_SUCCESS</a>) { printf(<span class="stringliteral">&quot;ERRO Criacao: %02X\n&quot;</span>, status); <span class="keywordflow">return</span>; }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// 5. Gravação via Streaming (Gera 30 registros dinâmicos)</span></div>
+<div class="line">    printf(<span class="stringliteral">&quot;[OK] Gravando 30 registros...\n&quot;</span>);</div>
+<div class="line">    status = <a id="a25" name="a25"></a><a class="code hl_function" href="sdcard_8h.html#a3cb6e9bbb79a21ebf8cf7357ed262726">sd_file_append_stream</a>(&amp;<a class="code hl_variable" href="exemplo__1_8c.html#a7cbd3f3dbf08060c4a624e0e8719dec0">sd_ctx</a>, &amp;<a class="code hl_variable" href="exemplo__1_8c.html#a446b14d2e6d612f42f49773ba65419a8">fat_fs</a>, &amp;arquivo, <a class="code hl_function" href="exemplo__2_8c.html#abefbf62945c5d9d22081fc557119d711">callback_datalogger</a>);</div>
+<div class="line">    <span class="keywordflow">if</span> (status != <a class="code hl_enumvalue" href="sdcard_8h.html#a725698981494a7c497cec2a7ebbb94a9a643bd28d210b4419014f2551e9693739">SD_SUCCESS</a>) { printf(<span class="stringliteral">&quot;ERRO Gravacao: %02X\n&quot;</span>, status); <span class="keywordflow">return</span>; }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// 6. Listagem para conferência</span></div>
+<div class="line">    printf(<span class="stringliteral">&quot;\n[Diretorio Atual]:\n&quot;</span>);</div>
+<div class="line">    <a id="a26" name="a26"></a><a class="code hl_function" href="sdcard_8h.html#ac0efead9da3dedebd72b376562fca898">sd_dir_list</a>(&amp;<a class="code hl_variable" href="exemplo__1_8c.html#a7cbd3f3dbf08060c4a624e0e8719dec0">sd_ctx</a>, &amp;<a class="code hl_variable" href="exemplo__1_8c.html#a446b14d2e6d612f42f49773ba65419a8">fat_fs</a>);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// 7. Testes de Busca Inteligente</span></div>
+<div class="line">    printf(<span class="stringliteral">&quot;\n=== INICIANDO TESTES DE BUSCA ===\n&quot;</span>);</div>
+<div class="line">    <a class="code hl_function" href="exemplo__2_8c.html#aba31b1e3919797222f981b3bc0fa1eda">busca_valor_coluna</a>(15, 1);   <span class="comment">// Procura &#39;15&#39; na coluna 1 (Contador)</span></div>
+<div class="line">    <a class="code hl_function" href="exemplo__2_8c.html#aba31b1e3919797222f981b3bc0fa1eda">busca_valor_coluna</a>(678, 4);  <span class="comment">// Procura &#39;678&#39; na coluna 4 (Sensor 3)</span></div>
+<div class="line">    <a class="code hl_function" href="exemplo__2_8c.html#aba31b1e3919797222f981b3bc0fa1eda">busca_valor_coluna</a>(25, 2);   <span class="comment">// Procura &#39;25&#39; na coluna 2 (Sensor 1)</span></div>
+<div class="line"> </div>
+<div class="line">    printf(<span class="stringliteral">&quot;\n=== DATALOGGER FINALIZADO ===\n&quot;</span>);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/* ==========================================================================</span></div>
+<div class="line"><span class="comment">   ENTRADA DO PROGRAMA</span></div>
+<div class="line"><span class="comment">   ========================================================================== */</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> <a id="a27" name="a27"></a><a class="code hl_function" href="exemplo__1_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line">    <a class="code hl_function" href="exemplo__1_8c.html#a0c0ca72359ddf28dcd15900dfba19343">uart_init</a>();</div>
+<div class="line">    stdout = &amp;<a class="code hl_variable" href="exemplo__1_8c.html#aaa1fc0ff1aeb77f1feff261fa5ea792b">mystdout</a>; <span class="comment">// Redireciona printf para a UART</span></div>
+<div class="line">    </div>
+<div class="line">    _delay_ms(1000); <span class="comment">// Estabilização</span></div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_function" href="exemplo__2_8c.html#a71c134181186f04ca234d95f2b605e9a">teste_datalogger_csv</a>();</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">while</span> (1) {</div>
+<div class="line">        <span class="comment">// O processador permanece aqui após o teste</span></div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aexemplo__1_8c_html_a0c0ca72359ddf28dcd15900dfba19343"><div class="ttname"><a href="exemplo__1_8c.html#a0c0ca72359ddf28dcd15900dfba19343">uart_init</a></div><div class="ttdeci">void uart_init(void)</div><div class="ttdef"><b>Definição</b> exemplo_1.c:44</div></div>
+<div class="ttc" id="aexemplo__1_8c_html_a446b14d2e6d612f42f49773ba65419a8"><div class="ttname"><a href="exemplo__1_8c.html#a446b14d2e6d612f42f49773ba65419a8">fat_fs</a></div><div class="ttdeci">FAT32_Info fat_fs</div><div class="ttdef"><b>Definição</b> exemplo_1.c:36</div></div>
+<div class="ttc" id="aexemplo__1_8c_html_a711e9130c825a7269c8c87dbb57a85e0"><div class="ttname"><a href="exemplo__1_8c.html#a711e9130c825a7269c8c87dbb57a85e0">MYUBRR</a></div><div class="ttdeci">#define MYUBRR</div><div class="ttdef"><b>Definição</b> exemplo_1.c:42</div></div>
+<div class="ttc" id="aexemplo__1_8c_html_a7cbd3f3dbf08060c4a624e0e8719dec0"><div class="ttname"><a href="exemplo__1_8c.html#a7cbd3f3dbf08060c4a624e0e8719dec0">sd_ctx</a></div><div class="ttdeci">SD_Context sd_ctx</div><div class="ttdef"><b>Definição</b> exemplo_1.c:35</div></div>
+<div class="ttc" id="aexemplo__1_8c_html_a840291bc02cba5474a4cb46a9b9566fe"><div class="ttname"><a href="exemplo__1_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a></div><div class="ttdeci">int main(void)</div><div class="ttdef"><b>Definição</b> exemplo_1.c:217</div></div>
+<div class="ttc" id="aexemplo__1_8c_html_a985ba70f2a53d95f1fd11f70f1d8f4f6"><div class="ttname"><a href="exemplo__1_8c.html#a985ba70f2a53d95f1fd11f70f1d8f4f6">uart_putchar</a></div><div class="ttdeci">int uart_putchar(char c, FILE *stream)</div><div class="ttdef"><b>Definição</b> exemplo_1.c:51</div></div>
+<div class="ttc" id="aexemplo__1_8c_html_a9ddddd20ec13dcafa912ee1d93f76a37"><div class="ttname"><a href="exemplo__1_8c.html#a9ddddd20ec13dcafa912ee1d93f76a37">my_delay_ms</a></div><div class="ttdeci">void my_delay_ms(uint32_t ms)</div><div class="ttdef"><b>Definição</b> exemplo_1.c:63</div></div>
+<div class="ttc" id="aexemplo__1_8c_html_aaa1fc0ff1aeb77f1feff261fa5ea792b"><div class="ttname"><a href="exemplo__1_8c.html#aaa1fc0ff1aeb77f1feff261fa5ea792b">mystdout</a></div><div class="ttdeci">static FILE mystdout</div><div class="ttdef"><b>Definição</b> exemplo_1.c:58</div></div>
+<div class="ttc" id="aexemplo__2_8c_html_a10144904614a62dc5bdb195d3b313f3c"><div class="ttname"><a href="exemplo__2_8c.html#a10144904614a62dc5bdb195d3b313f3c">busca_coluna_global</a></div><div class="ttdeci">static uint8_t busca_coluna_global</div><div class="ttdoc">Índice da coluna (1 a 5) onde a busca será realizada.</div><div class="ttdef"><b>Definição</b> exemplo_2.c:36</div></div>
+<div class="ttc" id="aexemplo__2_8c_html_a1d139aeb7facf235c50daa42a1924ae5"><div class="ttname"><a href="exemplo__2_8c.html#a1d139aeb7facf235c50daa42a1924ae5">callback_busca</a></div><div class="ttdeci">void callback_busca(const uint8_t *data, uint16_t len)</div><div class="ttdoc">Processa blocos de dados lidos do SD em tempo real para busca de valores.</div><div class="ttdef"><b>Definição</b> exemplo_2.c:124</div></div>
+<div class="ttc" id="aexemplo__2_8c_html_a71c134181186f04ca234d95f2b605e9a"><div class="ttname"><a href="exemplo__2_8c.html#a71c134181186f04ca234d95f2b605e9a">teste_datalogger_csv</a></div><div class="ttdeci">void teste_datalogger_csv(void)</div><div class="ttdoc">Executa o teste completo: Inicialização, Gravação e Busca.</div><div class="ttdef"><b>Definição</b> exemplo_2.c:192</div></div>
+<div class="ttc" id="aexemplo__2_8c_html_aba31b1e3919797222f981b3bc0fa1eda"><div class="ttname"><a href="exemplo__2_8c.html#aba31b1e3919797222f981b3bc0fa1eda">busca_valor_coluna</a></div><div class="ttdeci">void busca_valor_coluna(uint32_t valor_busca, uint8_t coluna)</div><div class="ttdoc">Inicia a busca por um valor em uma coluna específica do arquivo CSV.</div><div class="ttdef"><b>Definição</b> exemplo_2.c:173</div></div>
+<div class="ttc" id="aexemplo__2_8c_html_abefbf62945c5d9d22081fc557119d711"><div class="ttname"><a href="exemplo__2_8c.html#abefbf62945c5d9d22081fc557119d711">callback_datalogger</a></div><div class="ttdeci">uint16_t callback_datalogger(const uint8_t **data_ptr)</div><div class="ttdoc">Gera linhas formatadas em CSV para gravação via Streaming.</div><div class="ttdef"><b>Definição</b> exemplo_2.c:91</div></div>
+<div class="ttc" id="aexemplo__2_8c_html_aee7fefadbf61784b8db311f95191eb4d"><div class="ttname"><a href="exemplo__2_8c.html#aee7fefadbf61784b8db311f95191eb4d">busca_valor_global</a></div><div class="ttdeci">static uint32_t busca_valor_global</div><div class="ttdoc">Valor numérico que o sistema tentará localizar no arquivo.</div><div class="ttdef"><b>Definição</b> exemplo_2.c:33</div></div>
+<div class="ttc" id="asdcard_8h_html"><div class="ttname"><a href="sdcard_8h.html">sdcard.h</a></div><div class="ttdoc">Driver SD Card SPI + FAT32 (Root-only) para AVR.</div></div>
+<div class="ttc" id="asdcard_8h_html_a0de914bcd39f32ddd2f8412744267322"><div class="ttname"><a href="sdcard_8h.html#a0de914bcd39f32ddd2f8412744267322">sd_begin</a></div><div class="ttdeci">SD_Status sd_begin(SD_Context *ctx, void(*delay_func)(uint32_t ms))</div><div class="ttdoc">Prepara o contexto da biblioteca e inicializa a interface de hardware.</div><div class="ttdef"><b>Definição</b> sdcard.c:259</div></div>
+<div class="ttc" id="asdcard_8h_html_a3cb6e9bbb79a21ebf8cf7357ed262726"><div class="ttname"><a href="sdcard_8h.html#a3cb6e9bbb79a21ebf8cf7357ed262726">sd_file_append_stream</a></div><div class="ttdeci">SD_Status sd_file_append_stream(SD_Context *ctx, FAT32_Info *fs, const SD_FileName *file, sd_stream_reader_t reader)</div><div class="ttdoc">Adiciona dados ao final de um arquivo, expandindo clusters se necessário.</div><div class="ttdef"><b>Definição</b> sdcard.c:1044</div></div>
+<div class="ttc" id="asdcard_8h_html_a4c9e96825f9777aab8c8980c35310db6"><div class="ttname"><a href="sdcard_8h.html#a4c9e96825f9777aab8c8980c35310db6">sd_file_read_stream</a></div><div class="ttdeci">SD_Status sd_file_read_stream(SD_Context *ctx, FAT32_Info *fs, const SD_FileName *file, sd_stream_callback_t callback)</div><div class="ttdoc">Lê o conteúdo de um arquivo em modo streaming via callback.</div><div class="ttdef"><b>Definição</b> sdcard.c:916</div></div>
+<div class="ttc" id="asdcard_8h_html_a5228ed5a829330c001b1614c8476236c"><div class="ttname"><a href="sdcard_8h.html#a5228ed5a829330c001b1614c8476236c">sd_file_create</a></div><div class="ttdeci">SD_Status sd_file_create(SD_Context *ctx, FAT32_Info *fs, const SD_FileName *file_name)</div><div class="ttdoc">Cria um novo arquivo no diretório raiz com expansão de cluster.</div><div class="ttdef"><b>Definição</b> sdcard.c:1140</div></div>
+<div class="ttc" id="asdcard_8h_html_a725698981494a7c497cec2a7ebbb94a9"><div class="ttname"><a href="sdcard_8h.html#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a></div><div class="ttdeci">SD_Status</div><div class="ttdef"><b>Definição</b> sdcard.h:52</div></div>
+<div class="ttc" id="asdcard_8h_html_a725698981494a7c497cec2a7ebbb94a9a643bd28d210b4419014f2551e9693739"><div class="ttname"><a href="sdcard_8h.html#a725698981494a7c497cec2a7ebbb94a9a643bd28d210b4419014f2551e9693739">SD_SUCCESS</a></div><div class="ttdeci">@ SD_SUCCESS</div><div class="ttdef"><b>Definição</b> sdcard.h:53</div></div>
+<div class="ttc" id="asdcard_8h_html_a725698981494a7c497cec2a7ebbb94a9ac0bc69be493b77f0dbe5e8c4953a7628"><div class="ttname"><a href="sdcard_8h.html#a725698981494a7c497cec2a7ebbb94a9ac0bc69be493b77f0dbe5e8c4953a7628">SD_ERR_NOT_FOUND</a></div><div class="ttdeci">@ SD_ERR_NOT_FOUND</div><div class="ttdef"><b>Definição</b> sdcard.h:68</div></div>
+<div class="ttc" id="asdcard_8h_html_a8fb3672dbc5a29bab3e7614f4c655aff"><div class="ttname"><a href="sdcard_8h.html#a8fb3672dbc5a29bab3e7614f4c655aff">sd_fat_mount</a></div><div class="ttdeci">SD_Status sd_fat_mount(SD_Context *ctx, FAT32_Info *fs)</div><div class="ttdoc">Localiza e monta o sistema de arquivos FAT32 no cartão SD.</div><div class="ttdef"><b>Definição</b> sdcard.c:472</div></div>
+<div class="ttc" id="asdcard_8h_html_ac0efead9da3dedebd72b376562fca898"><div class="ttname"><a href="sdcard_8h.html#ac0efead9da3dedebd72b376562fca898">sd_dir_list</a></div><div class="ttdeci">void sd_dir_list(SD_Context *ctx, FAT32_Info *fs)</div><div class="ttdoc">Lista todos os arquivos presentes no diretório raiz via Serial.</div><div class="ttdef"><b>Definição</b> sdcard.c:1336</div></div>
+<div class="ttc" id="asdcard_8h_html_af2ad3468d37d6d256e022bafa756ac32"><div class="ttname"><a href="sdcard_8h.html#af2ad3468d37d6d256e022bafa756ac32">sd_set_filename</a></div><div class="ttdeci">SD_Status sd_set_filename(SD_FileName *file_out, const char *name_in)</div><div class="ttdoc">Converte uma string convencional para o formato FAT 8.3.</div><div class="ttdef"><b>Definição</b> sdcard.c:1301</div></div>
+<div class="ttc" id="asdcard_8h_html_af2ad75b395d583c12294747d47860497"><div class="ttname"><a href="sdcard_8h.html#af2ad75b395d583c12294747d47860497">sd_file_delete</a></div><div class="ttdeci">SD_Status sd_file_delete(SD_Context *ctx, FAT32_Info *fs, const SD_FileName *file)</div><div class="ttdoc">Exclui um arquivo do diretório e libera seu espaço no disco.</div><div class="ttdef"><b>Definição</b> sdcard.c:1234</div></div>
+<div class="ttc" id="astruct_f_a_t32___info_html"><div class="ttname"><a href="struct_f_a_t32___info.html">FAT32_Info</a></div><div class="ttdef"><b>Definição</b> sdcard.h:109</div></div>
+<div class="ttc" id="astruct_s_d___context_html"><div class="ttname"><a href="struct_s_d___context.html">SD_Context</a></div><div class="ttdoc">Contexto da biblioteca SD Card.</div><div class="ttdef"><b>Definição</b> sdcard.h:139</div></div>
+<div class="ttc" id="astruct_s_d___file_name_html"><div class="ttname"><a href="struct_s_d___file_name.html">SD_FileName</a></div><div class="ttdoc">Nome de arquivo no formato 8.3.</div><div class="ttdef"><b>Definição</b> sdcard.h:129</div></div>
+</div><!-- fragment --> </div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- HTML footer for doxygen 1.16.1-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>

@@ -1,0 +1,1226 @@
+<!-- HTML header for doxygen 1.16.1-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta charset="utf-8">
+<title>AVR SD Card FAT32 Driver: Referência do Arquivo inc/sdcard.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="stylesheet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+  <table cellspacing="0" cellpadding="0">
+   <tbody>
+   <tr style="height: 56px;">
+    <td id="projectalign" style="padding-left: 0.5em;">
+     <div id="projectname">Driver SD Card FAT32 - YouTube: Ciência Elétrica</div>
+     <div id="projectbrief">Biblioteca para Microcontroladores AVR</div>
+    </td>
+   </tr>
+   </tbody>
+  </table>
+  </div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('sdcard_8h.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referência do Arquivo sdcard.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Driver SD Card SPI + FAT32 (Root-only) para AVR.  
+<a href="#details">Mais...</a></p>
+<div class="textblock"><code>#include &lt;avr/io.h&gt;</code><br />
+<code>#include &lt;util/delay.h&gt;</code><br />
+<code>#include &lt;avr/wdt.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stddef.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependência de inclusões para sdcard.h:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h__incl.svg" width="635" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Este grafo mostra quais arquivos estão direta ou indiretamente relacionados com esse arquivo:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h__dep__incl.svg" width="100%" height="384"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</div>
+<p><a href="sdcard_8h_source.html">Ir para o código-fonte desse arquivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Estruturas de Dados</h2></td></tr>
+<tr class="memitem:SD_5FHAL" id="r_SD_5FHAL"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_s_d___h_a_l.html">SD_HAL</a></td></tr>
+<tr class="memitem:FAT32_5FInfo" id="r_FAT32_5FInfo"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a></td></tr>
+<tr class="memitem:SD_5FFileName" id="r_SD_5FFileName"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_s_d___file_name.html">SD_FileName</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nome de arquivo no formato 8.3.  <a href="struct_s_d___file_name.html#details">Mais...</a><br /></td></tr>
+<tr class="memitem:SD_5FContext" id="r_SD_5FContext"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_s_d___context.html">SD_Context</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contexto da biblioteca SD Card.  <a href="struct_s_d___context.html#details">Mais...</a><br /></td></tr>
+<tr class="memitem:SD_5FDateTime" id="r_SD_5FDateTime"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_s_d___date_time.html">SD_DateTime</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Definições e Macros</h2></td></tr>
+<tr class="memitem:a43bafb28b29491ec7f871319b5a3b2f8" id="r_a43bafb28b29491ec7f871319b5a3b2f8"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a43bafb28b29491ec7f871319b5a3b2f8">F_CPU</a>&#160;&#160;&#160;16000000UL</td></tr>
+<tr class="memitem:a86fac98c9b4c98a3e50fc45440878391" id="r_a86fac98c9b4c98a3e50fc45440878391"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a86fac98c9b4c98a3e50fc45440878391">SS_PIN</a>&#160;&#160;&#160;(1 &lt;&lt; PB2)</td></tr>
+<tr class="memdesc:a86fac98c9b4c98a3e50fc45440878391"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define as I/Os usadas na comunicação SPI com o sdcard.  <br /></td></tr>
+<tr class="memitem:a11338fccf824b29757c2b23edb0f690f" id="r_a11338fccf824b29757c2b23edb0f690f"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a11338fccf824b29757c2b23edb0f690f">MOSI_PIN</a>&#160;&#160;&#160;(1 &lt;&lt; PB3)</td></tr>
+<tr class="memitem:aecb75580e6d96b71a64123aee5bd3929" id="r_aecb75580e6d96b71a64123aee5bd3929"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aecb75580e6d96b71a64123aee5bd3929">MISO_PIN</a>&#160;&#160;&#160;(1 &lt;&lt; PB4)</td></tr>
+<tr class="memitem:a01153037fca70cfac03c8d67f17d766a" id="r_a01153037fca70cfac03c8d67f17d766a"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a01153037fca70cfac03c8d67f17d766a">SCK_PIN</a>&#160;&#160;&#160;(1 &lt;&lt; PB5)</td></tr>
+<tr class="memitem:a457ad77a8444b1734599d60fd6bf31f7" id="r_a457ad77a8444b1734599d60fd6bf31f7"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a457ad77a8444b1734599d60fd6bf31f7">SD_DDR</a>&#160;&#160;&#160;DDRB</td></tr>
+<tr class="memitem:ab287cc8cf74deb96f4d1e1241e36a7f6" id="r_ab287cc8cf74deb96f4d1e1241e36a7f6"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ab287cc8cf74deb96f4d1e1241e36a7f6">SD_PORT</a>&#160;&#160;&#160;PORTB</td></tr>
+<tr class="memitem:a528f25ce439a7f3d61b0a1459e7cbc36" id="r_a528f25ce439a7f3d61b0a1459e7cbc36"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a528f25ce439a7f3d61b0a1459e7cbc36">SD_SPI_SLOW</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:a8d406118e9797b47ed8303280092d24f" id="r_a8d406118e9797b47ed8303280092d24f"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a8d406118e9797b47ed8303280092d24f">SD_SPI_FAST</a>&#160;&#160;&#160;1</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Definições de Tipos</h2></td></tr>
+<tr class="memitem:a2da50f302754f690acac08c4a9a8b3c5" id="r_a2da50f302754f690acac08c4a9a8b3c5"><td class="memItemLeft">typedef void(*&#160;</td><td class="memItemRight"><a class="el" href="#a2da50f302754f690acac08c4a9a8b3c5">sd_stream_callback_t</a>) (const uint8_t *data, uint16_t len)</td></tr>
+<tr class="memdesc:a2da50f302754f690acac08c4a9a8b3c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback para leitura de dados em streaming.  <br /></td></tr>
+<tr class="memitem:a2d66b1cc480b12e06c53a747bfe9956b" id="r_a2d66b1cc480b12e06c53a747bfe9956b"><td class="memItemLeft">typedef uint16_t(*&#160;</td><td class="memItemRight"><a class="el" href="#a2d66b1cc480b12e06c53a747bfe9956b">sd_stream_reader_t</a>) (const uint8_t **data)</td></tr>
+<tr class="memitem:ac67bbb1e31bcacb9e8587345be355844" id="r_ac67bbb1e31bcacb9e8587345be355844"><td class="memItemLeft">typedef uint16_t(*&#160;</td><td class="memItemRight"><a class="el" href="#ac67bbb1e31bcacb9e8587345be355844">sd_write_callback_t</a>) (uint8_t *data, uint16_t max_len)</td></tr>
+<tr class="memdesc:ac67bbb1e31bcacb9e8587345be355844"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback para fornecimento de dados em escrita streaming.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerações</h2></td></tr>
+<tr class="memitem:a725698981494a7c497cec2a7ebbb94a9" id="r_a725698981494a7c497cec2a7ebbb94a9"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> { <br />
+&#160;&#160;<a class="el" href="#a725698981494a7c497cec2a7ebbb94a9a643bd28d210b4419014f2551e9693739">SD_SUCCESS</a> = 0x00
+, <a class="el" href="#a725698981494a7c497cec2a7ebbb94a9a14b11604c3ed9ee39181fc6fab308955">SD_ERR_TIMEOUT</a> = 0xFF
+, <a class="el" href="#a725698981494a7c497cec2a7ebbb94a9a146731d35a1d8740f0eb0cf661c103ed">SD_ERR_IDLE</a> = 0x01
+, <a class="el" href="#a725698981494a7c497cec2a7ebbb94a9a61d9e358314d498179ee6cddee676057">SD_ERR_VOLTAGE</a> = 0x02
+, <br />
+&#160;&#160;<a class="el" href="#a725698981494a7c497cec2a7ebbb94a9a52473d72c38eafac2742124cf83f53be">SD_ERR_INITIALIZATION</a> = 0x03
+, <a class="el" href="#a725698981494a7c497cec2a7ebbb94a9ab7cc4e45e949280a9c5cb735ab4c8aef">SD_ERR_READY</a> = 0x04
+, <a class="el" href="#a725698981494a7c497cec2a7ebbb94a9a9b4fc7313b4696633c9427c93700f336">SD_ERR_MBR</a> = 0x10
+, <a class="el" href="#a725698981494a7c497cec2a7ebbb94a9ac7f110d7619d9c7445eeef8e3cb7e40b">SD_ERR_BOOT</a> = 0x11
+, <br />
+&#160;&#160;<a class="el" href="#a725698981494a7c497cec2a7ebbb94a9a32dc84ab312e61bc0931748cac6e0067">SD_ERR_MOUNT</a> = 0x12
+, <a class="el" href="#a725698981494a7c497cec2a7ebbb94a9ac0bc69be493b77f0dbe5e8c4953a7628">SD_ERR_NOT_FOUND</a> = 0x20
+, <a class="el" href="#a725698981494a7c497cec2a7ebbb94a9a10dc803e32a2d9a618c945798e50dc82">SD_ERR_FILE_FULL</a> = 0x21
+, <a class="el" href="#a725698981494a7c497cec2a7ebbb94a9a0fd9019a9f8cc2e80f1992a7ff5363c4">SD_ERR_DISK_FULL</a> = 0x22
+, <br />
+&#160;&#160;<a class="el" href="#a725698981494a7c497cec2a7ebbb94a9a066fa77db8a2ef11426ce03d4822c690">SD_ERR_WRITE</a> = 0x23
+<br />
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a0de914bcd39f32ddd2f8412744267322" id="r_a0de914bcd39f32ddd2f8412744267322"><td class="memItemLeft"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a0de914bcd39f32ddd2f8412744267322">sd_begin</a> (<a class="el" href="struct_s_d___context.html">SD_Context</a> *ctx, void(*delay_func)(uint32_t ms))</td></tr>
+<tr class="memdesc:a0de914bcd39f32ddd2f8412744267322"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepara o contexto da biblioteca e inicializa a interface de hardware.  <br /></td></tr>
+<tr class="memitem:afac6d670e786eaea1f07a4eb95b25ac6" id="r_afac6d670e786eaea1f07a4eb95b25ac6"><td class="memItemLeft"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#afac6d670e786eaea1f07a4eb95b25ac6">sd_quick_init</a> (<a class="el" href="struct_s_d___context.html">SD_Context</a> *ctx)</td></tr>
+<tr class="memdesc:afac6d670e786eaea1f07a4eb95b25ac6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicialização rápida para AVR (configura pinos + HAL interno).  <br /></td></tr>
+<tr class="memitem:a8fb3672dbc5a29bab3e7614f4c655aff" id="r_a8fb3672dbc5a29bab3e7614f4c655aff"><td class="memItemLeft"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a8fb3672dbc5a29bab3e7614f4c655aff">sd_fat_mount</a> (<a class="el" href="struct_s_d___context.html">SD_Context</a> *ctx, <a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> *fs)</td></tr>
+<tr class="memdesc:a8fb3672dbc5a29bab3e7614f4c655aff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Localiza e monta o sistema de arquivos FAT32 no cartão SD.  <br /></td></tr>
+<tr class="memitem:af2ad3468d37d6d256e022bafa756ac32" id="r_af2ad3468d37d6d256e022bafa756ac32"><td class="memItemLeft"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#af2ad3468d37d6d256e022bafa756ac32">sd_set_filename</a> (<a class="el" href="struct_s_d___file_name.html">SD_FileName</a> *file_out, const char *name_in)</td></tr>
+<tr class="memdesc:af2ad3468d37d6d256e022bafa756ac32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converte uma string convencional para o formato FAT 8.3.  <br /></td></tr>
+<tr class="memitem:a6bb4db7466137c6d4346e2264d403230" id="r_a6bb4db7466137c6d4346e2264d403230"><td class="memItemLeft"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6bb4db7466137c6d4346e2264d403230">sd_file_exists</a> (<a class="el" href="struct_s_d___context.html">SD_Context</a> *ctx, <a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> *fs, const <a class="el" href="struct_s_d___file_name.html">SD_FileName</a> *file)</td></tr>
+<tr class="memdesc:a6bb4db7466137c6d4346e2264d403230"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se arquivo existe.  <br /></td></tr>
+<tr class="memitem:a62fe3cc3e143e0df2bd0bc2c8badc78a" id="r_a62fe3cc3e143e0df2bd0bc2c8badc78a"><td class="memItemLeft"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a62fe3cc3e143e0df2bd0bc2c8badc78a">sd_file_get_size</a> (<a class="el" href="struct_s_d___context.html">SD_Context</a> *ctx, <a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> *fs, const <a class="el" href="struct_s_d___file_name.html">SD_FileName</a> *file, uint32_t *size)</td></tr>
+<tr class="memdesc:a62fe3cc3e143e0df2bd0bc2c8badc78a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém tamanho do arquivo.  <br /></td></tr>
+<tr class="memitem:aeb8a12857aacd74c71460265f529e634" id="r_aeb8a12857aacd74c71460265f529e634"><td class="memItemLeft"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#aeb8a12857aacd74c71460265f529e634">sd_file_read</a> (<a class="el" href="struct_s_d___context.html">SD_Context</a> *ctx, <a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> *fs, const <a class="el" href="struct_s_d___file_name.html">SD_FileName</a> *file, uint8_t *buffer, uint32_t buffer_size)</td></tr>
+<tr class="memdesc:aeb8a12857aacd74c71460265f529e634"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lê o conteúdo de um arquivo FAT32 para um buffer externo.  <br /></td></tr>
+<tr class="memitem:a4c9e96825f9777aab8c8980c35310db6" id="r_a4c9e96825f9777aab8c8980c35310db6"><td class="memItemLeft"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a4c9e96825f9777aab8c8980c35310db6">sd_file_read_stream</a> (<a class="el" href="struct_s_d___context.html">SD_Context</a> *ctx, <a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> *fs, const <a class="el" href="struct_s_d___file_name.html">SD_FileName</a> *file, <a class="el" href="#a2da50f302754f690acac08c4a9a8b3c5">sd_stream_callback_t</a> callback)</td></tr>
+<tr class="memdesc:a4c9e96825f9777aab8c8980c35310db6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lê o conteúdo de um arquivo em modo streaming via callback.  <br /></td></tr>
+<tr class="memitem:a5228ed5a829330c001b1614c8476236c" id="r_a5228ed5a829330c001b1614c8476236c"><td class="memItemLeft"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5228ed5a829330c001b1614c8476236c">sd_file_create</a> (<a class="el" href="struct_s_d___context.html">SD_Context</a> *ctx, <a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> *fs, const <a class="el" href="struct_s_d___file_name.html">SD_FileName</a> *file_name)</td></tr>
+<tr class="memdesc:a5228ed5a829330c001b1614c8476236c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um novo arquivo no diretório raiz com expansão de cluster.  <br /></td></tr>
+<tr class="memitem:ac738738df5abe4582855b5b34312e41e" id="r_ac738738df5abe4582855b5b34312e41e"><td class="memItemLeft"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#ac738738df5abe4582855b5b34312e41e">sd_file_write_stream</a> (<a class="el" href="struct_s_d___context.html">SD_Context</a> *ctx, <a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> *fs, const <a class="el" href="struct_s_d___file_name.html">SD_FileName</a> *file, <a class="el" href="#ac67bbb1e31bcacb9e8587345be355844">sd_write_callback_t</a> callback)</td></tr>
+<tr class="memdesc:ac738738df5abe4582855b5b34312e41e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escreve dados em um arquivo FAT32 existente (modo streaming).  <br /></td></tr>
+<tr class="memitem:a3cb6e9bbb79a21ebf8cf7357ed262726" id="r_a3cb6e9bbb79a21ebf8cf7357ed262726"><td class="memItemLeft"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3cb6e9bbb79a21ebf8cf7357ed262726">sd_file_append_stream</a> (<a class="el" href="struct_s_d___context.html">SD_Context</a> *ctx, <a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> *fs, const <a class="el" href="struct_s_d___file_name.html">SD_FileName</a> *file, <a class="el" href="#a2d66b1cc480b12e06c53a747bfe9956b">sd_stream_reader_t</a> reader)</td></tr>
+<tr class="memdesc:a3cb6e9bbb79a21ebf8cf7357ed262726"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona dados ao final de um arquivo, expandindo clusters se necessário.  <br /></td></tr>
+<tr class="memitem:af2ad75b395d583c12294747d47860497" id="r_af2ad75b395d583c12294747d47860497"><td class="memItemLeft"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#af2ad75b395d583c12294747d47860497">sd_file_delete</a> (<a class="el" href="struct_s_d___context.html">SD_Context</a> *ctx, <a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> *fs, const <a class="el" href="struct_s_d___file_name.html">SD_FileName</a> *file)</td></tr>
+<tr class="memdesc:af2ad75b395d583c12294747d47860497"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exclui um arquivo do diretório e libera seu espaço no disco.  <br /></td></tr>
+<tr class="memitem:aec0c2db609a8f514fa7487deecd78461" id="r_aec0c2db609a8f514fa7487deecd78461"><td class="memItemLeft"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#aec0c2db609a8f514fa7487deecd78461">sd_file_sync</a> (<a class="el" href="struct_s_d___context.html">SD_Context</a> *ctx, <a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> *fs, const <a class="el" href="struct_s_d___file_name.html">SD_FileName</a> *file, uint32_t current_size)</td></tr>
+<tr class="memdesc:aec0c2db609a8f514fa7487deecd78461"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sincroniza o tamanho do arquivo no diretório físico (Flush).  <br /></td></tr>
+<tr class="memitem:ac0efead9da3dedebd72b376562fca898" id="r_ac0efead9da3dedebd72b376562fca898"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac0efead9da3dedebd72b376562fca898">sd_dir_list</a> (<a class="el" href="struct_s_d___context.html">SD_Context</a> *ctx, <a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> *fs)</td></tr>
+<tr class="memdesc:ac0efead9da3dedebd72b376562fca898"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lista todos os arquivos presentes no diretório raiz via Serial.  <br /></td></tr>
+<tr class="memitem:aec719268715a8022ad876f40ef9bb2fa" id="r_aec719268715a8022ad876f40ef9bb2fa"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#aec719268715a8022ad876f40ef9bb2fa">sd_get_capacity_mb</a> (<a class="el" href="struct_s_d___context.html">SD_Context</a> *ctx)</td></tr>
+<tr class="memdesc:aec719268715a8022ad876f40ef9bb2fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula a capacidade total do cartão SD em Megabytes (MB).  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variáveis</h2></td></tr>
+<tr class="memitem:ab7ced064cbfa0d2df307e496debd669f" id="r_ab7ced064cbfa0d2df307e496debd669f"><td class="memItemLeft"><a class="el" href="struct_s_d___date_time.html">SD_DateTime</a>&#160;</td><td class="memItemRight"><a class="el" href="#ab7ced064cbfa0d2df307e496debd669f">g_sd_datetime</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Driver SD Card SPI + FAT32 (Root-only) para AVR. </p>
+<dl class="section version"><dt>Versão</dt><dd>V1.0 </dd></dl>
+<dl class="section author"><dt>Autor</dt><dd>Tiago Henrique dos Santos / Canal do Youtube: Ciência Elétrica </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>2026 </dd></dl>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Definições e macros</h2>
+<a id="a43bafb28b29491ec7f871319b5a3b2f8" name="a43bafb28b29491ec7f871319b5a3b2f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43bafb28b29491ec7f871319b5a3b2f8">&#9670;&#160;</a></span>F_CPU</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define F_CPU&#160;&#160;&#160;16000000UL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aecb75580e6d96b71a64123aee5bd3929" name="aecb75580e6d96b71a64123aee5bd3929"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecb75580e6d96b71a64123aee5bd3929">&#9670;&#160;</a></span>MISO_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MISO_PIN&#160;&#160;&#160;(1 &lt;&lt; PB4)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a11338fccf824b29757c2b23edb0f690f" name="a11338fccf824b29757c2b23edb0f690f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11338fccf824b29757c2b23edb0f690f">&#9670;&#160;</a></span>MOSI_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOSI_PIN&#160;&#160;&#160;(1 &lt;&lt; PB3)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a01153037fca70cfac03c8d67f17d766a" name="a01153037fca70cfac03c8d67f17d766a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01153037fca70cfac03c8d67f17d766a">&#9670;&#160;</a></span>SCK_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SCK_PIN&#160;&#160;&#160;(1 &lt;&lt; PB5)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a457ad77a8444b1734599d60fd6bf31f7" name="a457ad77a8444b1734599d60fd6bf31f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a457ad77a8444b1734599d60fd6bf31f7">&#9670;&#160;</a></span>SD_DDR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SD_DDR&#160;&#160;&#160;DDRB</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab287cc8cf74deb96f4d1e1241e36a7f6" name="ab287cc8cf74deb96f4d1e1241e36a7f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab287cc8cf74deb96f4d1e1241e36a7f6">&#9670;&#160;</a></span>SD_PORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SD_PORT&#160;&#160;&#160;PORTB</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8d406118e9797b47ed8303280092d24f" name="a8d406118e9797b47ed8303280092d24f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d406118e9797b47ed8303280092d24f">&#9670;&#160;</a></span>SD_SPI_FAST</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SD_SPI_FAST&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Velocidade máxima (fosc/2) </p>
+
+</div>
+</div>
+<a id="a528f25ce439a7f3d61b0a1459e7cbc36" name="a528f25ce439a7f3d61b0a1459e7cbc36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a528f25ce439a7f3d61b0a1459e7cbc36">&#9670;&#160;</a></span>SD_SPI_SLOW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SD_SPI_SLOW&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Velocidades do barramento SPI ~400 kHz - usado na inicialização </p>
+
+</div>
+</div>
+<a id="a86fac98c9b4c98a3e50fc45440878391" name="a86fac98c9b4c98a3e50fc45440878391"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86fac98c9b4c98a3e50fc45440878391">&#9670;&#160;</a></span>SS_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SS_PIN&#160;&#160;&#160;(1 &lt;&lt; PB2)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define as I/Os usadas na comunicação SPI com o sdcard. </p>
+
+</div>
+</div>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Definições dos tipos</h2>
+<a id="a2da50f302754f690acac08c4a9a8b3c5" name="a2da50f302754f690acac08c4a9a8b3c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2da50f302754f690acac08c4a9a8b3c5">&#9670;&#160;</a></span>sd_stream_callback_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(* sd_stream_callback_t) (const uint8_t *data, uint16_t len)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Callback para leitura de dados em streaming. </p>
+<p>Esta função é chamada a cada setor lido.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Ponteiro para os dados lidos </td></tr>
+    <tr><td class="paramname">len</td><td>Quantidade de bytes válidos </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2d66b1cc480b12e06c53a747bfe9956b" name="a2d66b1cc480b12e06c53a747bfe9956b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d66b1cc480b12e06c53a747bfe9956b">&#9670;&#160;</a></span>sd_stream_reader_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef uint16_t(* sd_stream_reader_t) (const uint8_t **data)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Callback para fornecimento de dados em append (retorna 0 quando terminar) </p>
+
+</div>
+</div>
+<a id="ac67bbb1e31bcacb9e8587345be355844" name="ac67bbb1e31bcacb9e8587345be355844"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac67bbb1e31bcacb9e8587345be355844">&#9670;&#160;</a></span>sd_write_callback_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef uint16_t(* sd_write_callback_t) (uint8_t *data, uint16_t max_len)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Callback para fornecimento de dados em escrita streaming. </p>
+<p>Esta função deve preencher o buffer com dados a serem escritos.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Buffer onde os dados devem ser escritos </td></tr>
+    <tr><td class="paramname">max_len</td><td>Tamanho máximo disponivel no buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Número de bytes válidos escritos no buffer </dd></dl>
+
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumerações</h2>
+<a id="a725698981494a7c497cec2a7ebbb94a9" name="a725698981494a7c497cec2a7ebbb94a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a725698981494a7c497cec2a7ebbb94a9">&#9670;&#160;</a></span>SD_Status</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumeradores</th></tr><tr><td class="fieldname"><a id="a725698981494a7c497cec2a7ebbb94a9a643bd28d210b4419014f2551e9693739" name="a725698981494a7c497cec2a7ebbb94a9a643bd28d210b4419014f2551e9693739"></a>SD_SUCCESS&#160;</td><td class="fielddoc"><p>Operação concluída com sucesso </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a725698981494a7c497cec2a7ebbb94a9a14b11604c3ed9ee39181fc6fab308955" name="a725698981494a7c497cec2a7ebbb94a9a14b11604c3ed9ee39181fc6fab308955"></a>SD_ERR_TIMEOUT&#160;</td><td class="fielddoc"><p>Timeout na comunicação </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a725698981494a7c497cec2a7ebbb94a9a146731d35a1d8740f0eb0cf661c103ed" name="a725698981494a7c497cec2a7ebbb94a9a146731d35a1d8740f0eb0cf661c103ed"></a>SD_ERR_IDLE&#160;</td><td class="fielddoc"><p>Falha ao entrar em modo Idle </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a725698981494a7c497cec2a7ebbb94a9a61d9e358314d498179ee6cddee676057" name="a725698981494a7c497cec2a7ebbb94a9a61d9e358314d498179ee6cddee676057"></a>SD_ERR_VOLTAGE&#160;</td><td class="fielddoc"><p>Cartão no aceita a tensão </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a725698981494a7c497cec2a7ebbb94a9a52473d72c38eafac2742124cf83f53be" name="a725698981494a7c497cec2a7ebbb94a9a52473d72c38eafac2742124cf83f53be"></a>SD_ERR_INITIALIZATION&#160;</td><td class="fielddoc"><p>Falha na inicialização </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a725698981494a7c497cec2a7ebbb94a9ab7cc4e45e949280a9c5cb735ab4c8aef" name="a725698981494a7c497cec2a7ebbb94a9ab7cc4e45e949280a9c5cb735ab4c8aef"></a>SD_ERR_READY&#160;</td><td class="fielddoc"><p>Cartão não ficou pronto </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a725698981494a7c497cec2a7ebbb94a9a9b4fc7313b4696633c9427c93700f336" name="a725698981494a7c497cec2a7ebbb94a9a9b4fc7313b4696633c9427c93700f336"></a>SD_ERR_MBR&#160;</td><td class="fielddoc"><p>MBR inválido </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a725698981494a7c497cec2a7ebbb94a9ac7f110d7619d9c7445eeef8e3cb7e40b" name="a725698981494a7c497cec2a7ebbb94a9ac7f110d7619d9c7445eeef8e3cb7e40b"></a>SD_ERR_BOOT&#160;</td><td class="fielddoc"><p>Boot sector inválido </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a725698981494a7c497cec2a7ebbb94a9a32dc84ab312e61bc0931748cac6e0067" name="a725698981494a7c497cec2a7ebbb94a9a32dc84ab312e61bc0931748cac6e0067"></a>SD_ERR_MOUNT&#160;</td><td class="fielddoc"><p>Falha ao montar FAT32 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a725698981494a7c497cec2a7ebbb94a9ac0bc69be493b77f0dbe5e8c4953a7628" name="a725698981494a7c497cec2a7ebbb94a9ac0bc69be493b77f0dbe5e8c4953a7628"></a>SD_ERR_NOT_FOUND&#160;</td><td class="fielddoc"><p>Arquivo não encontrado </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a725698981494a7c497cec2a7ebbb94a9a10dc803e32a2d9a618c945798e50dc82" name="a725698981494a7c497cec2a7ebbb94a9a10dc803e32a2d9a618c945798e50dc82"></a>SD_ERR_FILE_FULL&#160;</td><td class="fielddoc"><p>Diretório cheio </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a725698981494a7c497cec2a7ebbb94a9a0fd9019a9f8cc2e80f1992a7ff5363c4" name="a725698981494a7c497cec2a7ebbb94a9a0fd9019a9f8cc2e80f1992a7ff5363c4"></a>SD_ERR_DISK_FULL&#160;</td><td class="fielddoc"><p>Disco sem espaço </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a725698981494a7c497cec2a7ebbb94a9a066fa77db8a2ef11426ce03d4822c690" name="a725698981494a7c497cec2a7ebbb94a9a066fa77db8a2ef11426ce03d4822c690"></a>SD_ERR_WRITE&#160;</td><td class="fielddoc"><p>Falha de escrita </p>
+</td></tr>
+</table>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_1_8c-example.html#_a11">exemplo_1.c</a> e <a class="el" href="exemplo_2_8c-example.html#_a16">exemplo_2.c</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Funções</h2>
+<a id="a0de914bcd39f32ddd2f8412744267322" name="a0de914bcd39f32ddd2f8412744267322"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0de914bcd39f32ddd2f8412744267322">&#9670;&#160;</a></span>sd_begin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> sd_begin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_s_d___context.html">SD_Context</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*</td>          <td class="paramname"><span class="paramname"><em>delay_func&#160;</em></span>)(uint32_t ms)&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prepara o contexto da biblioteca e inicializa a interface de hardware. </p>
+<p>Configura os ponteiros de função HAL e executa a rotina inicial de sincronização do cartão SD (sd_init). Deve ser a primeira função chamada no fluxo do programa principal (main).</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Ponteiro para o contexto que será inicializado. </td></tr>
+    <tr><td class="paramname">delay_func</td><td>Ponteiro para a função de delay (ms) do sistema. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> SD_SUCCESS se o cartão foi reconhecido e inicializado. </dd></dl>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_1_8c-example.html#a13">exemplo_1.c</a>, <a class="el" href="exemplo_2_8c-example.html#a21">exemplo_2.c</a>, <a class="el" href="exemplo_3_8c-example.html#a31">exemplo_3.c</a>, <a class="el" href="exemplo_4_8c-example.html#a22">exemplo_4.c</a> e <a class="el" href="exemplo_5_8c-example.html#a20">exemplo_5.c</a>.</dd>
+</dl>
+<div class="dynheader">
+Este é o diagrama das funções utilizadas por essa função:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_a0de914bcd39f32ddd2f8412744267322_cgraph.svg" width="100%" height="464"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Esse é o diagrama das funções que utilizam essa função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_a0de914bcd39f32ddd2f8412744267322_icgraph.svg" width="382" height="155"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac0efead9da3dedebd72b376562fca898" name="ac0efead9da3dedebd72b376562fca898"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0efead9da3dedebd72b376562fca898">&#9670;&#160;</a></span>sd_dir_list()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sd_dir_list </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_s_d___context.html">SD_Context</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> *</td>          <td class="paramname"><span class="paramname"><em>fs</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lista todos os arquivos presentes no diretório raiz via Serial. </p>
+<p>Percorre toda a corrente de clusters do diretório raiz e imprime o nome, extensão e tamanho de cada arquivo válido. Útil para depuração e verificação de persistência após operações de escrita/deleção.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Ponteiro para o contexto da biblioteca. </td></tr>
+    <tr><td class="paramname">fs</td><td>Ponteiro para a estrutura FAT32 montada. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_1_8c-example.html#a21">exemplo_1.c</a>, <a class="el" href="exemplo_2_8c-example.html#a26">exemplo_2.c</a>, <a class="el" href="exemplo_4_8c-example.html#a24">exemplo_4.c</a> e <a class="el" href="exemplo_5_8c-example.html#a13">exemplo_5.c</a>.</dd>
+</dl>
+<div class="dynheader">
+Este é o diagrama das funções utilizadas por essa função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_ac0efead9da3dedebd72b376562fca898_cgraph.svg" width="590" height="63"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Esse é o diagrama das funções que utilizam essa função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_ac0efead9da3dedebd72b376562fca898_icgraph.svg" width="390" height="206"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8fb3672dbc5a29bab3e7614f4c655aff" name="a8fb3672dbc5a29bab3e7614f4c655aff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fb3672dbc5a29bab3e7614f4c655aff">&#9670;&#160;</a></span>sd_fat_mount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> sd_fat_mount </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_s_d___context.html">SD_Context</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> *</td>          <td class="paramname"><span class="paramname"><em>fs</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Localiza e monta o sistema de arquivos FAT32 no cartão SD. </p>
+<p>Realiza a leitura do MBR para localizar a primeira partição primária. Em seguida, extrai os parâmetros do BPB (BIOS Parameter Block): setores por cluster, setores reservados, localização das FATs e do diretório raiz. Inicializa também os caches internos de diretório e FAT para operações O(1).</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Ponteiro para o contexto da biblioteca SD inicializado. </td></tr>
+    <tr><td class="paramname">fs</td><td>Ponteiro para a estrutura <a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> que será preenchida. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> SD_SUCCESS, SD_ERR_MBR (assinatura inválida) ou SD_ERR_BOOT. </dd></dl>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_1_8c-example.html#a15">exemplo_1.c</a>, <a class="el" href="exemplo_2_8c-example.html#a22">exemplo_2.c</a>, <a class="el" href="exemplo_3_8c-example.html#a32">exemplo_3.c</a>, <a class="el" href="exemplo_4_8c-example.html#a23">exemplo_4.c</a> e <a class="el" href="exemplo_5_8c-example.html#a21">exemplo_5.c</a>.</dd>
+</dl>
+<div class="dynheader">
+Este é o diagrama das funções utilizadas por essa função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_a8fb3672dbc5a29bab3e7614f4c655aff_cgraph.svg" width="402" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Esse é o diagrama das funções que utilizam essa função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_a8fb3672dbc5a29bab3e7614f4c655aff_icgraph.svg" width="410" height="155"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3cb6e9bbb79a21ebf8cf7357ed262726" name="a3cb6e9bbb79a21ebf8cf7357ed262726"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cb6e9bbb79a21ebf8cf7357ed262726">&#9670;&#160;</a></span>sd_file_append_stream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> sd_file_append_stream </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_s_d___context.html">SD_Context</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> *</td>          <td class="paramname"><span class="paramname"><em>fs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_s_d___file_name.html">SD_FileName</a> *</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a2d66b1cc480b12e06c53a747bfe9956b">sd_stream_reader_t</a></td>          <td class="paramname"><span class="paramname"><em>reader</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adiciona dados ao final de um arquivo, expandindo clusters se necessário. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Ponteiro para o contexto da biblioteca. </td></tr>
+    <tr><td class="paramname">fs</td><td>Ponteiro para a estrutura FAT32 montada. </td></tr>
+    <tr><td class="paramname">file</td><td>Ponteiro para a estrutura com o nome do arquivo (8.3). </td></tr>
+    <tr><td class="paramname">reader</td><td>Função que fornece os dados a serem gravados. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> SD_SUCCESS, SD_ERR_WRITE ou SD_ERR_DISK_FULL. </dd></dl>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_1_8c-example.html#a19">exemplo_1.c</a>, <a class="el" href="exemplo_2_8c-example.html#a25">exemplo_2.c</a> e <a class="el" href="exemplo_3_8c-example.html#a29">exemplo_3.c</a>.</dd>
+</dl>
+<div class="dynheader">
+Este é o diagrama das funções utilizadas por essa função:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_a3cb6e9bbb79a21ebf8cf7357ed262726_cgraph.svg" width="100%" height="596"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Esse é o diagrama das funções que utilizam essa função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_a3cb6e9bbb79a21ebf8cf7357ed262726_icgraph.svg" width="464" height="171"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a5228ed5a829330c001b1614c8476236c" name="a5228ed5a829330c001b1614c8476236c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5228ed5a829330c001b1614c8476236c">&#9670;&#160;</a></span>sd_file_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> sd_file_create </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_s_d___context.html">SD_Context</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> *</td>          <td class="paramname"><span class="paramname"><em>fs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_s_d___file_name.html">SD_FileName</a> *</td>          <td class="paramname"><span class="paramname"><em>file_name</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cria um novo arquivo no diretório raiz com expansão de cluster. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Ponteiro para o contexto da biblioteca. </td></tr>
+    <tr><td class="paramname">fs</td><td>Ponteiro para a estrutura FAT32 montada. </td></tr>
+    <tr><td class="paramname">file_name</td><td>Ponteiro para a estrutura com o nome do arquivo. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> Status da operação. </dd></dl>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_1_8c-example.html#a18">exemplo_1.c</a>, <a class="el" href="exemplo_2_8c-example.html#a24">exemplo_2.c</a> e <a class="el" href="exemplo_3_8c-example.html#a19">exemplo_3.c</a>.</dd>
+</dl>
+<div class="dynheader">
+Este é o diagrama das funções utilizadas por essa função:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_a5228ed5a829330c001b1614c8476236c_cgraph.svg" width="100%" height="594"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Esse é o diagrama das funções que utilizam essa função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_a5228ed5a829330c001b1614c8476236c_icgraph.svg" width="619" height="184"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af2ad75b395d583c12294747d47860497" name="af2ad75b395d583c12294747d47860497"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2ad75b395d583c12294747d47860497">&#9670;&#160;</a></span>sd_file_delete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> sd_file_delete </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_s_d___context.html">SD_Context</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> *</td>          <td class="paramname"><span class="paramname"><em>fs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_s_d___file_name.html">SD_FileName</a> *</td>          <td class="paramname"><span class="paramname"><em>file</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Exclui um arquivo do diretório e libera seu espaço no disco. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Ponteiro para o contexto SD. </td></tr>
+    <tr><td class="paramname">fs</td><td>Ponteiro para o FAT32 montado. </td></tr>
+    <tr><td class="paramname">file</td><td>Nome do arquivo (8.3). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> Status da exclusão. </dd></dl>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_1_8c-example.html#a17">exemplo_1.c</a>, <a class="el" href="exemplo_2_8c-example.html#a23">exemplo_2.c</a> e <a class="el" href="exemplo_5_8c-example.html#a16">exemplo_5.c</a>.</dd>
+</dl>
+<div class="dynheader">
+Este é o diagrama das funções utilizadas por essa função:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_af2ad75b395d583c12294747d47860497_cgraph.svg" width="100%" height="459"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Esse é o diagrama das funções que utilizam essa função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_af2ad75b395d583c12294747d47860497_icgraph.svg" width="410" height="155"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a6bb4db7466137c6d4346e2264d403230" name="a6bb4db7466137c6d4346e2264d403230"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bb4db7466137c6d4346e2264d403230">&#9670;&#160;</a></span>sd_file_exists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> sd_file_exists </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_s_d___context.html">SD_Context</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> *</td>          <td class="paramname"><span class="paramname"><em>fs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_s_d___file_name.html">SD_FileName</a> *</td>          <td class="paramname"><span class="paramname"><em>file</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica se arquivo existe. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Contexto </td></tr>
+    <tr><td class="paramname">fs</td><td>Sistema FAT32 </td></tr>
+    <tr><td class="paramname">file</td><td>Nome do arquivo</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> </dd></dl>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_3_8c-example.html#a17">exemplo_3.c</a> e <a class="el" href="exemplo_4_8c-example.html#a18">exemplo_4.c</a>.</dd>
+</dl>
+<div class="dynheader">
+Este é o diagrama das funções utilizadas por essa função:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_a6bb4db7466137c6d4346e2264d403230_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Esse é o diagrama das funções que utilizam essa função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_a6bb4db7466137c6d4346e2264d403230_icgraph.svg" width="618" height="155"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a62fe3cc3e143e0df2bd0bc2c8badc78a" name="a62fe3cc3e143e0df2bd0bc2c8badc78a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62fe3cc3e143e0df2bd0bc2c8badc78a">&#9670;&#160;</a></span>sd_file_get_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> sd_file_get_size </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_s_d___context.html">SD_Context</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> *</td>          <td class="paramname"><span class="paramname"><em>fs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_s_d___file_name.html">SD_FileName</a> *</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtém tamanho do arquivo. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Contexto </td></tr>
+    <tr><td class="paramname">fs</td><td>Sistema FAT32 </td></tr>
+    <tr><td class="paramname">file</td><td>Nome do arquivo </td></tr>
+    <tr><td class="paramname">size</td><td>Ponteiro para retornar o tamanho do arquivo em bytes</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> </dd></dl>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_3_8c-example.html#a20">exemplo_3.c</a>.</dd>
+</dl>
+<div class="dynheader">
+Este é o diagrama das funções utilizadas por essa função:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_a62fe3cc3e143e0df2bd0bc2c8badc78a_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Esse é o diagrama das funções que utilizam essa função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_a62fe3cc3e143e0df2bd0bc2c8badc78a_icgraph.svg" width="631" height="96"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aeb8a12857aacd74c71460265f529e634" name="aeb8a12857aacd74c71460265f529e634"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb8a12857aacd74c71460265f529e634">&#9670;&#160;</a></span>sd_file_read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> sd_file_read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_s_d___context.html">SD_Context</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> *</td>          <td class="paramname"><span class="paramname"><em>fs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_s_d___file_name.html">SD_FileName</a> *</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>buffer_size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lê o conteúdo de um arquivo FAT32 para um buffer externo. </p>
+<p>Esta função realiza a leitura completa de um arquivo, percorrendo toda a cadeia de clusters (cluster chain) na FAT32.</p>
+<p>Os dados são copiados sequencialmente para o buffer fornecido pelo usuário.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Ponteiro para o contexto da biblioteca SD </td></tr>
+    <tr><td class="paramname">fs</td><td>Ponteiro para a estrutura do sistema FAT32 montado </td></tr>
+    <tr><td class="paramname">file</td><td>Ponteiro para estrutura contendo nome do arquivo (formato 8.3) </td></tr>
+    <tr><td class="paramname">buffer</td><td>Buffer externo onde os dados sero armazenados </td></tr>
+    <tr><td class="paramname">buffer_size</td><td>Tamanho mximo do buffer em bytes</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd><ul>
+<li>SD_SUCCESS: leitura realizada com sucesso</li>
+<li>SD_ERR_NOT_FOUND: arquivo não encontrado</li>
+<li>SD_ERR_READ: erro durante leitura de bloco ou cluster</li>
+<li>SD_ERR_DISK_FULL: buffer insuficiente para armazenar o arquivo </li>
+</ul>
+</dd></dl>
+<div class="dynheader">
+Este é o diagrama das funções utilizadas por essa função:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_aeb8a12857aacd74c71460265f529e634_cgraph.svg" width="100%" height="426"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a4c9e96825f9777aab8c8980c35310db6" name="a4c9e96825f9777aab8c8980c35310db6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c9e96825f9777aab8c8980c35310db6">&#9670;&#160;</a></span>sd_file_read_stream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> sd_file_read_stream </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_s_d___context.html">SD_Context</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> *</td>          <td class="paramname"><span class="paramname"><em>fs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_s_d___file_name.html">SD_FileName</a> *</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a2da50f302754f690acac08c4a9a8b3c5">sd_stream_callback_t</a></td>          <td class="paramname"><span class="paramname"><em>callback</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lê o conteúdo de um arquivo em modo streaming via callback. </p>
+<p>Recomendado para AVR por economizar memória RAM, processando o arquivo setor a setor.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Ponteiro para o contexto da biblioteca. </td></tr>
+    <tr><td class="paramname">fs</td><td>Ponteiro para a estrutura FAT32 montada. </td></tr>
+    <tr><td class="paramname">file</td><td>Ponteiro para a estrutura com o nome do arquivo (8.3). </td></tr>
+    <tr><td class="paramname">callback</td><td>Função chamada a cada 512 bytes lidos. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> Status da operação de leitura. </dd></dl>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_2_8c-example.html#a17">exemplo_2.c</a> e <a class="el" href="exemplo_4_8c-example.html#a20">exemplo_4.c</a>.</dd>
+</dl>
+<div class="dynheader">
+Este é o diagrama das funções utilizadas por essa função:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_a4c9e96825f9777aab8c8980c35310db6_cgraph.svg" width="100%" height="383"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Esse é o diagrama das funções que utilizam essa função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_a4c9e96825f9777aab8c8980c35310db6_icgraph.svg" width="660" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aec0c2db609a8f514fa7487deecd78461" name="aec0c2db609a8f514fa7487deecd78461"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec0c2db609a8f514fa7487deecd78461">&#9670;&#160;</a></span>sd_file_sync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> sd_file_sync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_s_d___context.html">SD_Context</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> *</td>          <td class="paramname"><span class="paramname"><em>fs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_s_d___file_name.html">SD_FileName</a> *</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>current_size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sincroniza o tamanho do arquivo no diretório físico (Flush). </p>
+<p>Atualiza o campo de tamanho (4 bytes) na entrada de diretório correspondente. Esta função deve ser chamada após operações de escrita para garantir que, em caso de queda de energia, os dados gravados não sejam perdidos pelo sistema.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Ponteiro para o contexto da biblioteca SD. </td></tr>
+    <tr><td class="paramname">fs</td><td>Ponteiro para o sistema FAT32 montado. </td></tr>
+    <tr><td class="paramname">file</td><td>Estrutura com o nome do arquivo (8.3). </td></tr>
+    <tr><td class="paramname">current_size</td><td>O tamanho atualizado do arquivo em bytes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> Status da gravação no setor de diretório. </dd></dl>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_1_8c-example.html#a20">exemplo_1.c</a>.</dd>
+</dl>
+<div class="dynheader">
+Este é o diagrama das funções utilizadas por essa função:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_aec0c2db609a8f514fa7487deecd78461_cgraph.svg" width="100%" height="455"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Esse é o diagrama das funções que utilizam essa função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_aec0c2db609a8f514fa7487deecd78461_icgraph.svg" width="403" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac738738df5abe4582855b5b34312e41e" name="ac738738df5abe4582855b5b34312e41e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac738738df5abe4582855b5b34312e41e">&#9670;&#160;</a></span>sd_file_write_stream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> sd_file_write_stream </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_s_d___context.html">SD_Context</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> *</td>          <td class="paramname"><span class="paramname"><em>fs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_s_d___file_name.html">SD_FileName</a> *</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ac67bbb1e31bcacb9e8587345be355844">sd_write_callback_t</a></td>          <td class="paramname"><span class="paramname"><em>callback</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Escreve dados em um arquivo FAT32 existente (modo streaming). </p>
+<p>Sobrescreve o conteúdo do arquivo a partir do início, utilizando a cadeia de clusters já existente.</p>
+<dl class="section note"><dt>Observação</dt><dd>Não aloca novos clusters. Limitado ao tamanho atual do arquivo</dd></dl>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Contexto SD </td></tr>
+    <tr><td class="paramname">fs</td><td>Sistema FAT32 montado </td></tr>
+    <tr><td class="paramname">file</td><td>Nome do arquivo (8.3) </td></tr>
+    <tr><td class="paramname">callback</td><td>Função que fornece os dados a serem escritos</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd><ul>
+<li>SD_SUCCESS: escrita concluída</li>
+<li>SD_ERR_NOT_FOUND: arquivo não encontrado</li>
+<li>SD_ERR_WRITE: erro durante escrita </li>
+</ul>
+</dd></dl>
+<div class="dynheader">
+Este é o diagrama das funções utilizadas por essa função:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_ac738738df5abe4582855b5b34312e41e_cgraph.svg" width="100%" height="417"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aec719268715a8022ad876f40ef9bb2fa" name="aec719268715a8022ad876f40ef9bb2fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec719268715a8022ad876f40ef9bb2fa">&#9670;&#160;</a></span>sd_get_capacity_mb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t sd_get_capacity_mb </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_s_d___context.html">SD_Context</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcula a capacidade total do cartão SD em Megabytes (MB). </p>
+<p>Realiza a leitura do registrador CSD (Card Specific Data) via CMD9. O cálculo é otimizado para a estrutura CSD v2.0, utilizada em cartões de alta capacidade (SDHC e SDXC).</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Ponteiro para o contexto da biblioteca SD. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>uint32_t Capacidade em MB ou 0 em caso de erro de leitura ou versão incompatível. </dd></dl>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_1_8c-example.html#a22">exemplo_1.c</a> e <a class="el" href="exemplo_5_8c-example.html#a14">exemplo_5.c</a>.</dd>
+</dl>
+<div class="dynheader">
+Este é o diagrama das funções utilizadas por essa função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_aec719268715a8022ad876f40ef9bb2fa_cgraph.svg" width="303" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Esse é o diagrama das funções que utilizam essa função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_aec719268715a8022ad876f40ef9bb2fa_icgraph.svg" width="450" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="afac6d670e786eaea1f07a4eb95b25ac6" name="afac6d670e786eaea1f07a4eb95b25ac6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afac6d670e786eaea1f07a4eb95b25ac6">&#9670;&#160;</a></span>sd_quick_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> sd_quick_init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_s_d___context.html">SD_Context</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicialização rápida para AVR (configura pinos + HAL interno). </p>
+<p>Configura automaticamente:</p><ul>
+<li>Pinos PB2=CS, PB3=MOSI, PB5=SCK, PB4=MISO</li>
+<li>SPI Mestre, modo 0</li>
+<li>HAL interno (transfer, cs_low, cs_high)</li>
+</ul>
+<dl class="section note"><dt>Observação</dt><dd>O delay_ms deve ser injetado antes ou via <a class="el" href="#a0de914bcd39f32ddd2f8412744267322" title="Prepara o contexto da biblioteca e inicializa a interface de hardware.">sd_begin()</a> </dd></dl>
+<div class="dynheader">
+Este é o diagrama das funções utilizadas por essa função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_afac6d670e786eaea1f07a4eb95b25ac6_cgraph.svg" width="580" height="219"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Esse é o diagrama das funções que utilizam essa função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_afac6d670e786eaea1f07a4eb95b25ac6_icgraph.svg" width="527" height="155"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af2ad3468d37d6d256e022bafa756ac32" name="af2ad3468d37d6d256e022bafa756ac32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2ad3468d37d6d256e022bafa756ac32">&#9670;&#160;</a></span>sd_set_filename()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> sd_set_filename </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_s_d___file_name.html">SD_FileName</a> *</td>          <td class="paramname"><span class="paramname"><em>file_out</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>name_in</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converte uma string convencional para o formato FAT 8.3. </p>
+<p>Limpa a estrutura de destino com espaços e realiza a conversão automática para caracteres maiúsculos. O nome é limitado a 8 caracteres e a extensão a 3. Caracteres especiais e pontos extras são ignorados conforme o padrão FAT.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_out</td><td>Ponteiro para a estrutura <a class="el" href="struct_s_d___file_name.html" title="Nome de arquivo no formato 8.3.">SD_FileName</a> que será preenchida. </td></tr>
+    <tr><td class="paramname">name_in</td><td>String de entrada (ex: "LOG_2026.txt" vira "LOG_2026" e "TXT"). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd><a class="el" href="#a725698981494a7c497cec2a7ebbb94a9">SD_Status</a> SD_SUCCESS ou SD_ERR_READY se os ponteiros forem nulos. </dd></dl>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_1_8c-example.html#a16">exemplo_1.c</a>, <a class="el" href="exemplo_2_8c-example.html#a15">exemplo_2.c</a>, <a class="el" href="exemplo_3_8c-example.html#a16">exemplo_3.c</a>, <a class="el" href="exemplo_4_8c-example.html#a17">exemplo_4.c</a> e <a class="el" href="exemplo_5_8c-example.html#a15">exemplo_5.c</a>.</dd>
+</dl>
+<div class="dynheader">
+Esse é o diagrama das funções que utilizam essa função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="sdcard_8h_af2ad3468d37d6d256e022bafa756ac32_icgraph.svg" width="643" height="358"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variáveis</h2>
+<a id="ab7ced064cbfa0d2df307e496debd669f" name="ab7ced064cbfa0d2df307e496debd669f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7ced064cbfa0d2df307e496debd669f">&#9670;&#160;</a></span>g_sd_datetime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_s_d___date_time.html">SD_DateTime</a> g_sd_datetime</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- HTML footer for doxygen 1.16.1-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="sdcard_8h.html">sdcard.h</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>

@@ -35,7 +35,7 @@ HTML_EXTRA_STYLESHEET  =
 HTML_HEADER            = header.html
 HTML_FOOTER            = footer.html
 HTML_STYLESHEET        = stylesheet.css
-
+USE_MDFILE_AS_MAINPAGE = mainpage.md
 # Define a ordem das páginas no menu lateral
 LAYOUT_FILE            = DoxygenLayout.xml
 

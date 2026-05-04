@@ -1,0 +1,31 @@
+<map id="sd_fat_alloc_cluster" name="sd_fat_alloc_cluster">
+<area shape="rect" id="Node000001" title="Aloca um cluster livre na FAT32 utilizando busca circular otimizada." alt="" coords="934,115,1071,141"/>
+<area shape="rect" id="Node000002" href="$sdcard_8c.html#a6dcdbe623e720ed71f92e745c440db85" title="Expande o diretorio alocando um novo cluster." alt="" coords="729,64,870,91"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="929,110,856,94,856,89,934,110"/>
+<area shape="rect" id="Node000011" href="$sdcard_8c.html#a7e010bc4f9f46359dcefc007d522f58a" title="Aloca um novo cluster e o encadeia ao final de uma sequência existente." alt="" coords="714,115,886,141"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="916,128,887,131,887,125,921,128"/>
+<area shape="rect" id="Node000012" href="$sdcard_8c.html#a3cb6e9bbb79a21ebf8cf7357ed262726" title="Adiciona dados ao final de um arquivo, expandindo clusters se necessário." alt="" coords="510,123,666,149"/>
+<area shape="poly" id="edge17_Node000001_Node000012" title=" " alt="" coords="937,145,886,156,800,161,713,156,666,151,666,146,714,151,800,156,886,151,932,145"/>
+<area shape="rect" id="Node000003" href="$sdcard_8c.html#a5228ed5a829330c001b1614c8476236c" title="Cria um novo arquivo no diretório raiz com expansão de cluster." alt="" coords="537,64,639,91"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="711,78,640,80,639,75,716,77"/>
+<area shape="poly" id="edge7_Node000003_Node000003" title=" " alt="" coords="623,48,612,45,588,43,566,45,554,49,551,55,557,64,552,63,546,55,550,46,565,39,588,37,613,40,628,49"/>
+<area shape="rect" id="Node000004" href="$exemplo__3_8c.html#a1888a7d50f8090bc2f0c577e2ce4074f" title="Localiza ou cria o volume de log adequado no cartão." alt="" coords="286,5,462,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="519,60,425,35,426,30,525,59"/>
+<area shape="rect" id="Node000007" href="$exemplo__1_8c.html#a45578ec38e9d0ae49d3313fa3900f338" title="Demonstração completa e básica da biblioteca." alt="" coords="298,56,450,99"/>
+<area shape="poly" id="edge8_Node000003_Node000007" title=" " alt="" coords="519,78,451,80,451,75,524,77"/>
+<area shape="rect" id="Node000009" href="$exemplo__2_8c.html#a71c134181186f04ca234d95f2b605e9a" title="Executa o teste completo: Inicialização, Gravação e Busca." alt="" coords="302,173,447,200"/>
+<area shape="poly" id="edge10_Node000003_Node000009" title=" " alt="" coords="541,97,512,113,399,175,398,170,509,108,536,98"/>
+<area shape="rect" id="Node000005" href="$exemplo__3_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Ponto de entrada do programa." alt="" coords="5,60,55,87"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="268,23,188,31,103,47,57,64,54,59,102,41,188,26,273,20"/>
+<area shape="rect" id="Node000006" href="$exemplo__3_8c.html#a9765d93a7e9eac42493b89eb0dc1ab12" title="Formata e grava um registro CSV com data, hora e 4 sensores." alt="" coords="103,107,238,149"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="294,40,287,46,273,58,264,70,254,83,240,97,222,108,219,104,236,93,250,79,259,67,269,54,285,42,299,37"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="98,102,55,86,55,80,102,99"/>
+<area shape="rect" id="Node000008" href="$exemplo__1_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="146,56,195,83"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="280,75,196,73,195,68,285,73"/>
+<area shape="rect" id="Node000010" href="$exemplo__2_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Função principal." alt="" coords="146,173,195,200"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="284,187,196,189,195,184,289,186"/>
+<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="696,132,666,136,666,130,701,132"/>
+<area shape="poly" id="edge14_Node000012_Node000006" title=" " alt="" coords="493,136,239,132,238,127,497,132"/>
+<area shape="poly" id="edge15_Node000012_Node000007" title=" " alt="" coords="520,118,451,101,451,96,525,118"/>
+<area shape="poly" id="edge16_Node000012_Node000009" title=" " alt="" coords="516,153,434,175,433,170,511,154"/>
+</map>

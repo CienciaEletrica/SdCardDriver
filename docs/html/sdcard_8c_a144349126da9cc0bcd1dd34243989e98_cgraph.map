@@ -1,0 +1,15 @@
+<map id="sd_fat_write_entry" name="sd_fat_write_entry">
+<area shape="rect" id="Node000001" title="Atualiza uma entrada na Tabela de Alocação de Arquivos (FAT)." alt="" coords="5,43,134,69"/>
+<area shape="rect" id="Node000002" href="$sdcard_8c.html#aba9c8b9a5590e13424ab4a69280f0c1d" title="Lê um único bloco de 512 bytes do cartão (LBA)." alt="" coords="183,5,274,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,40,170,31,166,34,130,45"/>
+<area shape="rect" id="Node000004" href="$sdcard_8c.html#ac6d558621f33abf80f245adb3d0f4e67" title="Escreve um único bloco de 512 bytes." alt="" coords="182,68,276,95"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="134,64,169,71,164,72,134,69"/>
+<area shape="rect" id="Node000003" href="$sdcard_8c.html#aae1cfbcba5f92f4639e23fd8ed8fa3c0" title="Envia um comando SPI para o cartão SD e aguarda resposta R1." alt="" coords="501,43,604,69"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="275,21,488,47,484,50,275,27"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="276,75,488,60,484,62,277,80"/>
+<area shape="rect" id="Node000005" href="$sdcard_8c.html#afcdb9112d386e92b29ad0cac9f5fc277" title="Obtém o status atual do cartão SD (comando CMD13)." alt="" coords="337,93,440,120"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="276,86,324,96,319,96,277,91"/>
+<area shape="rect" id="Node000006" href="$sdcard_8c.html#a8c2c0ebbeee0d06d43335bc9df4b3142" title="Aguarda o cartão sair do estado de ocupado (busy)." alt="" coords="324,144,453,171"/>
+<area shape="poly" id="edge7_Node000004_Node000006" title=" " alt="" coords="255,93,325,130,339,138,334,137,323,134,253,98"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="434,90,490,75,495,74,435,95"/>
+</map>

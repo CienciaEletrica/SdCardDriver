@@ -1,0 +1,463 @@
+<!-- HTML header for doxygen 1.16.1-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta charset="utf-8">
+<title>AVR SD Card FAT32 Driver: Referência do Arquivo examples/exemplo_5.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="stylesheet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+  <table cellspacing="0" cellpadding="0">
+   <tbody>
+   <tr style="height: 56px;">
+    <td id="projectalign" style="padding-left: 0.5em;">
+     <div id="projectname">Driver SD Card FAT32 - YouTube: Ciência Elétrica</div>
+     <div id="projectbrief">Biblioteca para Microcontroladores AVR</div>
+    </td>
+   </tr>
+   </tbody>
+  </table>
+  </div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('exemplo__5_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referência do Arquivo exemplo_5.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;avr/io.h&gt;</code><br />
+<code>#include &lt;util/delay.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="sdcard_8h_source.html">sdcard.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependência de inclusões para exemplo_5.c:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="exemplo__5_8c__incl.svg" width="635" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Definições e Macros</h2></td></tr>
+<tr class="memitem:a43bafb28b29491ec7f871319b5a3b2f8" id="r_a43bafb28b29491ec7f871319b5a3b2f8"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a43bafb28b29491ec7f871319b5a3b2f8">F_CPU</a>&#160;&#160;&#160;16000000UL</td></tr>
+<tr class="memitem:a62634036639f88eece6fbf226b45f84b" id="r_a62634036639f88eece6fbf226b45f84b"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a62634036639f88eece6fbf226b45f84b">BAUD</a>&#160;&#160;&#160;9600</td></tr>
+<tr class="memitem:a711e9130c825a7269c8c87dbb57a85e0" id="r_a711e9130c825a7269c8c87dbb57a85e0"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a711e9130c825a7269c8c87dbb57a85e0">MYUBRR</a>&#160;&#160;&#160;(<a class="el" href="#a43bafb28b29491ec7f871319b5a3b2f8">F_CPU</a>/16/<a class="el" href="#a62634036639f88eece6fbf226b45f84b">BAUD</a> - 1)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a0c0ca72359ddf28dcd15900dfba19343" id="r_a0c0ca72359ddf28dcd15900dfba19343"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0c0ca72359ddf28dcd15900dfba19343">uart_init</a> (void)</td></tr>
+<tr class="memdesc:a0c0ca72359ddf28dcd15900dfba19343"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa a UART para transmissão e recepção (TX/RX).  <br /></td></tr>
+<tr class="memitem:a985ba70f2a53d95f1fd11f70f1d8f4f6" id="r_a985ba70f2a53d95f1fd11f70f1d8f4f6"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a985ba70f2a53d95f1fd11f70f1d8f4f6">uart_putchar</a> (char c, FILE *stream)</td></tr>
+<tr class="memdesc:a985ba70f2a53d95f1fd11f70f1d8f4f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envia um caractere via UART (usado pelo printf).  <br /></td></tr>
+<tr class="memitem:a00dbbc6e035bfd12196ec47a99f8e1fe" id="r_a00dbbc6e035bfd12196ec47a99f8e1fe"><td class="memItemLeft">char&#160;</td><td class="memItemRight"><a class="el" href="#a00dbbc6e035bfd12196ec47a99f8e1fe">uart_getchar</a> (void)</td></tr>
+<tr class="memdesc:a00dbbc6e035bfd12196ec47a99f8e1fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recebe um caractere da UART.  <br /></td></tr>
+<tr class="memitem:ab623c1f26019eb7e6ba94279fab87446" id="r_ab623c1f26019eb7e6ba94279fab87446"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab623c1f26019eb7e6ba94279fab87446">uart_get_line</a> (char *buf, uint8_t n)</td></tr>
+<tr class="memdesc:ab623c1f26019eb7e6ba94279fab87446"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lê uma linha inteira de caracteres da UART até encontrar 'Enter'. Faz o "echo" (devolve o caractere) para que o usuário veja o que digita.  <br /></td></tr>
+<tr class="memitem:a1ebabf5df3f5856d744054ab8d011d87" id="r_a1ebabf5df3f5856d744054ab8d011d87"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1ebabf5df3f5856d744054ab8d011d87">processar_comando</a> (char *cmd)</td></tr>
+<tr class="memdesc:a1ebabf5df3f5856d744054ab8d011d87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpreta e executa o comando digitado.  <br /></td></tr>
+<tr class="memitem:a9b602da3b929a3986801ce8dc359d8c4" id="r_a9b602da3b929a3986801ce8dc359d8c4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9b602da3b929a3986801ce8dc359d8c4">my_delay_ms_lib</a> (uint32_t ms)</td></tr>
+<tr class="memdesc:a9b602da3b929a3986801ce8dc359d8c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função de delay exigida pela biblioteca sd_begin.  <br /></td></tr>
+<tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe" id="r_a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variáveis</h2></td></tr>
+<tr class="memitem:a7cbd3f3dbf08060c4a624e0e8719dec0" id="r_a7cbd3f3dbf08060c4a624e0e8719dec0"><td class="memItemLeft"><a class="el" href="struct_s_d___context.html">SD_Context</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7cbd3f3dbf08060c4a624e0e8719dec0">sd_ctx</a></td></tr>
+<tr class="memdesc:a7cbd3f3dbf08060c4a624e0e8719dec0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instâncias globais da biblioteca SD.  <br /></td></tr>
+<tr class="memitem:a446b14d2e6d612f42f49773ba65419a8" id="r_a446b14d2e6d612f42f49773ba65419a8"><td class="memItemLeft"><a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a>&#160;</td><td class="memItemRight"><a class="el" href="#a446b14d2e6d612f42f49773ba65419a8">fat_fs</a></td></tr>
+<tr class="memitem:a03897d92b865251d81cd0c8795515c45" id="r_a03897d92b865251d81cd0c8795515c45"><td class="memItemLeft">static char&#160;</td><td class="memItemRight"><a class="el" href="#a03897d92b865251d81cd0c8795515c45">cmd_buffer</a> [64]</td></tr>
+<tr class="memdesc:a03897d92b865251d81cd0c8795515c45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer para armazenar o comando digitado pelo usuário.  <br /></td></tr>
+<tr class="memitem:aaa1fc0ff1aeb77f1feff261fa5ea792b" id="r_aaa1fc0ff1aeb77f1feff261fa5ea792b"><td class="memItemLeft">static FILE&#160;</td><td class="memItemRight"><a class="el" href="#aaa1fc0ff1aeb77f1feff261fa5ea792b">mystdout</a> = FDEV_SETUP_STREAM(<a class="el" href="#a985ba70f2a53d95f1fd11f70f1d8f4f6">uart_putchar</a>, NULL, _FDEV_SETUP_WRITE)</td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Definições e macros</h2>
+<a id="a62634036639f88eece6fbf226b45f84b" name="a62634036639f88eece6fbf226b45f84b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62634036639f88eece6fbf226b45f84b">&#9670;&#160;</a></span>BAUD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BAUD&#160;&#160;&#160;9600</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a43bafb28b29491ec7f871319b5a3b2f8" name="a43bafb28b29491ec7f871319b5a3b2f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43bafb28b29491ec7f871319b5a3b2f8">&#9670;&#160;</a></span>F_CPU</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define F_CPU&#160;&#160;&#160;16000000UL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a711e9130c825a7269c8c87dbb57a85e0" name="a711e9130c825a7269c8c87dbb57a85e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a711e9130c825a7269c8c87dbb57a85e0">&#9670;&#160;</a></span>MYUBRR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MYUBRR&#160;&#160;&#160;(<a class="el" href="#a43bafb28b29491ec7f871319b5a3b2f8">F_CPU</a>/16/<a class="el" href="#a62634036639f88eece6fbf226b45f84b">BAUD</a> - 1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Funções</h2>
+<a id="a840291bc02cba5474a4cb46a9b9566fe" name="a840291bc02cba5474a4cb46a9b9566fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a840291bc02cba5474a4cb46a9b9566fe">&#9670;&#160;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Este é o diagrama das funções utilizadas por essa função:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="exemplo__5_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a9b602da3b929a3986801ce8dc359d8c4" name="a9b602da3b929a3986801ce8dc359d8c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b602da3b929a3986801ce8dc359d8c4">&#9670;&#160;</a></span>my_delay_ms_lib()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void my_delay_ms_lib </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>ms</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função de delay exigida pela biblioteca sd_begin. </p>
+
+</div>
+</div>
+<a id="a1ebabf5df3f5856d744054ab8d011d87" name="a1ebabf5df3f5856d744054ab8d011d87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ebabf5df3f5856d744054ab8d011d87">&#9670;&#160;</a></span>processar_comando()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void processar_comando </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Interpreta e executa o comando digitado. </p>
+<p>Comandos suportados:</p><ul>
+<li>ls: Lista arquivos e tamanhos.</li>
+<li>df: Mostra capacidade total do cartão em MB.</li>
+<li>rm "NOME": Deleta o arquivo especificado. Ex.: "rm CONFIG.INI" </li>
+</ul>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_5_8c-example.html#a11">exemplo_5.c</a>.</dd>
+</dl>
+<div class="dynheader">
+Este é o diagrama das funções utilizadas por essa função:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="exemplo__5_8c_a1ebabf5df3f5856d744054ab8d011d87_cgraph.svg" width="100%" height="496"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Esse é o diagrama das funções que utilizam essa função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="exemplo__5_8c_a1ebabf5df3f5856d744054ab8d011d87_icgraph.svg" width="247" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ab623c1f26019eb7e6ba94279fab87446" name="ab623c1f26019eb7e6ba94279fab87446"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab623c1f26019eb7e6ba94279fab87446">&#9670;&#160;</a></span>uart_get_line()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void uart_get_line </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>buf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>n</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lê uma linha inteira de caracteres da UART até encontrar 'Enter'. Faz o "echo" (devolve o caractere) para que o usuário veja o que digita. </p>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_5_8c-example.html#a10">exemplo_5.c</a>.</dd>
+</dl>
+<div class="dynheader">
+Este é o diagrama das funções utilizadas por essa função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="exemplo__5_8c_ab623c1f26019eb7e6ba94279fab87446_cgraph.svg" width="248" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Esse é o diagrama das funções que utilizam essa função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="exemplo__5_8c_ab623c1f26019eb7e6ba94279fab87446_icgraph.svg" width="204" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a00dbbc6e035bfd12196ec47a99f8e1fe" name="a00dbbc6e035bfd12196ec47a99f8e1fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00dbbc6e035bfd12196ec47a99f8e1fe">&#9670;&#160;</a></span>uart_getchar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char uart_getchar </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Recebe um caractere da UART. </p>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_5_8c-example.html#a8">exemplo_5.c</a>.</dd>
+</dl>
+<div class="dynheader">
+Esse é o diagrama das funções que utilizam essa função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="exemplo__5_8c_a00dbbc6e035bfd12196ec47a99f8e1fe_icgraph.svg" width="346" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0c0ca72359ddf28dcd15900dfba19343" name="a0c0ca72359ddf28dcd15900dfba19343"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c0ca72359ddf28dcd15900dfba19343">&#9670;&#160;</a></span>uart_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void uart_init </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicializa a UART para transmissão e recepção (TX/RX). </p>
+
+</div>
+</div>
+<a id="a985ba70f2a53d95f1fd11f70f1d8f4f6" name="a985ba70f2a53d95f1fd11f70f1d8f4f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a985ba70f2a53d95f1fd11f70f1d8f4f6">&#9670;&#160;</a></span>uart_putchar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int uart_putchar </td>
+          <td>(</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>stream</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envia um caractere via UART (usado pelo printf). </p>
+<div class="dynheader">
+Este é o diagrama das funções utilizadas por essa função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="exemplo__5_8c_a985ba70f2a53d95f1fd11f70f1d8f4f6_cgraph.svg" width="246" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variáveis</h2>
+<a id="a03897d92b865251d81cd0c8795515c45" name="a03897d92b865251d81cd0c8795515c45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03897d92b865251d81cd0c8795515c45">&#9670;&#160;</a></span>cmd_buffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char cmd_buffer[64]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Buffer para armazenar o comando digitado pelo usuário. </p>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="exemplo_5_8c-example.html#_a4">exemplo_5.c</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a446b14d2e6d612f42f49773ba65419a8" name="a446b14d2e6d612f42f49773ba65419a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a446b14d2e6d612f42f49773ba65419a8">&#9670;&#160;</a></span>fat_fs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_f_a_t32___info.html">FAT32_Info</a> fat_fs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaa1fc0ff1aeb77f1feff261fa5ea792b" name="aaa1fc0ff1aeb77f1feff261fa5ea792b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa1fc0ff1aeb77f1feff261fa5ea792b">&#9670;&#160;</a></span>mystdout</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILE mystdout = FDEV_SETUP_STREAM(<a class="el" href="#a985ba70f2a53d95f1fd11f70f1d8f4f6">uart_putchar</a>, NULL, _FDEV_SETUP_WRITE)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7cbd3f3dbf08060c4a624e0e8719dec0" name="a7cbd3f3dbf08060c4a624e0e8719dec0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cbd3f3dbf08060c4a624e0e8719dec0">&#9670;&#160;</a></span>sd_ctx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_s_d___context.html">SD_Context</a> sd_ctx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Instâncias globais da biblioteca SD. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- HTML footer for doxygen 1.16.1-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_d28a4824dc47e487b107a5db32ef43c4.html">examples</a></li><li class="navelem"><a href="exemplo__5_8c.html">exemplo_5.c</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
